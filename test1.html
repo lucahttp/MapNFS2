@@ -521,6 +521,19 @@
               'line-opacity': 0.8
             }
           });
+
+        const bbox = turf.bbox({
+          type: 'Feature',
+          geometry: {
+            type: 'LineString',
+            coordinates: routeCoords
+          }
+        });
+        map.fitBounds(bbox, {padding: 40});
+
+
+
+
         } else {
           alert('No route found.');
         }
