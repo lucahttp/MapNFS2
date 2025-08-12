@@ -20,7 +20,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Courier New', Courier, monospace;
-      background-color: #0d0d1a; /* Dark blue-purple background */
+      background-color: #0d0d1a; /* Dark blue-purple b  ackground */
       color: #00ffcc; /* Neon green for text */
       overflow: hidden;
       font-size: 14px;
@@ -121,6 +121,48 @@
       cursor: grab;
     }
 
+    /* Routing Controls Overlay */
+    .routing-controls {
+      position: absolute;
+      top: 20px;
+      right: 320px;
+      background: rgba(13,13,26,0.85);
+      border: 2px solid #00ccff;
+      box-shadow: 0 0 10px #00ccff;
+      border-radius: 8px;
+      z-index: 20;
+      padding: 12px 18px;
+      color: #00ffcc;
+      font-family: inherit;
+    }
+    .routing-controls div {
+      margin-bottom: 8px;
+    }
+    .routing-controls label {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .routing-controls input, .routing-controls select {
+      padding: 8px;
+      border: 1px solid #00ccff;
+      border-radius: 4px;
+      background: rgba(0, 204, 255, 0.1);
+      color: #00ccff;
+      width: 100%;
+    }
+    .routing-controls button {
+      background: #ff00cc;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .routing-controls button:hover {
+      background: #e60099;
+    }
+
     /* Responsive adjustments for smaller screens */
     @media (max-width: 768px) {
       .map-overlay {
@@ -140,6 +182,13 @@
       .car-model-container {
         right: 10px;
         left: auto;
+      }
+      .routing-controls {
+        right: 10px;
+        left: auto;
+        width: 90%;
+        top: auto;
+        bottom: 10px;
       }
     }
   </style>
@@ -166,6 +215,27 @@
 
   <div class="car-model-container">
     <canvas id="car-canvas"></canvas>
+  </div>
+
+  <!-- Routing Controls Overlay -->
+  <div class="routing-controls">
+    <div>
+      <label for="start-coord">Start:</label>
+      <input id="start-coord" type="text" placeholder="Click map or search" style="width:120px;">
+    </div>
+    <div>
+      <label for="target-coord">Target:</label>
+      <input id="target-coord" type="text" placeholder="Click map or search" style="width:120px;">
+    </div>
+    <div>
+      <label for="transport">Transport:</label>
+      <select id="transport">
+        <option value="auto">Car</option>
+        <option value="bicycle">Bicycle</option>
+        <option value="pedestrian">Walk</option>
+      </select>
+      <button id="route-btn" style="margin-left:10px;background:#ff00cc;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;">Route</button>
+    </div>
   </div>
 
   <script>
@@ -350,6 +420,101 @@
         });
       }
     });
+
+    // --- Routing logic ---
+    let startCoord = null;
+    let targetCoord = null;
+    let routeLayerId = 'valhalla-route';
+
+    // Helper to update input fields
+    function setCoordInput(id, coord) {
+      document.getElementById(id).value = coord ? `${coord[1].toFixed(5)}, ${coord[0].toFixed(5)}` : '';
+    }
+
+    // Map click to set start/target
+    let selectMode = 'start'; // 'start' or 'target'
+    document.getElementById('start-coord').addEventListener('focus', () => selectMode = 'start');
+    document.getElementById('target-coord').addEventListener('focus', () => selectMode = 'target');
+
+    map.on('click', (e) => {
+      const lngLat = [e.lngLat.lng, e.lngLat.lat];
+      if (selectMode === 'start') {
+        startCoord = lngLat;
+        setCoordInput('start-coord', lngLat);
+      } else {
+        targetCoord = lngLat;
+        setCoordInput('target-coord', lngLat);
+      }
+    });
+
+    // Geocoder result to set start/target
+    map.on('geocoder.result', (ev) => {
+      const coord = ev.result.center;
+      if (selectMode === 'start') {
+        startCoord = coord;
+        setCoordInput('start-coord', coord);
+      } else {
+        targetCoord = coord;
+        setCoordInput('target-coord', coord);
+      }
+    });
+
+    // Routing button
+    document.getElementById('route-btn').onclick = async () => {
+      if (!startCoord || !targetCoord) {
+        alert('Please select both start and target points.');
+        return;
+      }
+      const mode = document.getElementById('transport').value;
+      // Valhalla route API (using isochrone for demonstration, can be replaced with /route endpoint)
+      const url = 'https://valhalla1.openstreetmap.de/isochrone';
+      const body = {
+        locations: [
+          {lat: startCoord[1], lon: startCoord[0]},
+          {lat: targetCoord[1], lon: targetCoord[0]}
+        ],
+        costing: mode,
+        contours: [{time: 15, color: "ff00cc"}]
+      };
+      try {
+        const resp = await fetch(url, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(body)
+        });
+        const data = await resp.json();
+        // Remove previous route layer
+        if (map.getSource(routeLayerId)) {
+          map.removeLayer(routeLayerId);
+          map.removeSource(routeLayerId);
+        }
+        // Add new route/isochrone layer
+        map.addSource(routeLayerId, {
+          type: 'geojson',
+          data: data
+        });
+        map.addLayer({
+          id: routeLayerId,
+          type: 'fill',
+          source: routeLayerId,
+          paint: {
+            'fill-color': '#ff00cc',
+            'fill-opacity': 0.3
+          }
+        });
+        // Zoom to route
+        const bbox = turf.bbox(data);
+        map.fitBounds(bbox, {padding: 40});
+      } catch (err) {
+        alert('Routing failed.');
+        console.error(err);
+      }
+    };
+
+    // Add turf.js for bbox calculation
+    const turfScript = document.createElement('script');
+    turfScript.src = 'https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js';
+    document.head.appendChild(turfScript);
 
     // Resize the Three.js canvas when the window is resized
     window.addEventListener('resize', () => {
