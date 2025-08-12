@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Neon Drive Map UI</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <!-- Maplibre GL JS library for the interactive map -->
+  <script src="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <!-- Geocoder plugin for MapLibre -->
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
+  <link href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css" rel="stylesheet" />
+<!-- Three.js for the 3D car model -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- OrbitControls to allow the user to rotate the 3D model -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <style>
+    /* Global styles for the retro-futuristic theme */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0d0d1a; /* Dark blue-purple background */
+      color: #00ffcc; /* Neon green for text */
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    /* Style for the main map container */
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      /* Use a filter to give the map a synthetic, high-contrast look */
+      filter: saturate(1.5) hue-rotate(180deg);
+    }
+
+    /* Overlay for the main title and branding */
+    .map-overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(13, 13, 26, 0.8);
+      padding: 10px 20px;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 15px #00ffcc;
+      z-index: 10;
+      border-radius: 8px;
+    }
+    .map-overlay h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #00ccff;
+      text-shadow: 0 0 10px #00ccff;
+    }
+    .map-overlay p {
+      margin: 5px 0 0 0;
+      color: #ff00cc;
+      text-shadow: 0 0 5px #ff00cc;
+    }
+
+    /* Container for the clickable track list */
+    .track-list {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      width: 250px;
+      background: rgba(13, 13, 26, 0.8);
+      border: 2px solid #ff00cc;
+      box-shadow: 0 0 15px #ff00cc;
+      z-index: 10;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .track-list h3 {
+      color: #ff00cc;
+      text-shadow: 0 0 5px #ff00cc;
+      margin-top: 0;
+    }
+    .track-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .track-list li {
+      padding: 8px;
+      border-bottom: 1px solid rgba(255, 0, 204, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+    .track-list li:last-child {
+      border-bottom: none;
+    }
+    .track-list li:hover {
+      background-color: rgba(255, 0, 204, 0.2);
+      transform: translateX(5px);
+    }
+    .track-list li.active {
+      background-color: rgba(255, 0, 204, 0.4);
+      text-shadow: 0 0 5px #ff00cc;
+      color: #fff;
+    }
+
+    /* Container for the 3D car model */
+    .car-model-container {
+      position: absolute;
+      bottom: 50px;
+      right: 50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(13, 13, 26, 0.8);
+      border: 2px solid #00ccff;
+      box-shadow: 0 0 20px #00ccff;
+      z-index: 10;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .map-overlay {
+        top: 10px;
+        left: 10px;
+        padding: 8px 15px;
+      }
+      .map-overlay h1 {
+        font-size: 1.5em;
+      }
+      .track-list, .car-model-container {
+        bottom: 10px;
+        width: 45%;
+        left: 10px;
+        right: 10px;
+      }
+      .car-model-container {
+        right: 10px;
+        left: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The MapLibre map container -->
+  <div id="map"></div>
+
+  <!-- UI Overlays -->
+  <div class="map-overlay">
+    <h1>NEON DRIVE</h1>
+    <p>Select a circuit to begin...</p>
+  </div>
+
+  <div class="track-list">
+    <h3>CIRCUITS</h3>
+    <ul id="track-menu">
+      <li data-lat="37.797735" data-lon="-122.418774" class="active">San Francisco Circuit</li>
+      <li data-lat="34.052235" data-lon="-118.243683">Los Angeles Loop</li>
+      <li data-lat="40.712776" data-lon="-74.005974">New York Speedway</li>
+    </ul>
+  </div>
+
+  <div class="car-model-container">
+    <canvas id="car-canvas"></canvas>
+  </div>
+
+  <script>
+    // Three.js setup for the rotatable car model
+    const carContainer = document.getElementById('car-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, carContainer.clientWidth / carContainer.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: carContainer, alpha: true });
+    renderer.setSize(carContainer.clientWidth, carContainer.clientHeight);
+
+    // Create a simple car model (a box)
+    const geometry = new THREE.BoxGeometry(1, 0.5, 2);
+    // Use a neon material that glows
+    const material = new THREE.MeshStandardMaterial({ color: 0x00ccff, metalness: 0.8, roughness: 0.2 });
+    const car = new THREE.Mesh(geometry, material);
+    scene.add(car);
+
+    // Add lighting to the scene
+    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    camera.position.z = 3;
+
+    // Add OrbitControls to enable user-driven rotation with the mouse
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+    controls.enablePan = false;
+
+    // The animation loop to constantly render the 3D scene
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update(); // Update controls in each frame
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    // Maplibre GL JS setup for the retro-futuristic map
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        "version": 8,
+        "sources": {
+          "openmaptiles": {
+            "type": "vector",
+            "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+          }
+        },
+        "layers": [
+          {
+            "id": "background",
+            "type": "background",
+            "paint": { "background-color": "#0d0d1a" }
+          },
+          {
+            "id": "water",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "water",
+            "paint": { "fill-color": "#002a3a" } /* Dark blue water */
+          },
+          {
+            "id": "road_casing",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
+              "line-color": "#00ffcc", /* Neon road color */
+              "line-width": 2,
+              "line-opacity": 0.8
+            }
+          },
+          {
+            "id": "road",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
+              "line-color": "#ff00cc", /* Secondary neon road color */
+              "line-width": 1,
+              "line-opacity": 0.5
+            }
+          },
+          {
+            "id": "buildings",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "building",
+            "paint": {
+              "fill-color": "#2a003a", /* Dark, futuristic building color */
+              "fill-opacity": 0.7
+            }
+          }
+        ]
+      },
+      center: [-122.41877447993727, 37.7977350127602],
+      zoom: 10.4,
+      pitch: 60,
+      bearing: -30
+    });
+
+
+
+    map.on('load', () => {
+      map.addControl(new maplibregl.NavigationControl());
+    });
+
+
+
+
+    // --- Geocoder integration ---
+    const geocoderApi = {
+      forwardGeocode: async (config) => {
+        const features = [];
+        try {
+          const request =
+            `https://nominatim.openstreetmap.org/search?q=${
+              config.query
+            }&format=geojson&polygon_geojson=1&addressdetails=1`;
+          const response = await fetch(request);
+          const geojson = await response.json();
+          for (const feature of geojson.features) {
+            const center = [
+              feature.bbox[0] +
+                (feature.bbox[2] - feature.bbox[0]) / 2,
+              feature.bbox[1] +
+                (feature.bbox[3] - feature.bbox[1]) / 2
+            ];
+            const point = {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: center
+              },
+              place_name: feature.properties.display_name,
+              properties: feature.properties,
+              text: feature.properties.display_name,
+              place_type: ['place'],
+              center
+            };
+            features.push(point);
+          }
+        } catch (e) {
+          console.error(`Failed to forwardGeocode with error: ${e}`);
+        }
+        return { features };
+      }
+    };
+
+    map.addControl(
+      new MaplibreGeocoder(geocoderApi, {
+        maplibregl,
+        showResultMarkers: true,
+        markerOptions: { color: "#ff00cc" }
+      }),
+      'top-right'
+    );
+    // Event listener for the clickable track menu
+    const trackMenu = document.getElementById('track-menu');
+    trackMenu.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target.tagName === 'LI') {
+        // Remove 'active' class from all list items
+        document.querySelectorAll('.track-list li').forEach(li => li.classList.remove('active'));
+        // Add 'active' class to the clicked item
+        target.classList.add('active');
+
+        const lat = parseFloat(target.dataset.lat);
+        const lon = parseFloat(target.dataset.lon);
+
+        // Fly the map to the new location with a smooth animation
+        map.flyTo({
+          center: [lon, lat],
+          zoom: 12,
+          speed: 1,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+      }
+    });
+
+    // Resize the Three.js canvas when the window is resized
+    window.addEventListener('resize', () => {
+      const width = carContainer.clientWidth;
+      const height = carContainer.clientHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+
+</body>
+</html>
