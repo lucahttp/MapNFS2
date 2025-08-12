@@ -14,6 +14,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- OrbitControls to allow the user to rotate the 3D model -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+
+
+  
   <style>
     /* Global styles for the retro-futuristic theme */
     body {
@@ -207,9 +211,12 @@
   <div class="track-list">
     <h3>CIRCUITS</h3>
     <ul id="track-menu">
+
+
+
       <li data-lat="37.797735" data-lon="-122.418774" class="active">San Francisco Circuit</li>
       <li data-lat="34.052235" data-lon="-118.243683">Los Angeles Loop</li>
-      <li data-lat="40.712776" data-lon="-74.005974">New York Speedway</li>
+      <li data-lat="-34.603851" data-lon="-58.381775">Buenos Aires</li>
     </ul>
   </div>
 
@@ -424,7 +431,7 @@
     // --- Routing logic ---
     let startCoord = null;
     let targetCoord = null;
-    let routeLayerId = 'valhalla-route';
+    const routeLayerId = 'valhalla-route';
 
     // Helper to update input fields
     function setCoordInput(id, coord) {
@@ -466,18 +473,16 @@
         return;
       }
       const mode = document.getElementById('transport').value;
-      const routeLayerId = 'valhalla-route';
 
       // Build Valhalla route API request
       const url = 'https://valhalla1.openstreetmap.de/route';
       const body = {
         costing: mode,
         locations: [
-          {lon: startCoord[0], lat: startCoord[1], type: "break"},
-          {lon: targetCoord[0], lat: targetCoord[1], type: "break"}
+          {lon: startCoord[0], lat: startCoord[1]},
+          {lon: targetCoord[0], lat: targetCoord[1]}
         ],
-        units: "kilometers",
-        id: "valhalla_directions"
+        directions_options: {units: "kilometers"}
       };
 
       try {
@@ -487,61 +492,38 @@
           body: JSON.stringify(body)
         });
         const data = await resp.json();
-
-        // Remove previous route layer
-        if (map.getSource(routeLayerId)) {
-          map.removeLayer(routeLayerId);
-          map.removeSource(routeLayerId);
-        }
-
-        // Decode polyline to GeoJSON LineString
-        const polylineStr = data.trip.legs[0].shape;
-        const coordinates = decodePolyline(polylineStr);
-
-        // Validate coordinates
-        if (!coordinates.every(c => c[1] >= -90 && c[1] <= 90 && c[0] >= -180 && c[0] <= 180)) {
-          alert('Invalid coordinates in route.');
-          console.error('Invalid coordinates:', coordinates);
-          return;
-        }
-
-        const routeGeojson = {
-          type: "FeatureCollection",
-          features: [{
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: coordinates
-            },
-            properties: {}
-          }]
-        };
-
-        map.addSource(routeLayerId, {
-          type: 'geojson',
-          data: routeGeojson
-        });
-        map.addLayer({
-          id: routeLayerId,
-          type: 'line',
-          source: routeLayerId,
-          paint: {
-            'line-color': '#ff00cc',
-            'line-width': 5,
-            'line-opacity': 0.8
+        console.log('Routing response:', data);
+       
+        if (data.trip) {
+          // Decode the polyline and add it to the map
+          const routeCoords = decodeValhallaPolyline(data.trip.legs[0].shape);
+          if (map.getLayer(routeLayerId)) {
+            map.removeLayer(routeLayerId);
+            map.removeSource(routeLayerId);
           }
-        });
-
-        // Wait for turf to be loaded
-        function fitRoute() {
-          if (window.turf && window.turf.bbox) {
-            const bbox = turf.bbox(routeGeojson);
-            map.fitBounds(bbox, {padding: 40});
-          } else {
-            setTimeout(fitRoute, 100);
-          }
+          map.addSource(routeLayerId, {
+            type: 'geojson',
+            data: {
+              type: 'Feature',
+              geometry: {
+                type: 'LineString',
+                coordinates: routeCoords
+              }
+            }
+          });
+          map.addLayer({
+            id: routeLayerId,
+            type: 'line',
+            source: routeLayerId,
+            paint: {
+              'line-color': '#ff00cc',
+              'line-width': 4,
+              'line-opacity': 0.8
+            }
+          });
+        } else {
+          alert('No route found.');
         }
-        fitRoute();
 
       } catch (err) {
         alert('Routing failed.');
@@ -549,40 +531,51 @@
       }
     };
 
-    // Polyline decoder for Valhalla (Google Polyline Algorithm)
-function decodePolyline(str) {
-  let index = 0, lat = 0, lng = 0, coordinates = [];
-  while (index < str.length) {
-    let b, shift = 0, result = 0;
-    do {
-      b = str.charCodeAt(index++) - 63;
-      result |= (b & 0x1f) << shift;
-      shift += 5;
-    } while (b >= 0x20);
-    let dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
-    lat += dlat;
+    // Polyline decoder for Valhalla (Project-OSRM style)
+    function decodeValhallaPolyline(str, precision) {
+      var index = 0,
+          lat = 0,
+          lng = 0,
+          coordinates = [],
+          shift = 0,
+          result = 0,
+          byte = null,
+          latitude_change,
+          longitude_change,
+          factor = Math.pow(10, precision || 6);
 
-    shift = 0;
-    result = 0;
-    do {
-      b = str.charCodeAt(index++) - 63;
-      result |= (b & 0x1f) << shift;
-      shift += 5;
-    } while (b >= 0x20);
-    let dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
-    lng += dlng;
+      while (index < str.length) {
+        byte = null;
+        shift = 0;
+        result = 0;
+        do {
+          byte = str.charCodeAt(index++) - 63;
+          result |= (byte & 0x1f) << shift;
+          shift += 5;
+        } while (byte >= 0x20);
+        latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
-    // GeoJSON expects [lng, lat]
-    coordinates.push([lng * 1e-5, lat * 1e-5]);
-  }
-  return coordinates;
-}
+        shift = result = 0;
+        do {
+          byte = str.charCodeAt(index++) - 63;
+          result |= (byte & 0x1f) << shift;
+          shift += 5;
+        } while (byte >= 0x20);
+        longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
+        lat += latitude_change;
+        lng += longitude_change;
+
+        coordinates.push([lng / factor, lat / factor]);
+      }
+      return coordinates;
+    }
+    /*
     // Add turf.js for bbox calculation
     const turfScript = document.createElement('script');
     turfScript.src = 'https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js';
     document.head.appendChild(turfScript);
-
+    */
     // Resize the Three.js canvas when the window is resized
     window.addEventListener('resize', () => {
       const width = carContainer.clientWidth;
