@@ -466,16 +466,20 @@
         return;
       }
       const mode = document.getElementById('transport').value;
-      // Valhalla route API (using isochrone for demonstration, can be replaced with /route endpoint)
-      const url = 'https://valhalla1.openstreetmap.de/isochrone';
+      const routeLayerId = 'valhalla-route';
+
+      // Build Valhalla route API request
+      const url = 'https://valhalla1.openstreetmap.de/route';
       const body = {
-        locations: [
-          {lat: startCoord[1], lon: startCoord[0]},
-          {lat: targetCoord[1], lon: targetCoord[0]}
-        ],
         costing: mode,
-        contours: [{time: 15, color: "ff00cc"}]
+        locations: [
+          {lon: startCoord[0], lat: startCoord[1], type: "break"},
+          {lon: targetCoord[0], lat: targetCoord[1], type: "break"}
+        ],
+        units: "kilometers",
+        id: "valhalla_directions"
       };
+
       try {
         const resp = await fetch(url, {
           method: 'POST',
@@ -483,33 +487,96 @@
           body: JSON.stringify(body)
         });
         const data = await resp.json();
+
         // Remove previous route layer
         if (map.getSource(routeLayerId)) {
           map.removeLayer(routeLayerId);
           map.removeSource(routeLayerId);
         }
-        // Add new route/isochrone layer
+
+        // Decode polyline to GeoJSON LineString
+        const polylineStr = data.trip.legs[0].shape;
+        const coordinates = decodePolyline(polylineStr);
+
+        // Validate coordinates
+        if (!coordinates.every(c => c[1] >= -90 && c[1] <= 90 && c[0] >= -180 && c[0] <= 180)) {
+          alert('Invalid coordinates in route.');
+          console.error('Invalid coordinates:', coordinates);
+          return;
+        }
+
+        const routeGeojson = {
+          type: "FeatureCollection",
+          features: [{
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: coordinates
+            },
+            properties: {}
+          }]
+        };
+
         map.addSource(routeLayerId, {
           type: 'geojson',
-          data: data
+          data: routeGeojson
         });
         map.addLayer({
           id: routeLayerId,
-          type: 'fill',
+          type: 'line',
           source: routeLayerId,
           paint: {
-            'fill-color': '#ff00cc',
-            'fill-opacity': 0.3
+            'line-color': '#ff00cc',
+            'line-width': 5,
+            'line-opacity': 0.8
           }
         });
-        // Zoom to route
-        const bbox = turf.bbox(data);
-        map.fitBounds(bbox, {padding: 40});
+
+        // Wait for turf to be loaded
+        function fitRoute() {
+          if (window.turf && window.turf.bbox) {
+            const bbox = turf.bbox(routeGeojson);
+            map.fitBounds(bbox, {padding: 40});
+          } else {
+            setTimeout(fitRoute, 100);
+          }
+        }
+        fitRoute();
+
       } catch (err) {
         alert('Routing failed.');
         console.error(err);
       }
     };
+
+    // Polyline decoder for Valhalla (Google Polyline Algorithm)
+function decodePolyline(str) {
+  let index = 0, lat = 0, lng = 0, coordinates = [];
+  while (index < str.length) {
+    let b, shift = 0, result = 0;
+    do {
+      b = str.charCodeAt(index++) - 63;
+      result |= (b & 0x1f) << shift;
+      shift += 5;
+    } while (b >= 0x20);
+    let dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    lat += dlat;
+
+    shift = 0;
+    result = 0;
+    do {
+      b = str.charCodeAt(index++) - 63;
+      result |= (b & 0x1f) << shift;
+      shift += 5;
+    } while (b >= 0x20);
+    let dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    lng += dlng;
+
+    // GeoJSON expects [lng, lat]
+    coordinates.push([lng * 1e-5, lat * 1e-5]);
+  }
+  return coordinates;
+}
 
     // Add turf.js for bbox calculation
     const turfScript = document.createElement('script');
