@@ -37,6 +37,8 @@
       bottom: 0;
       width: 100%;
       /* Use a filter to give the map a synthetic, high-contrast look */
+      /*
+      */
       filter: saturate(1.5) hue-rotate(180deg);
     }
 
@@ -286,60 +288,60 @@
     const map = new maplibregl.Map({
       container: 'map',
       style: {
-        "version": 8,
-        "sources": {
-          "openmaptiles": {
-            "type": "vector",
-            "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
-          }
-        },
-        "layers": [
-          {
-            "id": "background",
-            "type": "background",
-            "paint": { "background-color": "#0d0d1a" }
-          },
-          {
-            "id": "water",
-            "type": "fill",
-            "source": "openmaptiles",
-            "source-layer": "water",
-            "paint": { "fill-color": "#002a3a" } /* Dark blue water */
-          },
-          {
-            "id": "road_casing",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "transportation",
-            "paint": {
-              "line-color": "#00ffcc", /* Neon road color */
-              "line-width": 2,
-              "line-opacity": 0.8
-            }
-          },
-          {
-            "id": "road",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "transportation",
-            "paint": {
-              "line-color": "#ff00cc", /* Secondary neon road color */
+  "version": 8,
+  "metadata": {"maputnik:renderer": "mlgljs"},
+  "projection": {"type": "globe"},
+  "sources": {
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {"background-color": "#0d0d1a"}
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "paint": {"fill-color": "#002a3a"}
+    },
+    {
+      "id": "road_casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "paint": {
+              "line-color": "#ff00cc",
               "line-width": 1,
               "line-opacity": 0.5
-            }
-          },
-          {
-            "id": "buildings",
-            "type": "fill",
-            "source": "openmaptiles",
-            "source-layer": "building",
-            "paint": {
-              "fill-color": "#2a003a", /* Dark, futuristic building color */
-              "fill-opacity": 0.7
-            }
-          }
-        ]
-      },
+      }
+    },
+    {
+      "id": "road",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "rgba(0, 255, 204, 1)",
+        "line-width": 1,
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "paint": {"fill-color": "rgba(0, 255, 204, 0.18)", "fill-opacity": 0.7}
+    }
+  ],
+  "id": "rt6nxgj"
+},
       center: [-122.41877447993727, 37.7977350127602],
       zoom: 10.4,
       pitch: 60,
@@ -517,7 +519,7 @@
             source: routeLayerId,
             paint: {
               'line-color': '#ff00cc',
-              'line-width': 4,
+              'line-width': 8,
               'line-opacity': 0.8
             }
           });

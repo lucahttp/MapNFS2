@@ -1,0 +1,58 @@
+{
+            'version': 8,
+            'projection': {
+                'type': 'globe'
+            },
+        "sources": {
+          "openmaptiles": {
+            "type": "vector",
+            "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+          }
+        },
+        "layers": [
+          {
+            "id": "background",
+            "type": "background",
+            "paint": { "background-color": "#0d0d1a" } /* Dark Black */
+          },
+          {
+            "id": "water",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "water",
+            "paint": { "fill-color": "#002a3a" }  /* Dark blue */ /* Dark blue water */
+          },
+          {
+            "id": "road_casing",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
+              "line-color": "#00ffcc", /* Bright WaterGreen */  /* Neon road color */
+              "line-width": 2,
+              "line-opacity": 0.8
+            }
+          },
+          {
+            "id": "road",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
+              "line-color": "#ff00cc",  /* Bright Pink */  /* Secondary neon road color */
+              "line-width": 1,
+              "line-opacity": 0.5
+            }
+          },
+          {
+            "id": "buildings",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "building",
+            "paint": {
+              "fill-color": "#2a003a",  /* Dark purple */ /* Dark, futuristic building color */
+              "fill-opacity": 0.7
+            }
+          }
+        ]
+      }
