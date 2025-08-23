@@ -17,8 +17,29 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 
 
-  
+  <!-- inlcude manifest -->
+  <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width"></meta>
+  <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
+
   <style>
+
+    /* styles.css */
+html {
+  min-height: calc(100% + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+
+
+  background-attachment: fixed;
+  background-image: url('/bg.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
     /* Global styles for the retro-futuristic theme */
     body {
       margin: 0;
@@ -197,6 +218,149 @@
         bottom: 10px;
       }
     }
+
+        /* --- Basic Setup --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #121212;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* --- Custom Controls General Container --- */
+        .custom-controls-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between geocoder and nav buttons */
+            z-index: 1;
+        }
+
+        /* --- Custom Geocoder --- */
+        .custom-geocoder-container {
+            position: relative;
+            width: 250px;
+        }
+
+        #geocoder-input {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: #f0f0f0;
+            background-color: rgba(10, 10, 25, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            box-shadow: 
+                0 0 5px #00ffff, 
+                0 0 10px #00ffff, 
+                0 0 15px #ff00cc,
+                inset 0 0 5px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        #geocoder-input::placeholder {
+            color: #00ffff;
+            opacity: 0.6;
+        }
+
+        #geocoder-results {
+            position: absolute;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: rgba(10, 10, 25, 0.9);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            margin-top: 8px;
+            box-shadow: 0 0 5px #00ffff, 0 0 10px #ff00cc;
+            backdrop-filter: blur(5px);
+        }
+
+        .geocoder-suggestion {
+            padding: 12px 15px;
+            color: #f0f0f0;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            transition: background-color 0.2s ease;
+        }
+        
+        .geocoder-suggestion:last-child {
+            border-bottom: none;
+        }
+
+        .geocoder-suggestion:hover {
+            background-color: rgba(255, 0, 204, 0.2);
+        }
+
+        /* --- Custom Navigation Controls Container --- */
+        .custom-nav-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end; /* Align to the right */
+        }
+
+        /* --- General Button Style --- */
+        .neon-map-button {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(10, 10, 25, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            color: #00ffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 
+                0 0 5px #00ffff, 
+                0 0 10px #00ffff, 
+                0 0 15px #ff00cc,
+                inset 0 0 5px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .neon-map-button:hover {
+            background-color: rgba(255, 0, 204, 0.3);
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 
+                0 0 8px #ff00cc, 
+                0 0 15px #ff00cc, 
+                0 0 25px #ff00cc,
+                inset 0 0 8px rgba(255, 0, 204, 0.6);
+        }
+        
+        .neon-map-button:active {
+            transform: scale(1.05);
+        }
+
+        /* --- Compass Icon Styling --- */
+        #compass-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #00ffff;
+            transition: transform 0.3s ease-in-out, fill 0.2s;
+        }
+        
+        #compass-btn:hover svg {
+            fill: #ffffff;
+        }
   </style>
 </head>
 <body>
@@ -270,6 +434,27 @@
     <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#ff00cc" stroke-width="2" stroke-linecap="round"/>
   </svg>
 </button>
+
+
+    <!-- The Custom HTML Controls Container -->
+    <div class="custom-controls-container">
+        <!-- Custom Geocoder -->
+        <div class="custom-geocoder-container">
+            <input type="text" id="geocoder-input" placeholder="Search location...">
+            <div id="geocoder-results"></div>
+        </div>
+        <!-- Custom Navigation Controls -->
+        <div class="custom-nav-controls">
+            <button id="zoom-in-btn" class="neon-map-button" aria-label="Zoom in">+</button>
+            <button id="zoom-out-btn" class="neon-map-button" aria-label="Zoom out">-</button>
+            <button id="compass-btn" class="neon-map-button" aria-label="Reset bearing to north">
+                <svg id="compass-arrow" viewBox="0 0 24 24">
+                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
 <script>
   document.getElementById('gps-btn').onclick = function() {
     if (navigator.geolocation) {
@@ -286,6 +471,8 @@
 </script>
 
   <script>
+    window.navigator.standalone
+
     // Three.js setup for the rotatable car model
     const carContainer = document.getElementById('car-canvas');
     const scene = new THREE.Scene();
@@ -332,7 +519,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
     }
   },
   "layers": [
@@ -387,12 +574,42 @@
     });
 
 
-
+    /*
     map.on('load', () => {
       map.addControl(new maplibregl.NavigationControl());
-    });
+    });*/
 
 
+        // --- Custom Controls Logic ---
+        map.on('load', () => {
+            // Instead of map.addControl, we add event listeners to our HTML buttons
+
+            const zoomInBtn = document.getElementById('zoom-in-btn');
+            const zoomOutBtn = document.getElementById('zoom-out-btn');
+            const compassBtn = document.getElementById('compass-btn');
+            const compassArrow = document.getElementById('compass-arrow');
+
+            // 1. Zoom In functionality
+            zoomInBtn.addEventListener('click', () => {
+                map.zoomIn({ duration: 300 });
+            });
+
+            // 2. Zoom Out functionality
+            zoomOutBtn.addEventListener('click', () => {
+                map.zoomOut({ duration: 300 });
+            });
+
+            // 3. Compass (Reset North) functionality
+            compassBtn.addEventListener('click', () => {
+                map.resetNorth({ duration: 500 });
+            });
+            
+            // 4. Update compass arrow rotation as the map rotates
+            map.on('rotate', () => {
+                const bearing = map.getBearing();
+                compassArrow.style.transform = `rotate(${bearing}deg)`;
+            });
+        });
 
 
     // --- Geocoder integration ---
@@ -433,7 +650,7 @@
         return { features };
       }
     };
-
+/*
     map.addControl(
       new MaplibreGeocoder(geocoderApi, {
         maplibregl,
@@ -441,7 +658,56 @@
         markerOptions: { color: "#ff00cc" }
       }),
       'top-right'
-    );
+    );*/
+
+
+
+
+
+            map.on('load', () => {
+            // --- Custom Geocoder Logic ---
+            const geocoderInput = document.getElementById('geocoder-input');
+            const geocoderResults = document.getElementById('geocoder-results');
+            let searchTimeout;
+
+            geocoderInput.addEventListener('input', (e) => {
+                // Clear previous timeout
+                clearTimeout(searchTimeout);
+                // Set a new timeout to avoid spamming the API
+                searchTimeout = setTimeout(async () => {
+                    const query = e.target.value;
+                    geocoderResults.innerHTML = ''; // Clear previous results
+
+                    if (query.length < 3) {
+                        return;
+                    }
+
+                    const { features } = await geocoderApi.forwardGeocode({ query });
+
+                    features.forEach(feature => {
+                        const suggestionEl = document.createElement('div');
+                        suggestionEl.className = 'geocoder-suggestion';
+                        suggestionEl.textContent = feature.place_name;
+                        suggestionEl.addEventListener('click', () => {
+                            map.flyTo({
+                                center: feature.center,
+                                zoom: 14,
+                                duration: 2000
+                            });
+                            // Add a marker
+                            new maplibregl.Marker({ color: "#ff00cc" })
+                                .setLngLat(feature.center)
+                                .addTo(map);
+                            
+                            // Clear results and input
+                            geocoderInput.value = '';
+                            geocoderResults.innerHTML = '';
+                        });
+                        geocoderResults.appendChild(suggestionEl);
+                    });
+                }, 500); // Debounce time: 500ms
+            });
+        });
 /* GPS button to center map on user's location 
     map.addControl(
       new maplibregl.Control({

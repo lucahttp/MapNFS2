@@ -1,0 +1,5 @@
+{
+  "name": "Example App",
+  "display": "fullscreen",
+  "start_url": "http://192.168.1.11:5500/test1.html"
+}
