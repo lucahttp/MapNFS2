@@ -247,6 +247,44 @@
     </div>
   </div>
 
+  <!-- Add this button inside your HTML body, after the map div, for "Neon Drive" style -->
+<button id="gps-btn" style="
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 40;
+  background: rgba(13,13,26,0.95);
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 15px #00ffcc;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="5" stroke="#00ffcc" stroke-width="2" fill="#0d0d1a"/>
+    <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#ff00cc" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+<script>
+  document.getElementById('gps-btn').onclick = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        map.flyTo({
+          center: [pos.coords.longitude, pos.coords.latitude],
+          zoom: 14
+        });
+      });
+    } else {
+      alert('Geolocation is not supported by your browser.');
+    }
+  };
+</script>
+
   <script>
     // Three.js setup for the rotatable car model
     const carContainer = document.getElementById('car-canvas');
@@ -404,6 +442,53 @@
       }),
       'top-right'
     );
+/* GPS button to center map on user's location 
+    map.addControl(
+      new maplibregl.Control({
+        onAdd: function(map) {
+          const btn = document.createElement('button');
+          btn.id = 'gps-btn';
+          btn.style.position = 'absolute';
+          btn.style.bottom = '20px';
+          btn.style.right = '20px';
+          btn.style.zIndex = '30';
+          btn.style.background = 'white';
+          btn.style.border = 'none';
+          btn.style.borderRadius = '50%';
+          btn.style.width = '48px';
+          btn.style.height = '48px';
+          btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+          btn.style.cursor = 'pointer';
+          btn.style.display = 'flex';
+          btn.style.alignItems = 'center';
+          btn.style.justifyContent = 'center';
+          btn.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4" stroke="#222" stroke-width="2" fill="#fff"/>
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          `;
+          btn.onclick = function() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(pos) {
+                map.flyTo({
+                  center: [pos.coords.longitude, pos.coords.latitude],
+                  zoom: 14
+                });
+              });
+            } else {
+              alert('Geolocation is not supported by your browser.');
+            }
+          };
+          return btn;
+        },
+        onRemove: function() {
+          document.getElementById('gps-btn')?.remove();
+        }
+      }),
+      '' // empty string for custom position, so it overlays the map
+    );
+*/
     // Event listener for the clickable track menu
     const trackMenu = document.getElementById('track-menu');
     trackMenu.addEventListener('click', (e) => {
