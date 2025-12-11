@@ -1,0 +1,8773 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.285294,
+          -36.980358
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_020",
+        "calleRuta": "Ruta Provincial 51",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.824583,
+          -34.846639
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0348",
+        "calleRuta": "Acceso Zabala",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5133033,
+          -34.494366
+        ]
+      },
+      "properties": {
+        "nroSerie": "REDCAM_034",
+        "calleRuta": "AV. RIVADAVIA E INDEPENDENCIA",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55306,
+          -34.63705
+        ]
+      },
+      "properties": {
+        "nroSerie": "REDCAM_036",
+        "calleRuta": "AV. REPUBLICA Y COLOMBRES",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55231,
+          -34.60832
+        ]
+      },
+      "properties": {
+        "nroSerie": "REDCAM_038",
+        "calleRuta": "URQUIZA Y MEXICO",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55736,
+          -34.60712
+        ]
+      },
+      "properties": {
+        "nroSerie": "REDCAM_039",
+        "calleRuta": "LISANDRO DE LA TORRE Y BELGRANO",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54857,
+          -34.63449
+        ]
+      },
+      "properties": {
+        "nroSerie": "SMART_RED_20064",
+        "calleRuta": "AV. GAONA Y BALLESTER",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53968,
+          -34.63568
+        ]
+      },
+      "properties": {
+        "nroSerie": "SMART_RED_20065",
+        "calleRuta": "AV. JUAN B. JUSTO Y CHACABUCO",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55269,
+          -34.61341
+        ]
+      },
+      "properties": {
+        "nroSerie": "SMART_RED_20066",
+        "calleRuta": "AV. MITRE Y BOLIVIA",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.56239,
+          -34.61215
+        ]
+      },
+      "properties": {
+        "nroSerie": "SMART_RED_20067",
+        "calleRuta": "AV. SAN MARTIN Y CAFFERATA",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.853361,
+          -34.805972
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0019",
+        "calleRuta": "Ruta Provincial 40",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.489056,
+          -35.747075
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0008",
+        "calleRuta": "Ruta Provincial 29",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.09589,
+          -34.06238
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0338",
+        "calleRuta": "Av. Intendente Blanco",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.314777,
+          -34.993955
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_048",
+        "calleRuta": "Ruta Provincial 41",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.314777,
+          -34.993955
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_049",
+        "calleRuta": "Ruta Provincial 41",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.97758,
+          -36.25998
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0106",
+        "calleRuta": "Ruta Provincial 51",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.489056,
+          -35.747075
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0004",
+        "calleRuta": "Ruta Provincial 29",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.68336,
+          -34.52605
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0197",
+        "calleRuta": "Av. Gral. Juan G. Lemos ",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55174,
+          -34.48334
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_232",
+        "calleRuta": "Avenida Juan S. Fern\u00bfndez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.52528,
+          -34.48055
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR003",
+        "calleRuta": "Av. Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.52528,
+          -34.48055
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR004",
+        "calleRuta": "Av. Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.006589,
+          -34.611649
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0100",
+        "calleRuta": "Ruta Provincial 51",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.694133,
+          -34.455844
+        ]
+      },
+      "properties": {
+        "nroSerie": "10_06_00226F",
+        "calleRuta": "Panamericana Ramal Troncal",
+        "velocidadPermitida": "130",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.694133,
+          -34.455844
+        ]
+      },
+      "properties": {
+        "nroSerie": "10_06_00218F",
+        "calleRuta": "Panamericana Ramal Troncal",
+        "velocidadPermitida": "130",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.694133,
+          -34.455844
+        ]
+      },
+      "properties": {
+        "nroSerie": "10_06_00238F",
+        "calleRuta": "Panamericana Ramal Troncal",
+        "velocidadPermitida": "130",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.693875,
+          -34.455769
+        ]
+      },
+      "properties": {
+        "nroSerie": "10_06_00236F",
+        "calleRuta": "Panamericana Ramal Troncal",
+        "velocidadPermitida": "130",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.947056,
+          -34.501389
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_057",
+        "calleRuta": "Av. Cuarenta Leguas",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.09327,
+          -35.01904
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0034",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55802,
+          -34.47599
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_234",
+        "calleRuta": "Jos\u00bf Ingenieros",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53859,
+          -34.49671
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0235",
+        "calleRuta": "AV. de la Unidad Nacional 2934",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.63345,
+          -34.58523
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0443",
+        "calleRuta": "Tte. Gral. Julio Argentino Roca",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55106,
+          -34.48441
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_233",
+        "calleRuta": "Avenida Juan S. Fernandez",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53123,
+          -34.483815
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0065",
+        "calleRuta": "Av. Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7685,
+          -34.48996
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_070",
+        "calleRuta": "Avenida Illia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.56475,
+          -34.50548
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_030",
+        "calleRuta": "Av. Avelino Rolon",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.19065,
+          -34.75341
+        ]
+      },
+      "properties": {
+        "nroSerie": "215",
+        "calleRuta": "Ruta Nacional 1",
+        "velocidadPermitida": "130",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.19065,
+          -34.75341
+        ]
+      },
+      "properties": {
+        "nroSerie": "216",
+        "calleRuta": "Ruta Nacional 1",
+        "velocidadPermitida": "130",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.498488,
+          -34.539681
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0228",
+        "calleRuta": "Blas Parera",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.682615099,
+          -34.48284585397
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0198",
+        "calleRuta": "Av. del Sesquicentenario",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.64615,
+          -34.43834
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0084",
+        "calleRuta": "CORREDOR VIAL BANCALARI",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.12408,
+          -35.18708
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_000361",
+        "calleRuta": "Ruta Provincial 41",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62751,
+          -34.4524
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0048",
+        "calleRuta": "Ruta 197 y Mitre",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.92165,
+          -34.47491
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_056",
+        "calleRuta": "Av. Cuarenta Leguas",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.65199,
+          -34.57007
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0442",
+        "calleRuta": "Tte. Gral. Julio Argentino Roca",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.504409,
+          -34.472757
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0067",
+        "calleRuta": "Av. del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.64619,
+          -34.43827
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0085",
+        "calleRuta": "Av. Corredor Bancalari",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.59014,
+          -34.45891
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0058",
+        "calleRuta": "Av. Hipolito Irigoyen",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53204,
+          -34.48423
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0066",
+        "calleRuta": "AV. Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.65265,
+          -34.56935
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0441",
+        "calleRuta": "Tte. Gral. Julio Argentino Roca",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.67183,
+          -34.58801
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0444",
+        "calleRuta": "Juana Manuela Gorriti",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.67083,
+          -34.58901
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0445",
+        "calleRuta": "Juana Manuela Gorriti",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.26685,
+          -38.78682
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_184",
+        "calleRuta": "Camino 007-06",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_248",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_249",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.537398,
+          -34.6976469
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0182",
+        "calleRuta": "AV. CROVARA",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.20807,
+          -38.72541
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_183",
+        "calleRuta": "Av. J. M. de Rosas",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_242",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_243",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_244",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.59157,
+          -38.04505
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0094",
+        "calleRuta": "AV. MARIO BRAVO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.593087,
+          -37.974869
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0621",
+        "calleRuta": "Av. Pedro Luro",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0612",
+        "calleRuta": "Av. Juan B. Justo",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0611",
+        "calleRuta": "Av Juan B. Justo",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0609",
+        "calleRuta": "Leandro N. Alem",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.54490597250554,
+          -37.98748546419094
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0600",
+        "calleRuta": "Av. Patricio Peralta Ramos",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_247",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.21068,
+          -38.72756
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_176",
+        "calleRuta": "Av. J. M. de Rosas",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.4488,
+          -34.21257
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0439",
+        "calleRuta": "AV GOBERNADOR MANUEL DORREGO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.54344,
+          -33.85551
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_128",
+        "calleRuta": "Ruta Nacional 9",
+        "velocidadPermitida": "120",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.54344,
+          -33.85551
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_125",
+        "calleRuta": "Ruta Nacional 9",
+        "velocidadPermitida": "120",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.54344,
+          -33.85551
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_115",
+        "calleRuta": " Ruta Nacional 9",
+        "velocidadPermitida": "120",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_245",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_246",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.55445,
+          -38.0317
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0166",
+        "calleRuta": "AV. JUAN B JUSTO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.624049,
+          -35.479946
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C11",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.8739141,
+          -35.294257
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_258",
+        "calleRuta": "RUTA NACIONAL 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.22283,
+          -35.1647
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_174",
+        "calleRuta": "PTE JUAN DOMINGO PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5551855,
+          -34.6686454
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0120",
+        "calleRuta": "Av. Mosconi",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.04401,
+          -34.88374
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0418",
+        "calleRuta": " Camino General Belgrano.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.026713788887534,
+          -34.97562884398131
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0414",
+        "calleRuta": "AV. 44",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.06625,
+          -34.34324
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0111",
+        "calleRuta": "Ruta Provincial 39",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.496528,
+          -34.499444
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0116",
+        "calleRuta": "Av. Maipu",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.592691,
+          -33.886283
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0010",
+        "calleRuta": "Av. Dr. R. Jauregui",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.67815,
+          -34.48099
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0199",
+        "calleRuta": "Av. del Sesquicentenario",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.41393001826238,
+          -34.62641694532769
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS CONTROL_X_0215",
+        "calleRuta": "Ruta Provincial N 41",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.977547,
+          -34.624332
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0089",
+        "calleRuta": " Camino Laguna de Gomez y Los Casta\u00bf",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_252",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_250",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.889543,
+          -34.623859
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_251",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7419563,
+          -34.6301497
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_241",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.540693,
+          -37.963202
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0603",
+        "calleRuta": "Av. Felix U. Camet",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.895861,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0613",
+        "calleRuta": "Av. M. Champagnat",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0614",
+        "calleRuta": "Av. M. Champagnat",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.762673,
+          -34.60365
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0022",
+        "calleRuta": "Av. del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.110497,
+          -35.197407
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_054",
+        "calleRuta": "RP 41 y RN 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.540681999893856,
+          -37.963133943873096
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0604",
+        "calleRuta": "Av. Felix U. Camet",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.742472,
+          -36.204944
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0113",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.707944,
+          -36.26225
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0028",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705443,
+          -34.194053
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0014",
+        "calleRuta": "Ruta Provincial 31",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6464,
+          -34.39876
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR005",
+        "calleRuta": "Av. A Garcia",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.26685,
+          -38.78682
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_185",
+        "calleRuta": "Camino 007-06",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2756,
+          -37.86256
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0227",
+        "calleRuta": "RUTA PROVINCIAL 55",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3152204,
+          -35.0789202
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0412",
+        "calleRuta": "RUTA PROVINCIAL 210",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0838,
+          -36.7696
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_028",
+        "calleRuta": "Ruta Provincial 30",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.448568405375845,
+          -34.52044150564954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS CONTROL_X_0099",
+        "calleRuta": " Ruta Provincial N 41",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.107368,
+          -38.016673
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_193",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.592878,
+          -37.974952
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0620",
+        "calleRuta": "Av. Pedro Luro",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.514324,
+          -34.520393
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0363",
+        "calleRuta": "Esteban Echeverria",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61207,
+          -34.42684
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0014",
+        "calleRuta": "CAMINO DE LOS REMEROS",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.951868,
+          -34.161128
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C25",
+        "calleRuta": "Av. H. Irigoyen",
+        "velocidadPermitida": "50",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.31404,
+          -38.7067
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0033",
+        "calleRuta": "DON BOSCO.",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.60004,
+          -35.24572
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_179",
+        "calleRuta": "Ruta Nacional 5",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.356333,
+          -35.5113
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0355",
+        "calleRuta": "Ruta Provincial 29",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.22283,
+          -35.1647
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_175",
+        "calleRuta": "PTE JUAN DOMINGO PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0608",
+        "calleRuta": "Av. Colon",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.575695457648834,
+          -37.990540944322454
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0607",
+        "calleRuta": "Av. Colon",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.624049,
+          -35.479946
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C12",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.708222,
+          -36.262138
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0045",
+        "calleRuta": "Ruta Provinicial 2",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9875413,
+          -40.7880678
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0478",
+        "calleRuta": "AV. DE LA CONSTITUCION NACIONAL",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9582817,
+          -40.7843954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0480",
+        "calleRuta": "AV. DE LA CONSTITUCION NACIONAL CRUCE CALLE 4",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9582817,
+          -40.7843954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0481",
+        "calleRuta": " AV. DE LA CONSTITUCION NACIONAL CRUCE CALLE 4",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9875413,
+          -40.7880678
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0482",
+        "calleRuta": "AV. JUAN DE LA PIEDRA",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.62641694532769,
+          -34.62641694532769
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS CONTROL_X_0214",
+        "calleRuta": "Ruta Provincial N 41",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.44856840537584,
+          -34.52044150564954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS CONTROL_X_0101",
+        "calleRuta": "Ruta Provincial N 41",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.909722,
+          -35.842666
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0034",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "120",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9875413,
+          -40.7880678
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0483",
+        "calleRuta": "AV. JUAN DE LA PIEDRA",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.628748,
+          -34.648879
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0238",
+        "calleRuta": "Ca\u00bfada de Juan Ruiz",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61163,
+          -34.42746
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0050",
+        "calleRuta": "CAMINO DE LOS REMEROS",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.09465,
+          -35.01563
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0018",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62751,
+          -34.4524
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0038",
+        "calleRuta": "R.P. 197 y Mitre",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51743,
+          -34.56021
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_024",
+        "calleRuta": "Av. de los Constituyentes",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.107368,
+          -38.016673
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_192",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5848,
+          -34.75035
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0177",
+        "calleRuta": "Ruta Provincial 21 y Calle El Pindo",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.563222,
+          -34.684417
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0179",
+        "calleRuta": " Av. Monse\u00bfor Bufano",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5811011,
+          -34.6583563
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0185",
+        "calleRuta": " Av. Pte. Peron",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61171,
+          -34.67641
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0122",
+        "calleRuta": "Av. Don Bosco",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.97217427415153,
+          -34.90353839624058
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0415",
+        "calleRuta": "AV 32",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.97218034716265,
+          -34.90210719108129
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0416",
+        "calleRuta": "AV 532",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.99575,
+          -34.93204
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0417",
+        "calleRuta": " Av. 137",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.423351,
+          -35.115107
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_180",
+        "calleRuta": "Ruta Nacional 5",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2774812,
+          -35.0983289
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_315",
+        "calleRuta": "Ruta provincial 210",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.02692,
+          -34.97536
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0374",
+        "calleRuta": "AV. 44",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.54344,
+          -33.85551
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_064",
+        "calleRuta": "Ruta Nacional 9",
+        "velocidadPermitida": "120",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.241262,
+          -34.318454
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0043",
+        "calleRuta": "Ruta Provincial 31",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.57244,
+          -38.73756
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_132",
+        "calleRuta": "RUTA NACIONAL 22",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.6085,
+          -36.3105
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0027",
+        "calleRuta": "Ruta Provincial 63",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.694944,
+          -36.29475
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0025",
+        "calleRuta": "Ruta Provincial 63",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.4462752,
+          -35.121781
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0036",
+        "calleRuta": "Ruta Provincial 46",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.31404,
+          -38.7067
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0032",
+        "calleRuta": "Don Bosco",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.01832,
+          -35.62312
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_429",
+        "calleRuta": "Calle del Encuentro",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.103055,
+          -37.01925
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0031",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.19888,
+          -38.74991
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C23",
+        "calleRuta": "RAFAEL OBLIGADO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.606938,
+          -34.587799
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0388",
+        "calleRuta": "Av. Bernabe Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.64357,
+          -34.6961
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0408",
+        "calleRuta": "AV. CALLAO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.978415,
+          -34.595561
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0171",
+        "calleRuta": "Ruta Provincial 65",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.978415,
+          -34.595561
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0088",
+        "calleRuta": "Ruta Provincial 65",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.64432,
+          -34.69587
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0407",
+        "calleRuta": "AV. CALLAO",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.63168,
+          -34.67549
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0406",
+        "calleRuta": "AV. EVA PERON",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.634199,
+          -34.680663
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0405",
+        "calleRuta": "Av. Eva Peron",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.524855,
+          -34.489564
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0063",
+        "calleRuta": "Av. Unidad Nacional",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.524855,
+          -34.489564
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0064",
+        "calleRuta": "Av. Unidad Nacional",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.043722,
+          -34.379667
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0112",
+        "calleRuta": "Ruta Provincial 39",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.59014,
+          -34.45891
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0059",
+        "calleRuta": "Ruta 202 H. Yrigoyen",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.35755,
+          -35.56784
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0438",
+        "calleRuta": "ACC 25 DE MAYO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.35755,
+          -35.56784
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0437",
+        "calleRuta": "ACC 25 DE MAYO",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.05017881047659,
+          -35.34303342851527
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR011",
+        "calleRuta": "Ruta Provincial N 2",
+        "velocidadPermitida": "120",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.944415,
+          -35.429148
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0162",
+        "calleRuta": " Ruta Provincial 65",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.944415,
+          -35.429148
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0092",
+        "calleRuta": "Ruta Provincial 65",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.615351,
+          -34.485331
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C13",
+        "calleRuta": "Au. Ing. Palazzo",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51185,
+          -34.72252
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_441",
+        "calleRuta": "Av. Monse\u00bfor Bufano",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.04555,
+          -34.55469
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_208",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.56417,
+          -34.73917
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0264",
+        "calleRuta": "AV. GRAL ROJO",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.40503,
+          -34.58057
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR007",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.00712176458333,
+          -34.469100095432466
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_153",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.68352,
+          -34.52584
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0491",
+        "calleRuta": "AV. G. GREGORIO LEMOS",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.69755,
+          -34.52914
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0482",
+        "calleRuta": "AV. G. GREGORIO LEMOS",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.766472,
+          -37.274111
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0005",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.954501,
+          -34.605735
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0067",
+        "calleRuta": "Av. Circunvalacion y Gral. Sampayo",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.931986,
+          -34.598046
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0009",
+        "calleRuta": "Av. Circunvalacion y Gral. Frias",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6128,
+          -34.70716
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0268",
+        "calleRuta": "AV. CARLOS CASARES.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54276,
+          -34.6998
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0364",
+        "calleRuta": "Av. Monse\u00bfor Buffano",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.029678,
+          -35.029637
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0407",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_107",
+        "calleRuta": "RUTA NACIONAL 8",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_108",
+        "calleRuta": "RUTA NACIONAL 8",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.30376,
+          -36.50316
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0247",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.30376,
+          -36.50316
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0248",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.615351,
+          -34.485331
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C15",
+        "calleRuta": "Au. Ing. Palazzo",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.48148,
+          -34.48799
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_230",
+        "calleRuta": "Juan Diaz de Solis",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.538902,
+          -34.501362
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_801",
+        "calleRuta": "Cuyo",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.547772,
+          -33.876848
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0018",
+        "calleRuta": "Ruta Provincial 32",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.697053,
+          -34.201275
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0016",
+        "calleRuta": "Ruta Provincial 31",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.453374,
+          -34.267252
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0050",
+        "calleRuta": "Ruta Provincial 41",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.895861,
+          -35.873555
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0047",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.895861,
+          -35.873555
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0025",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.064587,
+          -34.115082
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0160",
+        "calleRuta": "Av. Antartida Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.368581,
+          -35.37624
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0137",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.016666,
+          -34.877719
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0419",
+        "calleRuta": "Cno. Parque Centenario",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.016462,
+          -34.87742
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0440",
+        "calleRuta": "Camino Parque Centenario",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.73952,
+          -35.02286
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_000372",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.739525,
+          -35.02286
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_000373",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.73849,
+          -35.02372
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_000374",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.737196,
+          -35.024506
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_000375",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.35776,
+          -34.86136
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0476",
+        "calleRuta": "Republica Argentina.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39497,
+          -34.812838
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0447",
+        "calleRuta": "Av. San Martin",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.394553,
+          -34.812516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0448",
+        "calleRuta": "Av. San Martin",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.606938,
+          -34.587799
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0389",
+        "calleRuta": "Av. B. Marquez",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.57214,
+          -34.56444
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0228",
+        "calleRuta": "Av. 101 y Dr. Ricardo Balbin",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.57578,
+          -34.56346
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0229",
+        "calleRuta": "Av. 101 y Dr. Ricardo Balbin",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.58319,
+          -34.55098
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0110",
+        "calleRuta": "Av. Juan M. de Rosas",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.107368,
+          -38.016673
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_063",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9653253,
+          -35.1070698
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR00020",
+        "calleRuta": "RUTA NACIONAL N 205",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9653253,
+          -35.1070698
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR00021",
+        "calleRuta": "RUTA NACIONAL N 205",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.40104,
+          -34.91228
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0481",
+        "calleRuta": "AVENIDA NESTOR KIRCHNER",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.14099,
+          -35.42798
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0409",
+        "calleRuta": "ACC M LEBENSHON",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.14099,
+          -35.42798
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0410",
+        "calleRuta": "ACC M LEBENSHON",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.38648,
+          -34.90467
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0449",
+        "calleRuta": "AV. Capitan olivera",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.615351,
+          -34.485331
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C16",
+        "calleRuta": "Au. Ing. Palazzo",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.919944,
+          -34.487417
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_067",
+        "calleRuta": "Av. Domenech",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.054,
+          -36.946
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0208",
+        "calleRuta": "Ruta Provincial N\u00bf 56",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.59788,
+          -34.46267
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_210",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.85287,
+          -34.61499
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0393",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.59788,
+          -34.46267
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_211",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.103055,
+          -37.01925
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0041",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61258,
+          -34.56286
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR016",
+        "calleRuta": "AV. EVA PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51223,
+          -34.53619
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_157",
+        "calleRuta": "Aut. Ing. Palazzo Colectora Oeste",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.3017469,
+          -38.3808188
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0472",
+        "calleRuta": "Av. Esteban Echeverria",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.103055,
+          -37.01925
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0026",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39494,
+          -34.90901
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0494",
+        "calleRuta": "AV. NESTOR KIRCHNER",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.731111,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0008",
+        "calleRuta": "RUTA PROVINCIAL 2",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.149418,
+          -35.428981
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0416",
+        "calleRuta": "ACC M LEBENSHON",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.04555,
+          -34.55469
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0392",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.71148,
+          -36.48998
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0070",
+        "calleRuta": "Ruta Provincial 11",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.895861,
+          -35.873555
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0048",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51223,
+          -34.53619
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_158",
+        "calleRuta": "Aut. Ing. Palazzo Colectora Oeste",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.9744446,
+          -37.2484631
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0487",
+        "calleRuta": "Av. Boulevard Gesell",
+        "velocidadPermitida": "50",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.62367,
+          -35.479839
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C20",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60104,
+          -34.63547
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0401",
+        "calleRuta": "AV. PTE PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60054,
+          -34.63608
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0402",
+        "calleRuta": " AV. PTE PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.23764,
+          -34.282126
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0020",
+        "calleRuta": "RUTA PROVINCIAL 32.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.995916,
+          -35.539583
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0022",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.40503,
+          -34.58057
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR006",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54338534418723,
+          -34.64014579416497
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0386",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.23764,
+          -34.282126
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0028",
+        "calleRuta": "Ruta Provincial 32",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55395,
+          -34.62174
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR017",
+        "calleRuta": "AV. M. T. DE ALVEAR.",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.545969801857474,
+          -34.64018264023108
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0387",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.032611,
+          -34.102361
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0423",
+        "calleRuta": "Av. Gallesio",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.033114,
+          -34.102596
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0422",
+        "calleRuta": "Av. Gallesio",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.93772,
+          -34.79815
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0082",
+        "calleRuta": "-59.033114",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.93772,
+          -34.79815
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0081",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.10137,
+          -34.29639
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0373",
+        "calleRuta": "RIVADAVIA",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.47864,
+          -34.50934
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR009",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7102,
+          -34.1917
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_200",
+        "calleRuta": " Ruta Nacional 188",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7102,
+          -34.1917
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_199",
+        "calleRuta": "Ruta nacional 188",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.008055,
+          -35.531555
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0017",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60337,
+          -34.54537
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0461",
+        "calleRuta": "Autopista Camino del Buen Ayre",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60337,
+          -34.54537
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0462",
+        "calleRuta": "Autopista Camino del Buen Ayre",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60337,
+          -34.54537
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0463",
+        "calleRuta": "Autopista Camino del Buen Ayre",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.160213,
+          -35.425374
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0436",
+        "calleRuta": "ACC ILLIA",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.160213,
+          -35.425374
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0419",
+        "calleRuta": "ACC ILLIA",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.35577,
+          -34.88948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0450",
+        "calleRuta": "AV. CAPITAN OLIVERA",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.64996,
+          -34.50372
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0493",
+        "calleRuta": "AV. G. GREGORIO LEMOS",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51185,
+          -34.72252
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_442",
+        "calleRuta": "AV. Monse\u00bfor Bufano.",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.47864,
+          -34.50934
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR010",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61253,
+          -34.56244
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR015",
+        "calleRuta": "AV. EVA PERON",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.995916,
+          -35.539583
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0024",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.420141,
+          -34.824325
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0365",
+        "calleRuta": "Av. Monteverde",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3449,
+          -34.8098
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0366",
+        "calleRuta": "LACAZE",
+        "velocidadPermitida": "30",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39087,
+          -34.903628
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0367",
+        "calleRuta": "Hipolito Yrigoyen",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.951868,
+          -34.161128
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C24",
+        "calleRuta": "Av. H. Irigoyen",
+        "velocidadPermitida": "50",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.731111,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0007",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.01336,
+          -35.5733
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_428",
+        "calleRuta": " Dr. Carlos Cesar Garbizu.",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62565,
+          -34.63912
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0404",
+        "calleRuta": "BLVD. JUAN MANUEL DE ROSAS",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62587,
+          -34.63941
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0403",
+        "calleRuta": "BLVD. JUAN MANUEL DE ROSAS",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.69316,
+          -34.69055
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0800",
+        "calleRuta": "Av. Circunvalacion Eva Peron y Av. Lia Brunet",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.84541,
+          -34.40933
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0055",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.58537,
+          -34.64341
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0218",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.656284,
+          -34.656676
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0217",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.656284,
+          -34.656676
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0216",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.819722,
+          -36.073305
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0004",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.04555,
+          -34.55469
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0394",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_110",
+        "calleRuta": "RUTA NACIONAL 8",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_109",
+        "calleRuta": "RUTA NACIONAL 8",
+        "velocidadPermitida": "110",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51223,
+          -34.53619
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_155",
+        "calleRuta": "Aut. Ing. Palazzo Colectora Este",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51223,
+          -34.53619
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_156",
+        "calleRuta": "Aut. Ing. Palazzo Colectora Este",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.44812831822014,
+          -34.5827926100022
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_154",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37909,
+          -34.93316
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0478",
+        "calleRuta": "HIPOLITO YRIGOYEN",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37685,
+          -34.94666
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0479",
+        "calleRuta": "HIPOLITO YRIGOYEN",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37685,
+          -34.94666
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0480",
+        "calleRuta": "HIPOLITO YRIGOYEN",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.0325665,
+          -37.3163513
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0488",
+        "calleRuta": "Acceso a Mar de Las Pampas",
+        "velocidadPermitida": "30",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.25821,
+          -38.6894
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0079",
+        "calleRuta": "Florida",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.84541,
+          -34.40933
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0073",
+        "calleRuta": "RUTA NACIONAL 7",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.58537,
+          -34.64341
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0112",
+        "calleRuta": "Av. Rivadavia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.369363,
+          -35.376139
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0139",
+        "calleRuta": " Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.368581,
+          -35.37624
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0138",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.369363,
+          -35.376139
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0135",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.69316,
+          -34.69055
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0799",
+        "calleRuta": " Av. Circunvalacion Eva Peron y Av. Lia Brunet",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.990861,
+          -37.235472
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0013",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.453728,
+          -34.267588
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0049",
+        "calleRuta": "RUTA PROVINCIAL 41",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.149418,
+          -35.428981
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0415",
+        "calleRuta": "ACC M LEBENSHON",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.605798,
+          -38.004944
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0615",
+        "calleRuta": "Av. Presidente Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0301,
+          -34.1083
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0424",
+        "calleRuta": "Av. Mitre",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.98533,
+          -34.32715
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0375",
+        "calleRuta": " Av. Libertador San Martin",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.98466,
+          -34.32676
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0374",
+        "calleRuta": " Av. Libertador San Martin",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.660142,
+          -35.078043
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0405",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.547772,
+          -33.876848
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0042",
+        "calleRuta": "Ruta Provincial 32",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.01302,
+          -35.57274
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_427",
+        "calleRuta": "Pedro Urruti.",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37909,
+          -34.93313
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0477",
+        "calleRuta": "HIPOLITO YRIGOYEN",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.67620646048141,
+          -34.38733955764947
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_831",
+        "calleRuta": "Av Italia",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.766472,
+          -37.274111
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0006",
+        "calleRuta": " RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.396834,
+          -33.669033
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0335",
+        "calleRuta": "Av. del Libertador y V. de la Plaza",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.69864,
+          -34.62162
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0121",
+        "calleRuta": "AV. Martin Fierro",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.587665,
+          -34.483162
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0070",
+        "calleRuta": "Uruguay",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.9141555,
+          -34.4364029
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0063",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.122976,
+          -34.382033
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_025",
+        "calleRuta": "Ruta Provincial 192",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0838,
+          -36.7696
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_029",
+        "calleRuta": "RUTA PROVINCIAL 30",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.58319,
+          -34.55098
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0109",
+        "calleRuta": "A. Juan M. de Rosas",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.9990431,
+          -34.4696407
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0061",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.04555,
+          -34.55469
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_209",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "110",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.064587,
+          -34.115082
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0161",
+        "calleRuta": "Av. Antartida Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.07964,
+          -34.12168
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0168",
+        "calleRuta": "Av. Antartida Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.07964,
+          -34.12168
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0167",
+        "calleRuta": "Av. Antartida Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.820055,
+          -36.07375
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0003",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.820055,
+          -36.07375
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0032",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.356333,
+          -35.5113
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0354",
+        "calleRuta": "Ruta Provincial 29",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.819722,
+          -36.073305
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0018",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.103055,
+          -37.01925
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0036",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.538624,
+          -34.496893
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR001",
+        "calleRuta": "Av. de la Unidad Nacional",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.553055,
+          -36.314583
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0032",
+        "calleRuta": "Ruta Provincial 63",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0501477,
+          -35.3433291
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR008",
+        "calleRuta": "Ruta Provincial n 2",
+        "velocidadPermitida": "120",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.909722,
+          -35.842666
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0010",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "120",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62087,
+          -34.60679
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0447",
+        "calleRuta": "Vicente Camargo",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.17351,
+          -38.74272
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0047",
+        "calleRuta": "E. Sivori",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53195,
+          -34.70729
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0187",
+        "calleRuta": "Av. Monse\u00bfor Bufano y Ruta Provincial 21",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.694972,
+          -36.294694
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0024",
+        "calleRuta": "RUTA PROVINCIAL 63.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.023833,
+          -35.511
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0013",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.022527,
+          -35.514805
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0014",
+        "calleRuta": "RUTA PROVINCIAL 2",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.022527,
+          -35.514805
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0038",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5556,
+          -34.46877
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_227",
+        "calleRuta": "Av. Sucre",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.88991,
+          -34.49074
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_068",
+        "calleRuta": "Av. Dardo Rocha",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.469867,
+          -34.267911
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0342",
+        "calleRuta": "AV. Duran",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.85314180265991,
+          -34.39415686939721
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0106",
+        "calleRuta": "RUTA PROVINCIAL 51",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.69815,
+          -34.62326
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0119",
+        "calleRuta": "Av. Martin Fierro",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.589052,
+          -34.620969
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0310",
+        "calleRuta": "AV. Teniente Gral Bergamini",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.406456,
+          -34.802797
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0443",
+        "calleRuta": "Av. Hipolito Irigoyen",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.363111,
+          -34.830948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0444",
+        "calleRuta": "Av. Republica Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.402858,
+          -34.842093
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0445",
+        "calleRuta": "Camino a las Flores",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.363111,
+          -34.830948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0446",
+        "calleRuta": "Av. Republica Argentina",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54276,
+          -34.6998
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0363",
+        "calleRuta": "AV. MONSE\u00bfOR BUFFANO",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.846210679575044,
+          -34.43458811594107
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0153",
+        "calleRuta": "Ruta Nacional N 188",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.95316412025244,
+          -34.556366989975224
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0154",
+        "calleRuta": "Ruta Nacional N 188",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.44489,
+          -35.02925
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0381",
+        "calleRuta": "Av. Juan Pablo II",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.2884,
+          -35.03824
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0357",
+        "calleRuta": "Ruta Provincial 41",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.42187687116459,
+          -34.45485349616314
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0292",
+        "calleRuta": "Avenida Lucas Scully y calle 61",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.42187687116459,
+          -34.45485349616314
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0293",
+        "calleRuta": "Avenida Lucas Scully y calle 61",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.891639,
+          -34.489417
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_069",
+        "calleRuta": "Av. Dardo Rocha",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.834947,
+          -34.637668
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0345",
+        "calleRuta": "Av. Piovano",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.57244,
+          -38.73756
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_046",
+        "calleRuta": "Ruta Nacional 22",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.70163,
+          -38.82125
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_047",
+        "calleRuta": "Ruta Nacional 22",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.561121,
+          -34.4687846
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0519",
+        "calleRuta": "avenida Uruguay",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62723,
+          -34.76146
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0262",
+        "calleRuta": "Senguel",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55329,
+          -34.66953
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0303",
+        "calleRuta": "TOMAS JUSTO VILLEGAS",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.321634,
+          -34.840253
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0610",
+        "calleRuta": "Leandro N. Alem",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.57955,
+          -33.91471
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C26",
+        "calleRuta": "DR. RICARDO BALBIN",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.57955,
+          -33.91471
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C27",
+        "calleRuta": "DR. RICARDO BALBIN",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.13977,
+          -36.20101
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_052",
+        "calleRuta": "Ruta Provincial 65",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.56521,
+          -34.73952
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0263",
+        "calleRuta": "Av. Gral. Rojo",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.514334,
+          -34.520393
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0360",
+        "calleRuta": "ESTEBAN ECHEVERRIA",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60403,
+          -34.54291
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0460",
+        "calleRuta": "Camino del Buen Ayre",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.25804,
+          -38.68948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0061",
+        "calleRuta": "PTE. RAUL ALFONSIN",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.24497,
+          -35.15803
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_172",
+        "calleRuta": "Mariano Moreno",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.13977,
+          -36.20101
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_051",
+        "calleRuta": " R.P . 65",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6279470711646,
+          -34.462946839681145
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0508",
+        "calleRuta": "Avenida Boulogne Sur Mer",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.77942,
+          -35.05195
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_259",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62723,
+          -34.76146
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0208",
+        "calleRuta": "Senguel",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.547749,
+          -34.610332
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_178",
+        "calleRuta": "Justo Jose de Urquiza",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.33302,
+          -38.70081
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_130",
+        "calleRuta": "RUTA NACIONAL 3",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.01051,
+          -34.995023
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0436",
+        "calleRuta": "Av. 66",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.236692,
+          -34.794843
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0437",
+        "calleRuta": "Camino Gral. Belgrano",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.65629,
+          -34.76406
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0305",
+        "calleRuta": "Av. Juan Bautista Lasalle",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.65629,
+          -34.76406
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0360",
+        "calleRuta": "AV. JUAN BAUTISTA LASALLE",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.308555,
+          -36.499805
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0017",
+        "calleRuta": "Ruta Provincial 11",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.445592,
+          -34.552601
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_803",
+        "calleRuta": "Olazabal",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.824583,
+          -34.846639
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0331",
+        "calleRuta": "Acc. J. C. Zabala",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5184,
+          -34.46101
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0024",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.34993,
+          -36.4453
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0276",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.00712176458333,
+          -34.469100095432466
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_056",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.44812831822014,
+          -34.5827926100022
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_057",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.71769096050319,
+          -34.666326188383685
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0323",
+        "calleRuta": " Av. Juan Domingo Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.95316412025244,
+          -34.556366989975224
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0155",
+        "calleRuta": "Ruta Nacional N 188",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.71769,
+          -34.66632
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0322",
+        "calleRuta": "Av. Juan Domingo Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.588869,
+          -34.621107
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0311",
+        "calleRuta": "Teniente Gral Bergamini",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6848419,
+          -34.4351471
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0510",
+        "calleRuta": "Avenida Juan D. Per\u00bf",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.58679,
+          -34.49968
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_191",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.003254,
+          -34.909196
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0428",
+        "calleRuta": "Av. 520",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.029678,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0409",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.029678,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0410",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9875413,
+          -40.7880678
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0479",
+        "calleRuta": "AV. DE LA CONSTITUCION NACIONAL",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.029678,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0408",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.3961422,
+          -35.6332141
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_257",
+        "calleRuta": "RUTA NACIONAL 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.008055,
+          -35.531555
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_033",
+        "calleRuta": "RUTA PROVINCIAL 2",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.57025301277694,
+          -34.666086501544726
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_183",
+        "calleRuta": "Pres. Juan Domingo Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.60319,
+          -34.6634
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0309",
+        "calleRuta": "CORDOBA",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.623215340877216,
+          -34.42516955841745
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_313",
+        "calleRuta": "calle Camino Barbarita",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.654214,
+          -34.643211
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0306",
+        "calleRuta": "Presidente Domingo Faustino",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.270417,
+          -35.595611
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_042",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55087,
+          -34.44282
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0518",
+        "calleRuta": "AVENIDA DEL LIBERTADOR",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.023805,
+          -35.511083
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0036",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.547749,
+          -34.610332
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_177",
+        "calleRuta": "Justo Jose de Urquiza",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6062567,
+          -34.4323317
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0507",
+        "calleRuta": "Camino de los Remeros",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.731111,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0040",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.48443,
+          -34.477917
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_228",
+        "calleRuta": "Sebastian Elcano",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53541599131025,
+          -34.44869042064553
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_297",
+        "calleRuta": "Avenida Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.47202,
+          -34.264627
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0341",
+        "calleRuta": "Av. Duran",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.61318,
+          -34.70712
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0267",
+        "calleRuta": "AV. CARLOS CASARES.",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.895861,
+          -35.873555
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0028",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.67968,
+          -34.40149
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0118",
+        "calleRuta": "Av. Benavidez",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.270417,
+          -35.505611
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_043",
+        "calleRuta": "RUTA PROVINCIAL 11",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.5939481669879,
+          -39.25048226401
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_438",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.92543,
+          -34.85105
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_802",
+        "calleRuta": "Bernardo de Irigoyen",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.594052,
+          -39.249189
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_449",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.54526,
+          -37.96983
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0115",
+        "calleRuta": "AV. CONSTITUCION",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.68573,
+          -34.63223
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_186",
+        "calleRuta": "JOSE MARIA PAZ",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.33848,
+          -38.70347
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_131",
+        "calleRuta": "RUTA NACIONAL 3",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.53177,
+          -34.68084
+        ]
+      },
+      "properties": {
+        "nroSerie": "VR018",
+        "calleRuta": "AV. M. T. DE ALVEAR",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41071,
+          -34.70504
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0316",
+        "calleRuta": "Av. 25 de Mayo",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.817285,
+          -36.01475
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0361",
+        "calleRuta": "RUTA PROVINCIAL 41",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.62187,
+          -34.60619
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0446",
+        "calleRuta": "Av. Felipe Pastre",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.66819,
+          -34.67814
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0205",
+        "calleRuta": "Fray L Beltran",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.66979054402853,
+          -34.678512190619195
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0196",
+        "calleRuta": "Fray Luis Beltran",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.87104,
+          -34.42327
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0370",
+        "calleRuta": "Chacabuco",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.7038351,
+          -36.6830325
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0207",
+        "calleRuta": "Ruta Provincial N? 11",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.7133215,
+          -36.6047191
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0206",
+        "calleRuta": "Ruta Provincial N 11",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.27557,
+          -37.8618
+        ]
+      },
+      "properties": {
+        "nroSerie": "K4000_0228",
+        "calleRuta": "RUTA PROVINCIAL 55",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.925441,
+          -34.85105
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_804",
+        "calleRuta": "Bernardo de Irigoyen",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.3232999,
+          -35.5305585
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0017",
+        "calleRuta": "RP 36",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.33302,
+          -38.70081
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_044",
+        "calleRuta": "Ruta Nacional 3",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.56458,
+          -34.50555
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_032",
+        "calleRuta": "Av. Avelino Rolon",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.988523,
+          -34.926258
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0434",
+        "calleRuta": "Boulevard 82",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.106033,
+          -35.207261
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_181",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.7841425,
+          -35.6309977
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_260",
+        "calleRuta": "RUTA NACIONAL 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6848419,
+          -34.4351471
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0509",
+        "calleRuta": "Avenida Juan D. Per\u00bf",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.484373,
+          -34.495889
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0114",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0035,
+          -34.17924
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0001",
+        "calleRuta": "Camino Red Secundario",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54401,
+          -34.46585
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_031",
+        "calleRuta": "Av. Avelino Rolon",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.98444,
+          -34.3126
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0052",
+        "calleRuta": "Ruta Provincial 6",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.55329,
+          -34.66953
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0304",
+        "calleRuta": "TOMAS JUSTO VILLEGAS",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.003254,
+          -34.909196
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0420",
+        "calleRuta": "Av. 520",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.996987,
+          -34.903499
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0426",
+        "calleRuta": "Av. 520",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.092551,
+          -34.990504
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0427",
+        "calleRuta": "Av. 520",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.071357,
+          -34.905787
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0432",
+        "calleRuta": "Calle 467",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.50642,
+          -34.7272
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_440",
+        "calleRuta": "AV. MONSE\u00bfOR BUFANO C2",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.106033,
+          -35.207261
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_182",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.989892,
+          -34.922212
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0433",
+        "calleRuta": "Boulevard 82",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.62367,
+          -35.479839
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C19",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.65707,
+          -34.39677
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0083",
+        "calleRuta": "Agustin Garcia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.24497,
+          -35.15803
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_173",
+        "calleRuta": "Mariano Moreno",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.77593,
+          -34.44948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0230",
+        "calleRuta": "Av. Juan D. Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.58787,
+          -34.48285
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0060",
+        "calleRuta": "Uruguay",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.795972,
+          -34.469778
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0231",
+        "calleRuta": "AV Pte. A. Illia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.18162,
+          -34.77648
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0123",
+        "calleRuta": " AV. NESTOR KIRCHNER",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.16468,
+          -34.80137
+        ]
+      },
+      "properties": {
+        "nroSerie": "211",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "130",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.70912,
+          -34.6049
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0223",
+        "calleRuta": " Autopista Camino del Buen Ayre",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.522566,
+          -34.577247
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0314",
+        "calleRuta": "Acceso Pres. Nestor Kirchner",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.523898,
+          -34.4515954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0201",
+        "calleRuta": " JUAN. B .DE LA SALLE.",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.52567,
+          -38.01962
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0120",
+        "calleRuta": "AV. PATRICIO RAMOS",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.19888,
+          -38.74995
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C22",
+        "calleRuta": "AV. RAFAEL OBLIGADO",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.76269,
+          -34.60272
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_023",
+        "calleRuta": "AVDA. Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.52652780303587,
+          -33.835459460975585
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0438",
+        "calleRuta": "AV SAN MARTIN",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5469,
+          -34.57451
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0313",
+        "calleRuta": "AVENIDA PRESIDENTE JUAN DOMINGO PERON.",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.623215340877216,
+          -34.42516955841745
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_314",
+        "calleRuta": "calle Camino Barbarita",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.01051,
+          -34.995023
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0435",
+        "calleRuta": "Av. 66",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.660142,
+          -35.078043
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0406",
+        "calleRuta": "RUTA Nacional 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.853361,
+          -34.805472
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0046",
+        "calleRuta": "Ruta Provincial 40",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.059888,
+          -37.0435
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0043",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6764317660331,
+          -34.38721560370755
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_832",
+        "calleRuta": "Av Italia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54727,
+          -34.57557
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0312",
+        "calleRuta": "AV. PRESIDENTE JUAN DOMINGO PERON.",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4703715,
+          -34.5292468
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0107",
+        "calleRuta": "Av. Del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.624049,
+          -35.479946
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_061",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.624049,
+          -35.479946
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_060",
+        "calleRuta": "Ruta Nacional 205",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_031",
+        "calleRuta": "Ruta Nacional 8.",
+        "velocidadPermitida": "",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.133339,
+          -34.373504
+        ]
+      },
+      "properties": {
+        "nroSerie": "LUTEC_032",
+        "calleRuta": "Ruta Nacional 8.",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5517690288354,
+          -34.44337651371705
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_298",
+        "calleRuta": "Avenida Presidente Per\u00bf",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.567834,
+          -33.92343
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0011",
+        "calleRuta": "Av. Pte Frondizi",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.653252,
+          -34.643436
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0307",
+        "calleRuta": "Presindente Domingo Faustino",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.420141,
+          -34.824325
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0368",
+        "calleRuta": "Av. Monteverde",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.870972,
+          -34.423306
+        ]
+      },
+      "properties": {
+        "nroSerie": "URBAN_0365",
+        "calleRuta": "Chacabuco",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.71963,
+          -34.61505
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0056",
+        "calleRuta": "Camino del Buen Ayre",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6742676,
+          -34.6623081
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0188",
+        "calleRuta": "Av. Nestor Kirchner",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.762673,
+          -34.60365
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_022",
+        "calleRuta": " AVDA. Libertador ",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.887222,
+          -36.002889
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_046",
+        "calleRuta": "RUTA PROVINCIAL 51",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.97825,
+          -36.024833
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_047",
+        "calleRuta": "RUTA PROVINCIAL 61",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.708222,
+          -36.262138
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0035",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.19045,
+          -34.80137
+        ]
+      },
+      "properties": {
+        "nroSerie": "210",
+        "calleRuta": " Ruta Provincial 2",
+        "velocidadPermitida": "130",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.241262,
+          -34.318454
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0046",
+        "calleRuta": "Ruta Provincial 31",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.083953,
+          -34.852286
+        ]
+      },
+      "properties": {
+        "nroSerie": "213",
+        "calleRuta": "RP14 Camino Parque Centenario",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.083953,
+          -34.852286
+        ]
+      },
+      "properties": {
+        "nroSerie": "214",
+        "calleRuta": "RP14 Camino Parque Centenario",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.059888,
+          -37.0435
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0044",
+        "calleRuta": "Ruta Prov. 74",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.503255385144826,
+          -34.730877060318065
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_439",
+        "calleRuta": "Av. Monse\u00bfor Bufano",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.615351,
+          -34.485331
+        ]
+      },
+      "properties": {
+        "nroSerie": "IVERO_C14",
+        "calleRuta": "Au. Ing. Palazzo",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.122976,
+          -34.382033
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_022",
+        "calleRuta": "Ruta Provincial 192",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.25804,
+          -38.68936
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0080",
+        "calleRuta": "Av. Juan Domingo Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.22824,
+          -35.02562
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0378",
+        "calleRuta": "RUTA PROVINCIAL 6",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.834947,
+          -34.637668
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_086",
+        "calleRuta": "Av. F. Piovano",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.1105,
+          -35.197417
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_055",
+        "calleRuta": "RP 41 y RN 205",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51739,
+          -34.56008
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0115",
+        "calleRuta": "Av. Maipu",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.22825,
+          -35.02565
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0403",
+        "calleRuta": "RUTA PROVINCIAL 6",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.68573,
+          -34.63223
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_187",
+        "calleRuta": "Jose Maria Paz",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.52253,
+          -34.57704
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0315",
+        "calleRuta": "ACCESO PESIDENTE NESTOR",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41143,
+          -34.704954
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0317",
+        "calleRuta": "Av. 25 de Mayo",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.52711,
+          -38.01679
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0163",
+        "calleRuta": "Av. Patricio Ramos",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.962589,
+          -34.236701
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0053",
+        "calleRuta": "RUTA PROVINCIAL 6.",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.85315348513313,
+          -34.39415956766942
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0107",
+        "calleRuta": "RUTA PROVINCIAL 51",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.4691,
+          -34.43337
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0142",
+        "calleRuta": "RUTA PROVINCIAL 41",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.4691,
+          -34.43337
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0143",
+        "calleRuta": "RUTA PROVINCIAL 41",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0301,
+          -34.1083
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0425",
+        "calleRuta": "Av. Mitre",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.71713377478911,
+          -34.7239673022067
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0320",
+        "calleRuta": "Avenida Otero",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.717066603625014,
+          -34.72330421004772
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0321",
+        "calleRuta": "Avenida Otero",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.601688,
+          -34.663813
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0308",
+        "calleRuta": "Curupayti",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.853472,
+          -34.473028
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0232",
+        "calleRuta": "Av. Juan D. Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.19045,
+          -34.82136
+        ]
+      },
+      "properties": {
+        "nroSerie": "212",
+        "calleRuta": "RUTA PROVINCIAL 2.",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6897,
+          -34.40689
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0117",
+        "calleRuta": "Av. Benavidez",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.18184,
+          -38.71356
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0055",
+        "calleRuta": "EDUARDO SIVORI",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.742472,
+          -36.204972
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0108",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "80",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.54317686835915,
+          -34.46583372443015
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_033",
+        "calleRuta": "Av. Rolon",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.547963,
+          -34.477589
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_800",
+        "calleRuta": "Calle Int. Tomkinson",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.553055,
+          -36.314583
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0005",
+        "calleRuta": "Ruta Provincial 63",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.08214,
+          -34.84771
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0078",
+        "calleRuta": "Ruta Provincial 30",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.731111,
+          -37.434277
+        ]
+      },
+      "properties": {
+        "nroSerie": "D0006",
+        "calleRuta": "Ruta Provincial 2",
+        "velocidadPermitida": "100",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.45224,
+          -35.042
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0413",
+        "calleRuta": "RUTA PROVINCIAL 58.",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.13977,
+          -34.46103
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_071",
+        "calleRuta": "Av. Pte, Arturo Illia",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2097,
+          -38.68948
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0062",
+        "calleRuta": "PTE. RAUL ALFONSIN",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.70163,
+          -38.82125
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_133",
+        "calleRuta": "RUTA NACIONAL 22",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.94226,
+          -34.17669
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0054",
+        "calleRuta": " Av. 6 de Julio",
+        "velocidadPermitida": "50",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.58135,
+          -34.5007
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_190",
+        "calleRuta": "Ruta Nacional 7",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5700175,
+          -34.6664268
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0183",
+        "calleRuta": "Pte. Peron",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.46914,
+          -34.46914
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0109",
+        "calleRuta": "Av. del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.49687,
+          -34.49972
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0110",
+        "calleRuta": "Av. Maipu",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.48726,
+          -34.51701
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0233",
+        "calleRuta": " Av. Maipu",
+        "velocidadPermitida": "",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.48443,
+          -34.477917
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_229",
+        "calleRuta": "Sebastian Elcano",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.91999,
+          -34.48278
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_066",
+        "calleRuta": "Av. Jose Dalco Domenech",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.48149,
+          -34.48807
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_231",
+        "calleRuta": "Juan Diaz de Solis",
+        "velocidadPermitida": "40",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.44437,
+          -34.56206
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0023",
+        "calleRuta": "Av. del Libertador",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.591166,
+          -34.498853
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO_0031",
+        "calleRuta": "Camino del Buen Ayre",
+        "velocidadPermitida": "100",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.157606,
+          -35.409235
+        ]
+      },
+      "properties": {
+        "nroSerie": "C0044",
+        "calleRuta": "Ruta Provincial 46",
+        "velocidadPermitida": "80",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.931572,
+          -34.539755
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0100",
+        "calleRuta": "Ruta Provincial 28",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.931572,
+          -34.539755
+        ]
+      },
+      "properties": {
+        "nroSerie": "TS_CONTROL_X_0159",
+        "calleRuta": "Ruta Provincial 28",
+        "velocidadPermitida": "60",
+        "sentido": "Descendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.16559,
+          -36.021036
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_034",
+        "calleRuta": "Ruta Provincial 30",
+        "velocidadPermitida": "60",
+        "sentido": "Ascendente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.57187,
+          -34.49679
+        ]
+      },
+      "properties": {
+        "nroSerie": "ENFORCER_226",
+        "calleRuta": "Nuestras Malvinas",
+        "velocidadPermitida": "40",
+        "sentido": "Ascendente"
+      }
+    }
+  ]
+}
