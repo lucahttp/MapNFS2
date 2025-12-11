@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>Neon Drive Map UI</title>
@@ -10,7 +11,7 @@
   <!-- Geocoder plugin for MapLibre -->
   <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
   <link href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css" rel="stylesheet" />
-<!-- Three.js for the 3D car model -->
+  <!-- Three.js for the 3D car model -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- OrbitControls to allow the user to rotate the 3D model -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
@@ -20,33 +21,37 @@
   <!-- inlcude manifest -->
   <link rel="manifest" href="manifest.json">
 
-    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width"></meta>
-  <meta name="apple-mobile-web-app-capable" content="yes"></meta>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
+  <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width">
+  </meta>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  </meta>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </meta>
 
   <style>
-
     /* styles.css */
-html {
-  min-height: calc(100% + env(safe-area-inset-top));
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    html {
+      min-height: calc(100% + env(safe-area-inset-top));
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
 
 
-  background-attachment: fixed;
-  background-image: url('/bg.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+      background-attachment: fixed;
+      background-image: url('/bg.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
     /* Global styles for the retro-futuristic theme */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Courier New', Courier, monospace;
-      background-color: #0d0d1a; /* Dark blue-purple b  ackground */
-      color: #00ffcc; /* Neon green for text */
+      background-color: #0d0d1a;
+      /* Dark blue-purple b  ackground */
+      color: #00ffcc;
+      /* Neon green for text */
       overflow: hidden;
       font-size: 14px;
     }
@@ -75,12 +80,14 @@ html {
       z-index: 10;
       border-radius: 8px;
     }
+
     .map-overlay h1 {
       margin: 0;
       font-size: 2em;
       color: #00ccff;
       text-shadow: 0 0 10px #00ccff;
     }
+
     .map-overlay p {
       margin: 5px 0 0 0;
       color: #ff00cc;
@@ -100,16 +107,19 @@ html {
       padding: 10px;
       border-radius: 8px;
     }
+
     .track-list h3 {
       color: #ff00cc;
       text-shadow: 0 0 5px #ff00cc;
       margin-top: 0;
     }
+
     .track-list ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .track-list li {
       padding: 8px;
       border-bottom: 1px solid rgba(255, 0, 204, 0.3);
@@ -117,13 +127,16 @@ html {
       transition: all 0.3s ease;
       font-weight: bold;
     }
+
     .track-list li:last-child {
       border-bottom: none;
     }
+
     .track-list li:hover {
       background-color: rgba(255, 0, 204, 0.2);
       transform: translateX(5px);
     }
+
     .track-list li.active {
       background-color: rgba(255, 0, 204, 0.4);
       text-shadow: 0 0 5px #ff00cc;
@@ -153,7 +166,7 @@ html {
       position: absolute;
       top: 20px;
       right: 320px;
-      background: rgba(13,13,26,0.85);
+      background: rgba(13, 13, 26, 0.85);
       border: 2px solid #00ccff;
       box-shadow: 0 0 10px #00ccff;
       border-radius: 8px;
@@ -162,14 +175,18 @@ html {
       color: #00ffcc;
       font-family: inherit;
     }
+
     .routing-controls div {
       margin-bottom: 8px;
     }
+
     .routing-controls label {
       display: block;
       margin-bottom: 4px;
     }
-    .routing-controls input, .routing-controls select {
+
+    .routing-controls input,
+    .routing-controls select {
       padding: 8px;
       border: 1px solid #00ccff;
       border-radius: 4px;
@@ -177,6 +194,7 @@ html {
       color: #00ccff;
       width: 100%;
     }
+
     .routing-controls button {
       background: #ff00cc;
       color: #fff;
@@ -186,6 +204,7 @@ html {
       cursor: pointer;
       transition: background 0.3s;
     }
+
     .routing-controls button:hover {
       background: #e60099;
     }
@@ -197,19 +216,24 @@ html {
         left: 10px;
         padding: 8px 15px;
       }
+
       .map-overlay h1 {
         font-size: 1.5em;
       }
-      .track-list, .car-model-container {
+
+      .track-list,
+      .car-model-container {
         bottom: 10px;
         width: 45%;
         left: 10px;
         right: 10px;
       }
+
       .car-model-container {
         right: 10px;
         left: auto;
       }
+
       .routing-controls {
         right: 10px;
         left: auto;
@@ -219,150 +243,399 @@ html {
       }
     }
 
-        /* --- Basic Setup --- */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #121212;
-        }
+    /* --- Basic Setup --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #121212;
+    }
 
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
 
-        /* --- Custom Controls General Container --- */
-        .custom-controls-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Spacing between geocoder and nav buttons */
-            z-index: 1;
-        }
+    /* --- Custom Controls General Container --- */
+    .custom-controls-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      /* Spacing between geocoder and nav buttons */
+      z-index: 1;
+    }
 
-        /* --- Custom Geocoder --- */
-        .custom-geocoder-container {
-            position: relative;
-            width: 250px;
-        }
+    /* --- Custom Geocoder --- */
+    .custom-geocoder-container {
+      position: relative;
+      width: 250px;
+    }
 
-        #geocoder-input {
-            width: 100%;
-            padding: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            color: #f0f0f0;
-            background-color: rgba(10, 10, 25, 0.8);
-            border: 1px solid #00ffff;
-            border-radius: 8px;
-            box-shadow: 
-                0 0 5px #00ffff, 
-                0 0 10px #00ffff, 
-                0 0 15px #ff00cc,
-                inset 0 0 5px rgba(0, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-            outline: none;
-            transition: all 0.2s ease-in-out;
-        }
-        
-        #geocoder-input::placeholder {
-            color: #00ffff;
-            opacity: 0.6;
-        }
+    #geocoder-input {
+      width: 100%;
+      padding: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      color: #f0f0f0;
+      background-color: rgba(10, 10, 25, 0.8);
+      border: 1px solid #00ffff;
+      border-radius: 8px;
+      box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #ff00cc,
+        inset 0 0 5px rgba(0, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      outline: none;
+      transition: all 0.2s ease-in-out;
+    }
 
-        #geocoder-results {
-            position: absolute;
-            width: 100%;
-            max-height: 300px;
-            overflow-y: auto;
-            background-color: rgba(10, 10, 25, 0.9);
-            border: 1px solid #00ffff;
-            border-radius: 8px;
-            margin-top: 8px;
-            box-shadow: 0 0 5px #00ffff, 0 0 10px #ff00cc;
-            backdrop-filter: blur(5px);
-        }
+    #geocoder-input::placeholder {
+      color: #00ffff;
+      opacity: 0.6;
+    }
 
-        .geocoder-suggestion {
-            padding: 12px 15px;
-            color: #f0f0f0;
-            cursor: pointer;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-            transition: background-color 0.2s ease;
-        }
-        
-        .geocoder-suggestion:last-child {
-            border-bottom: none;
-        }
+    #geocoder-results {
+      position: absolute;
+      width: 100%;
+      max-height: 300px;
+      overflow-y: auto;
+      background-color: rgba(10, 10, 25, 0.9);
+      border: 1px solid #00ffff;
+      border-radius: 8px;
+      margin-top: 8px;
+      box-shadow: 0 0 5px #00ffff, 0 0 10px #ff00cc;
+      backdrop-filter: blur(5px);
+    }
 
-        .geocoder-suggestion:hover {
-            background-color: rgba(255, 0, 204, 0.2);
-        }
+    .geocoder-suggestion {
+      padding: 12px 15px;
+      color: #f0f0f0;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      transition: background-color 0.2s ease;
+    }
 
-        /* --- Custom Navigation Controls Container --- */
-        .custom-nav-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: flex-end; /* Align to the right */
-        }
+    .geocoder-suggestion:last-child {
+      border-bottom: none;
+    }
 
-        /* --- General Button Style --- */
-        .neon-map-button {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(10, 10, 25, 0.8);
-            border: 1px solid #00ffff;
-            border-radius: 8px;
-            color: #00ffff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.2s ease-in-out;
-            box-shadow: 
-                0 0 5px #00ffff, 
-                0 0 10px #00ffff, 
-                0 0 15px #ff00cc,
-                inset 0 0 5px rgba(0, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-        }
+    .geocoder-suggestion:hover {
+      background-color: rgba(255, 0, 204, 0.2);
+    }
 
-        .neon-map-button:hover {
-            background-color: rgba(255, 0, 204, 0.3);
-            color: #ffffff;
-            transform: scale(1.1);
-            box-shadow: 
-                0 0 8px #ff00cc, 
-                0 0 15px #ff00cc, 
-                0 0 25px #ff00cc,
-                inset 0 0 8px rgba(255, 0, 204, 0.6);
-        }
-        
-        .neon-map-button:active {
-            transform: scale(1.05);
-        }
+    /* --- Custom Navigation Controls Container --- */
+    .custom-nav-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+      /* Align to the right */
+    }
 
-        /* --- Compass Icon Styling --- */
-        #compass-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: #00ffff;
-            transition: transform 0.3s ease-in-out, fill 0.2s;
-        }
-        
-        #compass-btn:hover svg {
-            fill: #ffffff;
-        }
+    /* --- General Button Style --- */
+    .neon-map-button {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(10, 10, 25, 0.8);
+      border: 1px solid #00ffff;
+      border-radius: 8px;
+      color: #00ffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+      box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #ff00cc,
+        inset 0 0 5px rgba(0, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .neon-map-button:hover {
+      background-color: rgba(255, 0, 204, 0.3);
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow:
+        0 0 8px #ff00cc,
+        0 0 15px #ff00cc,
+        0 0 25px #ff00cc,
+        inset 0 0 8px rgba(255, 0, 204, 0.6);
+    }
+
+    .neon-map-button:active {
+      transform: scale(1.05);
+    }
+
+    /* --- Compass Icon Styling --- */
+    #compass-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #00ffff;
+      transition: transform 0.3s ease-in-out, fill 0.2s;
+    }
+
+    #compass-btn:hover svg {
+      fill: #ffffff;
+    }
+
+    /* --- GOOGLE STYLE NEON SEARCH --- */
+
+    /* Contenedor principal de búsqueda (Omnibox) */
+    .neon-omnibox {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 320px;
+      z-index: 50;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Input principal de búsqueda */
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+      background: rgba(13, 13, 26, 0.95);
+      border: 1px solid #00ffcc;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+      border-radius: 8px;
+      padding: 0 10px;
+      height: 48px;
+      transition: all 0.3s;
+    }
+
+    .search-bar-container:focus-within {
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+      border-color: #fff;
+    }
+
+    #main-search-input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      flex: 1;
+      padding: 10px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    #search-icon,
+    #close-panel-btn {
+      color: #00ffcc;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    /* Resultados de autocompletado */
+    .search-results {
+      margin-top: 5px;
+      background: rgba(13, 13, 26, 0.95);
+      border: 1px solid #00ffcc;
+      border-radius: 8px;
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+      /* Oculto por defecto */
+    }
+
+    .result-item {
+      padding: 12px;
+      border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+      color: #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .result-item:hover {
+      background: rgba(0, 255, 204, 0.15);
+      color: #fff;
+    }
+
+    /* --- PLACE CARD (Información del lugar seleccionado) --- */
+    .place-card {
+      position: absolute;
+      bottom: -200px;
+      /* Oculto abajo */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background: rgba(13, 13, 26, 0.95);
+      border: 2px solid #ff00cc;
+      box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      z-index: 45;
+      transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+    }
+
+    .place-card.active {
+      bottom: 30px;
+    }
+
+    .place-card h2 {
+      margin: 0 0 10px 0;
+      color: #ff00cc;
+      text-shadow: 0 0 5px #ff00cc;
+    }
+
+    .btn-neon {
+      background: transparent;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+      text-transform: uppercase;
+      margin-top: 10px;
+      box-shadow: 0 0 5px #00ffcc;
+    }
+
+    .btn-neon:hover {
+      background: #00ffcc;
+      color: #000;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    .btn-neon.primary {
+      border-color: #ff00cc;
+      color: #ff00cc;
+      box-shadow: 0 0 5px #ff00cc;
+    }
+
+    .btn-neon.primary:hover {
+      background: #ff00cc;
+      color: #fff;
+      box-shadow: 0 0 20px #ff00cc;
+    }
+
+    /* --- DIRECTIONS PANEL (Panel de Ruta) --- */
+    .directions-panel {
+      position: absolute;
+      top: 20px;
+      left: -400px;
+      /* Oculto a la izquierda */
+      width: 340px;
+      background: rgba(13, 13, 26, 0.98);
+      border: 1px solid #00ffcc;
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+      border-radius: 8px;
+      z-index: 55;
+      padding: 15px;
+      transition: left 0.4s ease;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .directions-panel.open {
+      left: 20px;
+    }
+
+    .route-inputs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .inputs-stack {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .route-input-wrapper {
+      position: relative;
+    }
+
+    .route-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #555;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .route-input:focus {
+      border-color: #00ffcc;
+      outline: none;
+    }
+
+    .swap-btn {
+      background: none;
+      border: none;
+      color: #ff00cc;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 5px;
+      transition: transform 0.3s;
+    }
+
+    .swap-btn:hover {
+      transform: rotate(180deg);
+      text-shadow: 0 0 5px #ff00cc;
+    }
+
+    .transport-modes {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    .mode-btn {
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .mode-btn.active {
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc;
+      border-bottom: 2px solid #00ffcc;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      .neon-omnibox {
+        width: calc(100% - 40px);
+      }
+
+      .directions-panel {
+        width: 100%;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        border-radius: 0;
+      }
+
+      .directions-panel.open {
+        left: 0;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- The MapLibre map container -->
@@ -390,29 +663,56 @@ html {
     <canvas id="car-canvas"></canvas>
   </div>
 
-  <!-- Routing Controls Overlay -->
-  <div class="routing-controls">
-    <div>
-      <label for="start-coord">Start:</label>
-      <input id="start-coord" type="text" placeholder="Click map or search" style="width:120px;">
+  <div class="neon-omnibox" id="search-omnibox">
+    <div class="search-bar-container">
+      <div id="search-icon">🔍</div>
+      <input type="text" id="main-search-input" placeholder="Search Neon City..." autocomplete="off">
     </div>
-    <div>
-      <label for="target-coord">Target:</label>
-      <input id="target-coord" type="text" placeholder="Click map or search" style="width:120px;">
-    </div>
-    <div>
-      <label for="transport">Transport:</label>
-      <select id="transport">
-        <option value="auto">Car</option>
-        <option value="bicycle">Bicycle</option>
-        <option value="pedestrian">Walk</option>
-      </select>
-      <button id="route-btn" style="margin-left:10px;background:#ff00cc;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;">Route</button>
+    <div class="search-results" id="omnibox-results"></div>
+  </div>
+
+  <div class="place-card" id="place-details">
+    <h2 id="card-title">Location Name</h2>
+    <p id="card-coords" style="color: #aaa; margin-bottom: 15px;"></p>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <button class="btn-neon primary" id="btn-drive-here">Navigate Here</button>
+      <button class="btn-neon" id="btn-close-card">Dismiss</button>
     </div>
   </div>
 
+  <div class="directions-panel" id="directions-panel">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h3 style="margin:0; color:#fff;">Route Planner</h3>
+      <div id="close-directions" style="cursor:pointer; color: #ff00cc;">✖</div>
+    </div>
+
+    <div class="transport-modes">
+      <button class="mode-btn active" data-mode="auto" title="Car">🚗</button>
+      <button class="mode-btn" data-mode="bicycle" title="Bicycle">🚲</button>
+      <button class="mode-btn" data-mode="pedestrian" title="Walk">🚶</button>
+    </div>
+
+    <div class="route-inputs">
+      <div class="inputs-stack">
+        <div class="route-input-wrapper">
+          <label style="font-size: 10px; color:#00ffcc;">FROM</label>
+          <input type="text" id="dir-input-start" class="route-input" value="Your Location" readonly
+            style="cursor: pointer;">
+        </div>
+        <div class="route-input-wrapper">
+          <label style="font-size: 10px; color:#ff00cc;">TO</label>
+          <input type="text" id="dir-input-dest" class="route-input" readonly>
+        </div>
+      </div>
+      <button class="swap-btn" id="btn-swap-route" title="Swap Origin/Dest">⇅</button>
+    </div>
+
+    <button class="btn-neon primary" id="btn-go-route" style="width: 100%;">INITIATE ROUTE</button>
+    <p id="route-status" style="text-align: center; margin-top: 10px; color: #aaa; font-size: 12px;"></p>
+  </div>
+
   <!-- Add this button inside your HTML body, after the map div, for "Neon Drive" style -->
-<button id="gps-btn" style="
+  <button id="gps-btn" style="
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -429,46 +729,42 @@ html {
   cursor: pointer;
   transition: box-shadow 0.3s;
 ">
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="5" stroke="#00ffcc" stroke-width="2" fill="#0d0d1a"/>
-    <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#ff00cc" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="5" stroke="#00ffcc" stroke-width="2" fill="#0d0d1a" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#ff00cc" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </button>
 
 
-    <!-- The Custom HTML Controls Container -->
-    <div class="custom-controls-container">
-        <!-- Custom Geocoder -->
-        <div class="custom-geocoder-container">
-            <input type="text" id="geocoder-input" placeholder="Search location...">
-            <div id="geocoder-results"></div>
-        </div>
-        <!-- Custom Navigation Controls -->
-        <div class="custom-nav-controls">
-            <button id="zoom-in-btn" class="neon-map-button" aria-label="Zoom in">+</button>
-            <button id="zoom-out-btn" class="neon-map-button" aria-label="Zoom out">-</button>
-            <button id="compass-btn" class="neon-map-button" aria-label="Reset bearing to north">
-                <svg id="compass-arrow" viewBox="0 0 24 24">
-                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
-                </svg>
-            </button>
-        </div>
+  <!-- The Custom HTML Controls Container -->
+  <div class="custom-controls-container">
+
+    <!-- Custom Navigation Controls -->
+    <div class="custom-nav-controls">
+      <button id="zoom-in-btn" class="neon-map-button" aria-label="Zoom in">+</button>
+      <button id="zoom-out-btn" class="neon-map-button" aria-label="Zoom out">-</button>
+      <button id="compass-btn" class="neon-map-button" aria-label="Reset bearing to north">
+        <svg id="compass-arrow" viewBox="0 0 24 24">
+          <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+        </svg>
+      </button>
     </div>
+  </div>
 
-<script>
-  document.getElementById('gps-btn').onclick = function() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(pos) {
-        map.flyTo({
-          center: [pos.coords.longitude, pos.coords.latitude],
-          zoom: 14
+  <script>
+    document.getElementById('gps-btn').onclick = function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (pos) {
+          map.flyTo({
+            center: [pos.coords.longitude, pos.coords.latitude],
+            zoom: 14
+          });
         });
-      });
-    } else {
-      alert('Geolocation is not supported by your browser.');
-    }
-  };
-</script>
+      } else {
+        alert('Geolocation is not supported by your browser.');
+      }
+    };
+  </script>
 
   <script>
     window.navigator.standalone
@@ -513,60 +809,60 @@ html {
     const map = new maplibregl.Map({
       container: 'map',
       style: {
-  "version": 8,
-  "metadata": {"maputnik:renderer": "mlgljs"},
-  "projection": {"type": "globe"},
-  "sources": {
-    "openmaptiles": {
-      "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
-    }
-  },
-  "layers": [
-    {
-      "id": "background",
-      "type": "background",
-      "paint": {"background-color": "#0d0d1a"}
-    },
-    {
-      "id": "water",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "paint": {"fill-color": "#002a3a"}
-    },
-    {
-      "id": "road_casing",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "paint": {
+        "version": 8,
+        "metadata": { "maputnik:renderer": "mlgljs" },
+        "projection": { "type": "globe" },
+        "sources": {
+          "openmaptiles": {
+            "type": "vector",
+            "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
+          }
+        },
+        "layers": [
+          {
+            "id": "background",
+            "type": "background",
+            "paint": { "background-color": "#0d0d1a" }
+          },
+          {
+            "id": "water",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "water",
+            "paint": { "fill-color": "#002a3a" }
+          },
+          {
+            "id": "road_casing",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
               "line-color": "#ff00cc",
               "line-width": 1,
               "line-opacity": 0.5
-      }
-    },
-    {
-      "id": "road",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "paint": {
-        "line-color": "rgba(0, 255, 204, 1)",
-        "line-width": 1,
-        "line-opacity": 0.7
-      }
-    },
-    {
-      "id": "buildings",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "building",
-      "paint": {"fill-color": "rgba(0, 255, 204, 0.18)", "fill-opacity": 0.7}
-    }
-  ],
-  "id": "rt6nxgj"
-},
+            }
+          },
+          {
+            "id": "road",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "paint": {
+              "line-color": "rgba(0, 255, 204, 1)",
+              "line-width": 1,
+              "line-opacity": 0.7
+            }
+          },
+          {
+            "id": "buildings",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "building",
+            "paint": { "fill-color": "rgba(0, 255, 204, 0.18)", "fill-opacity": 0.7 }
+          }
+        ],
+        "id": "rt6nxgj"
+      },
       center: [-122.41877447993727, 37.7977350127602],
       zoom: 10.4,
       pitch: 60,
@@ -580,36 +876,36 @@ html {
     });*/
 
 
-        // --- Custom Controls Logic ---
-        map.on('load', () => {
-            // Instead of map.addControl, we add event listeners to our HTML buttons
+    // --- Custom Controls Logic ---
+    map.on('load', () => {
+      // Instead of map.addControl, we add event listeners to our HTML buttons
 
-            const zoomInBtn = document.getElementById('zoom-in-btn');
-            const zoomOutBtn = document.getElementById('zoom-out-btn');
-            const compassBtn = document.getElementById('compass-btn');
-            const compassArrow = document.getElementById('compass-arrow');
+      const zoomInBtn = document.getElementById('zoom-in-btn');
+      const zoomOutBtn = document.getElementById('zoom-out-btn');
+      const compassBtn = document.getElementById('compass-btn');
+      const compassArrow = document.getElementById('compass-arrow');
 
-            // 1. Zoom In functionality
-            zoomInBtn.addEventListener('click', () => {
-                map.zoomIn({ duration: 300 });
-            });
+      // 1. Zoom In functionality
+      zoomInBtn.addEventListener('click', () => {
+        map.zoomIn({ duration: 300 });
+      });
 
-            // 2. Zoom Out functionality
-            zoomOutBtn.addEventListener('click', () => {
-                map.zoomOut({ duration: 300 });
-            });
+      // 2. Zoom Out functionality
+      zoomOutBtn.addEventListener('click', () => {
+        map.zoomOut({ duration: 300 });
+      });
 
-            // 3. Compass (Reset North) functionality
-            compassBtn.addEventListener('click', () => {
-                map.resetNorth({ duration: 500 });
-            });
-            
-            // 4. Update compass arrow rotation as the map rotates
-            map.on('rotate', () => {
-                const bearing = map.getBearing();
-                compassArrow.style.transform = `rotate(${bearing}deg)`;
-            });
-        });
+      // 3. Compass (Reset North) functionality
+      compassBtn.addEventListener('click', () => {
+        map.resetNorth({ duration: 500 });
+      });
+
+      // 4. Update compass arrow rotation as the map rotates
+      map.on('rotate', () => {
+        const bearing = map.getBearing();
+        compassArrow.style.transform = `rotate(${bearing}deg)`;
+      });
+    });
 
 
     // --- Geocoder integration ---
@@ -618,17 +914,16 @@ html {
         const features = [];
         try {
           const request =
-            `https://nominatim.openstreetmap.org/search?q=${
-              config.query
+            `https://nominatim.openstreetmap.org/search?q=${config.query
             }&format=geojson&polygon_geojson=1&addressdetails=1`;
           const response = await fetch(request);
           const geojson = await response.json();
           for (const feature of geojson.features) {
             const center = [
               feature.bbox[0] +
-                (feature.bbox[2] - feature.bbox[0]) / 2,
+              (feature.bbox[2] - feature.bbox[0]) / 2,
               feature.bbox[1] +
-                (feature.bbox[3] - feature.bbox[1]) / 2
+              (feature.bbox[3] - feature.bbox[1]) / 2
             ];
             const point = {
               type: 'Feature',
@@ -650,111 +945,68 @@ html {
         return { features };
       }
     };
-/*
-    map.addControl(
-      new MaplibreGeocoder(geocoderApi, {
-        maplibregl,
-        showResultMarkers: true,
-        markerOptions: { color: "#ff00cc" }
-      }),
-      'top-right'
-    );*/
+    /*
+        map.addControl(
+          new MaplibreGeocoder(geocoderApi, {
+            maplibregl,
+            showResultMarkers: true,
+            markerOptions: { color: "#ff00cc" }
+          }),
+          'top-right'
+        );*/
 
 
 
 
 
-            map.on('load', () => {
-            // --- Custom Geocoder Logic ---
-            const geocoderInput = document.getElementById('geocoder-input');
-            const geocoderResults = document.getElementById('geocoder-results');
-            let searchTimeout;
 
-            geocoderInput.addEventListener('input', (e) => {
-                // Clear previous timeout
-                clearTimeout(searchTimeout);
-                // Set a new timeout to avoid spamming the API
-                searchTimeout = setTimeout(async () => {
-                    const query = e.target.value;
-                    geocoderResults.innerHTML = ''; // Clear previous results
-
-                    if (query.length < 3) {
-                        return;
-                    }
-
-                    const { features } = await geocoderApi.forwardGeocode({ query });
-
-                    features.forEach(feature => {
-                        const suggestionEl = document.createElement('div');
-                        suggestionEl.className = 'geocoder-suggestion';
-                        suggestionEl.textContent = feature.place_name;
-                        suggestionEl.addEventListener('click', () => {
-                            map.flyTo({
-                                center: feature.center,
-                                zoom: 14,
-                                duration: 2000
-                            });
-                            // Add a marker
-                            new maplibregl.Marker({ color: "#ff00cc" })
-                                .setLngLat(feature.center)
-                                .addTo(map);
-                            
-                            // Clear results and input
-                            geocoderInput.value = '';
-                            geocoderResults.innerHTML = '';
-                        });
-                        geocoderResults.appendChild(suggestionEl);
+    /* GPS button to center map on user's location 
+        map.addControl(
+          new maplibregl.Control({
+            onAdd: function(map) {
+              const btn = document.createElement('button');
+              btn.id = 'gps-btn';
+              btn.style.position = 'absolute';
+              btn.style.bottom = '20px';
+              btn.style.right = '20px';
+              btn.style.zIndex = '30';
+              btn.style.background = 'white';
+              btn.style.border = 'none';
+              btn.style.borderRadius = '50%';
+              btn.style.width = '48px';
+              btn.style.height = '48px';
+              btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+              btn.style.cursor = 'pointer';
+              btn.style.display = 'flex';
+              btn.style.alignItems = 'center';
+              btn.style.justifyContent = 'center';
+              btn.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="#222" stroke-width="2" fill="#fff"/>
+                  <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              `;
+              btn.onclick = function() {
+                if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(pos) {
+                    map.flyTo({
+                      center: [pos.coords.longitude, pos.coords.latitude],
+                      zoom: 14
                     });
-                }, 500); // Debounce time: 500ms
-            });
-        });
-/* GPS button to center map on user's location 
-    map.addControl(
-      new maplibregl.Control({
-        onAdd: function(map) {
-          const btn = document.createElement('button');
-          btn.id = 'gps-btn';
-          btn.style.position = 'absolute';
-          btn.style.bottom = '20px';
-          btn.style.right = '20px';
-          btn.style.zIndex = '30';
-          btn.style.background = 'white';
-          btn.style.border = 'none';
-          btn.style.borderRadius = '50%';
-          btn.style.width = '48px';
-          btn.style.height = '48px';
-          btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
-          btn.style.cursor = 'pointer';
-          btn.style.display = 'flex';
-          btn.style.alignItems = 'center';
-          btn.style.justifyContent = 'center';
-          btn.innerHTML = `
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="4" stroke="#222" stroke-width="2" fill="#fff"/>
-              <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="#222" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          `;
-          btn.onclick = function() {
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(pos) {
-                map.flyTo({
-                  center: [pos.coords.longitude, pos.coords.latitude],
-                  zoom: 14
-                });
-              });
-            } else {
-              alert('Geolocation is not supported by your browser.');
+                  });
+                } else {
+                  alert('Geolocation is not supported by your browser.');
+                }
+              };
+              return btn;
+            },
+            onRemove: function() {
+              document.getElementById('gps-btn')?.remove();
             }
-          };
-          return btn;
-        },
-        onRemove: function() {
-          document.getElementById('gps-btn')?.remove();
-        }
-      }),
-      '' // empty string for custom position, so it overlays the map
-    );
-*/
+          }),
+          '' // empty string for custom position, so it overlays the map
+        );
+    */
     // Event listener for the clickable track menu
     const trackMenu = document.getElementById('track-menu');
     trackMenu.addEventListener('click', (e) => {
@@ -781,134 +1033,20 @@ html {
       }
     });
 
-    // --- Routing logic ---
-    let startCoord = null;
-    let targetCoord = null;
-    const routeLayerId = 'valhalla-route';
 
-    // Helper to update input fields
-    function setCoordInput(id, coord) {
-      document.getElementById(id).value = coord ? `${coord[1].toFixed(5)}, ${coord[0].toFixed(5)}` : '';
-    }
-
-    // Map click to set start/target
-    let selectMode = 'start'; // 'start' or 'target'
-    document.getElementById('start-coord').addEventListener('focus', () => selectMode = 'start');
-    document.getElementById('target-coord').addEventListener('focus', () => selectMode = 'target');
-
-    map.on('click', (e) => {
-      const lngLat = [e.lngLat.lng, e.lngLat.lat];
-      if (selectMode === 'start') {
-        startCoord = lngLat;
-        setCoordInput('start-coord', lngLat);
-      } else {
-        targetCoord = lngLat;
-        setCoordInput('target-coord', lngLat);
-      }
-    });
-
-    // Geocoder result to set start/target
-    map.on('geocoder.result', (ev) => {
-      const coord = ev.result.center;
-      if (selectMode === 'start') {
-        startCoord = coord;
-        setCoordInput('start-coord', coord);
-      } else {
-        targetCoord = coord;
-        setCoordInput('target-coord', coord);
-      }
-    });
-
-    // Routing button
-    document.getElementById('route-btn').onclick = async () => {
-      if (!startCoord || !targetCoord) {
-        alert('Please select both start and target points.');
-        return;
-      }
-      const mode = document.getElementById('transport').value;
-
-      // Build Valhalla route API request
-      const url = 'https://valhalla1.openstreetmap.de/route';
-      const body = {
-        costing: mode,
-        locations: [
-          {lon: startCoord[0], lat: startCoord[1]},
-          {lon: targetCoord[0], lat: targetCoord[1]}
-        ],
-        directions_options: {units: "kilometers"}
-      };
-
-      try {
-        const resp = await fetch(url, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(body)
-        });
-        const data = await resp.json();
-        console.log('Routing response:', data);
-       
-        if (data.trip) {
-          // Decode the polyline and add it to the map
-          const routeCoords = decodeValhallaPolyline(data.trip.legs[0].shape);
-          if (map.getLayer(routeLayerId)) {
-            map.removeLayer(routeLayerId);
-            map.removeSource(routeLayerId);
-          }
-          map.addSource(routeLayerId, {
-            type: 'geojson',
-            data: {
-              type: 'Feature',
-              geometry: {
-                type: 'LineString',
-                coordinates: routeCoords
-              }
-            }
-          });
-          map.addLayer({
-            id: routeLayerId,
-            type: 'line',
-            source: routeLayerId,
-            paint: {
-              'line-color': '#ff00cc',
-              'line-width': 8,
-              'line-opacity': 0.8
-            }
-          });
-
-        const bbox = turf.bbox({
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: routeCoords
-          }
-        });
-        map.fitBounds(bbox, {padding: 40});
-
-
-
-
-        } else {
-          alert('No route found.');
-        }
-
-      } catch (err) {
-        alert('Routing failed.');
-        console.error(err);
-      }
-    };
 
     // Polyline decoder for Valhalla (Project-OSRM style)
     function decodeValhallaPolyline(str, precision) {
       var index = 0,
-          lat = 0,
-          lng = 0,
-          coordinates = [],
-          shift = 0,
-          result = 0,
-          byte = null,
-          latitude_change,
-          longitude_change,
-          factor = Math.pow(10, precision || 6);
+        lat = 0,
+        lng = 0,
+        coordinates = [],
+        shift = 0,
+        result = 0,
+        byte = null,
+        latitude_change,
+        longitude_change,
+        factor = Math.pow(10, precision || 6);
 
       while (index < str.length) {
         byte = null;
@@ -952,5 +1090,271 @@ html {
     });
   </script>
 
+  <script>
+    // --- STATE VARIABLES ---
+    let selectedPlace = null; // Coordinates [lng, lat]
+    let currentMode = 'auto';
+    let useUserLocation = true; // Default start point
+    let userLocationCoords = null;
+    let customStartCoords = null; // If user swaps or picks a point
+    let routeMarker = null;
+
+    // DOM Elements
+    const omnibox = document.getElementById('search-omnibox');
+    const searchInput = document.getElementById('main-search-input');
+    const searchResults = document.getElementById('omnibox-results');
+
+    const placeCard = document.getElementById('place-details');
+    const cardTitle = document.getElementById('card-title');
+    const cardCoords = document.getElementById('card-coords');
+
+    const directionsPanel = document.getElementById('directions-panel');
+    const inputStart = document.getElementById('dir-input-start');
+    const inputDest = document.getElementById('dir-input-dest');
+
+    // --- 1. SEARCH LOGIC ---
+    let debounceTimeout;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value;
+      clearTimeout(debounceTimeout);
+
+      if (query.length < 3) {
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      debounceTimeout = setTimeout(async () => {
+        // Use existing geocoderApi
+        const { features } = await geocoderApi.forwardGeocode({ query });
+
+        searchResults.innerHTML = '';
+        if (features.length > 0) {
+          searchResults.style.display = 'block';
+          features.forEach(feature => {
+            const div = document.createElement('div');
+            div.className = 'result-item';
+            div.innerText = feature.place_name;
+            div.onclick = () => selectLocation(feature);
+            searchResults.appendChild(div);
+          });
+        } else {
+          searchResults.style.display = 'none';
+        }
+      }, 400);
+    });
+
+    // When a user clicks a result
+    function selectLocation(feature) {
+      // 1. Clear search
+      searchInput.value = feature.place_name;
+      searchResults.style.display = 'none';
+
+      // 2. Fly to map
+      map.flyTo({ center: feature.center, zoom: 15 });
+
+      // 3. Set Marker
+      if (routeMarker) routeMarker.remove();
+      routeMarker = new maplibregl.Marker({ color: "#00ffcc" })
+        .setLngLat(feature.center)
+        .addTo(map);
+
+      // 4. Save state
+      selectedPlace = {
+        name: feature.text,
+        full_name: feature.place_name,
+        coords: feature.center
+      };
+
+      // 5. Show Place Card
+      showPlaceCard(selectedPlace);
+
+      // Hide directions panel if open
+      directionsPanel.classList.remove('open');
+    }
+
+    function showPlaceCard(place) {
+      cardTitle.innerText = place.name;
+      cardCoords.innerText = `${place.coords[1].toFixed(4)}, ${place.coords[0].toFixed(4)}`;
+      placeCard.classList.add('active');
+    }
+
+    // --- 2. CARD ACTIONS ---
+    document.getElementById('btn-close-card').onclick = () => {
+      placeCard.classList.remove('active');
+      searchInput.value = ''; // Reset
+    };
+
+    document.getElementById('btn-drive-here').onclick = () => {
+      // Transition to Directions Panel
+      placeCard.classList.remove('active');
+      omnibox.style.display = 'none'; // Hide search bar while routing
+      openDirectionsPanel();
+    };
+
+    // --- 3. DIRECTIONS PANEL LOGIC ---
+    function openDirectionsPanel() {
+      directionsPanel.classList.add('open');
+
+      // Default State: Origin = User Location, Dest = Selected Place
+      useUserLocation = true;
+      inputStart.value = "Your Location (GPS)";
+      inputDest.value = selectedPlace ? selectedPlace.name : "Select Destination";
+
+      // Try to get GPS immediately if needed
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((pos) => {
+          userLocationCoords = [pos.coords.longitude, pos.coords.latitude];
+        });
+      }
+    }
+
+    document.getElementById('close-directions').onclick = () => {
+      directionsPanel.classList.remove('open');
+      omnibox.style.display = 'block'; // Bring back search
+      // Clear route lines if desired
+      if (map.getLayer('valhalla-route')) {
+        map.removeLayer('valhalla-route');
+        map.removeSource('valhalla-route');
+      }
+    };
+
+    // SWAP BUTTON
+    document.getElementById('btn-swap-route').onclick = () => {
+      // Logic: Swap values and internal coordinates
+      const tempVal = inputStart.value;
+      inputStart.value = inputDest.value;
+      inputDest.value = tempVal;
+
+      // Logic: If we were using user location as start, now it's destination?
+      // For simplicity, let's just handle the "useUserLocation" flag flip
+      if (useUserLocation) {
+        // Now start is the Place, End is GPS
+        useUserLocation = false;
+        customStartCoords = selectedPlace.coords;
+        // Ideally we need to set destination as GPS, but let's assume
+        // simple swap for visual feedback first.
+        // Complex swapping usually requires full geocoding of both fields.
+        alert("Swapping requires re-selecting points in this demo version.");
+        // Reset for stability in this snippet
+        inputStart.value = "Your Location";
+        inputDest.value = selectedPlace.name;
+        useUserLocation = true;
+      }
+    };
+
+    // TRANSPORT MODE SELECTION
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentMode = e.target.dataset.mode;
+      });
+    });
+
+    // --- 4. EXECUTE ROUTE (VALHALLA) ---
+    document.getElementById('btn-go-route').onclick = async () => {
+      const status = document.getElementById('route-status');
+      status.innerText = "Calculating route...";
+      status.style.color = "#00ffcc";
+
+      let startPoint = null;
+      let endPoint = null;
+
+      // Determine Start Point
+      if (inputStart.value.includes("Your Location")) {
+        if (!userLocationCoords) {
+          // Force get location
+          await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(pos => {
+              userLocationCoords = [pos.coords.longitude, pos.coords.latitude];
+              resolve();
+            }, () => reject("GPS Denied"));
+          });
+        }
+        startPoint = userLocationCoords;
+      } else {
+        startPoint = customStartCoords || (selectedPlace ? selectedPlace.coords : null);
+      }
+
+      // Determine End Point
+      endPoint = selectedPlace ? selectedPlace.coords : null;
+
+      if (!startPoint || !endPoint) {
+        status.innerText = "Error: Missing Start or End point.";
+        status.style.color = "red";
+        return;
+      }
+
+      // API Call (Reusing your existing Valhalla logic)
+      const url = 'https://valhalla1.openstreetmap.de/route';
+      const body = {
+        costing: currentMode,
+        locations: [
+          { lon: startPoint[0], lat: startPoint[1] },
+          { lon: endPoint[0], lat: endPoint[1] }
+        ],
+        directions_options: { units: "kilometers" }
+      };
+
+      try {
+        const resp = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        const data = await resp.json();
+
+        if (data.trip) {
+          status.innerText = `Route found! ${data.trip.summary.length.toFixed(1)}km`;
+
+          // Draw Route
+          const routeCoords = decodeValhallaPolyline(data.trip.legs[0].shape);
+          const routeLayerId = 'valhalla-route';
+
+          if (map.getLayer(routeLayerId)) {
+            map.removeLayer(routeLayerId);
+            map.removeSource(routeLayerId);
+          }
+
+          map.addSource(routeLayerId, {
+            type: 'geojson',
+            data: {
+              type: 'Feature',
+              geometry: { type: 'LineString', coordinates: routeCoords }
+            }
+          });
+
+          map.addLayer({
+            id: routeLayerId,
+            type: 'line',
+            source: routeLayerId,
+            layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: {
+              'line-color': '#ff00cc',
+              'line-width': 6,
+              'line-blur': 1,
+              'line-opacity': 0.9,
+              'line-dasharray': [1, 0] // Solid neon line
+            }
+          });
+
+          // Fit bounds
+          const bounds = new maplibregl.LngLatBounds();
+          routeCoords.forEach(coord => bounds.extend(coord));
+          map.fitBounds(bounds, { padding: 50 });
+
+        } else {
+          status.innerText = "No route found.";
+          status.style.color = "red";
+        }
+      } catch (e) {
+        console.error(e);
+        status.innerText = "Routing API Error.";
+        status.style.color = "red";
+      }
+    };
+  </script>
 </body>
+
 </html>
