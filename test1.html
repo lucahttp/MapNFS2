@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
   <title>NFS SUC</title>
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:description" content="Use a custom style layer with three.js to add a 3D model to the map." />
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts: Orbitron for numbers/tech, Rajdhani for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +15,29 @@
     rel="stylesheet">
 
   <!-- MapLibre -->
-  <script src="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js"></script>
-  <link href="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css' />
+  <script src='https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js'></script>
 
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- Turf.js for logic -->
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: 'Rajdhani', sans-serif;
+      overflow: hidden;
+      color: #00f3ff;
+    }
+
+    html,
+    body,
+    #map {
+      height: 100%;
+    }
+
+    /* --- HUD AND UI STYLES --- */
     :root {
       --nfs-cyan: #00f3ff;
       --nfs-pink: #ff0055;
@@ -34,24 +47,6 @@
       --hud-skew: -15deg;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: 'Rajdhani', sans-serif;
-      overflow: hidden;
-      color: var(--nfs-cyan);
-    }
-
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: 0;
-    }
-
-    /* --- HUD CONTAINER --- */
     .hud-layer {
       position: absolute;
       top: 0;
@@ -71,7 +66,6 @@
       pointer-events: auto;
     }
 
-    /* --- TOP BAR (Search & Status) --- */
     .top-bar {
       width: 100%;
       display: flex;
@@ -82,6 +76,17 @@
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     }
 
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    /* Nav Hub */
     .nav-hub {
       position: relative;
       width: 350px;
@@ -152,7 +157,7 @@
       color: var(--nfs-yellow);
     }
 
-    /* --- ROUTE PANEL (Hidden by default) --- */
+    /* Route Panel */
     .route-panel {
       position: absolute;
       top: 80px;
@@ -164,7 +169,6 @@
       transform: skewX(var(--hud-skew));
       padding: 15px;
       display: none;
-      /* Toggled */
       box-shadow: 0 0 20px rgba(255, 230, 0, 0.2);
     }
 
@@ -211,7 +215,6 @@
       text-transform: uppercase;
       font-weight: 900;
       transform: skewX(15deg);
-      /* Counter parent */
       transition: 0.2s;
     }
 
@@ -220,8 +223,7 @@
       box-shadow: 0 0 15px var(--nfs-pink);
     }
 
-
-    /* --- DANGER WARNING WIDGET --- */
+    /* Danger Widget */
     .danger-widget {
       display: none;
       background: rgba(255, 0, 85, 0.2);
@@ -253,18 +255,7 @@
       }
     }
 
-    /* --- BOTTOM CONTROLS --- */
-    .bottom-bar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding: 20px;
-      box-sizing: border-box;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
-    }
-
-    /* Recent Locations / Stats */
+    /* History & Stats */
     .history-panel {
       background: var(--nfs-dark-trans);
       border-left: 4px solid var(--nfs-yellow);
@@ -302,7 +293,6 @@
       text-shadow: 0 0 5px var(--nfs-yellow);
     }
 
-    /* Speed / Car Stats */
     .speed-cluster {
       position: relative;
       text-align: right;
@@ -329,7 +319,6 @@
       margin-right: 10px;
     }
 
-    /* 3D Car Integrator */
     #car-canvas-container {
       width: 180px;
       height: 100px;
@@ -337,15 +326,6 @@
       margin-right: -20px;
       opacity: 0.8;
       transform: skewX(15deg);
-    }
-
-    /* --- MAP MARKERS --- */
-    .marker-camera {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0055"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-4-8c0 2.21 1.79 4 4 4s4-1.79 4-4-1.79-4-4-4-4 1.79-4 4z"/><circle cx="12" cy="12" r="2" fill="%23fff"/></svg>');
-      width: 30px;
-      height: 30px;
-      background-size: cover;
-      filter: drop-shadow(0 0 5px var(--nfs-pink));
     }
 
     @media (max-width: 768px) {
@@ -361,47 +341,41 @@
 </head>
 
 <body>
+  <script type="importmap">
+    {
+        "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+    }
+</script>
 
   <div id="map"></div>
 
+  <!-- HUD -->
   <div class="hud-layer">
-    <!-- TOP HUD -->
     <div class="top-bar">
-      <!-- Search / Dest Input -->
       <div class="nav-hub hud-element">
         <div class="nav-input-container">
           <span class="nav-label">DESTINATION</span>
           <input type="text" id="nav-input" class="hud-input" placeholder="SEARCH..." />
         </div>
-        <!-- Search Autocomplete Results -->
         <div class="search-results" id="search-results"></div>
-
-        <!-- Expanded Route Panel -->
         <div class="route-panel" id="route-panel">
-          <div class="route-row">
-            <span class="route-label">FROM:</span>
-            <div class="route-input-box">
-              <input type="text" id="start-input" value="Current Location" />
-            </div>
+          <div class="route-row"><span class="route-label">FROM:</span>
+            <div class="route-input-box"><input type="text" id="start-input" value="Current Location" /></div>
           </div>
-          <div class="route-row">
-            <span class="route-label">TO:</span>
-            <div class="route-input-box">
-              <input type="text" id="end-input" readonly />
-            </div>
+          <div class="route-row"><span class="route-label">TO:</span>
+            <div class="route-input-box"><input type="text" id="end-input" readonly /></div>
           </div>
           <button class="btn-go" onclick="startNavigation()">INITIATE ROUTE</button>
-          <!-- Sub-results for Start Input -->
           <div class="search-results" id="start-search-results" style="top: 100%; display:none;"></div>
         </div>
       </div>
-
       <div class="danger-widget hud-element" id="danger-alert">
         <div class="danger-text">! HIGH RISK ZONE !</div>
       </div>
     </div>
-
-    <!-- BOTTOM HUD -->
     <div class="bottom-bar">
       <div class="history-panel hud-element">
         <div class="history-title">RECENT LOCATIONS</div>
@@ -409,668 +383,378 @@
           <li class="history-item">SYSTEM READY...</li>
         </ul>
       </div>
-
       <div class="speed-cluster hud-element">
         <div class="speed-value">0</div>
         <div class="speed-label">KM/H</div>
-        <div id="car-canvas-container">
-          <canvas id="car-canvas"></canvas>
-        </div>
+        <div id="car-canvas-container"><canvas id="car-canvas"></canvas></div>
       </div>
     </div>
   </div>
 
-  <script>
-    // --- CONFIG & STATE ---
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    // Global config
     const CONFIG = {
-      defaultPos: [-122.4187, 37.7977], // Fallback if no GPS
-      theme: {
-        dark: '#0a0f1e',
-        cyan: '#00f3ff',
-        pink: '#ff0055'
+      defaultPos: [-58.3816, -34.6037], // Buenos Aires
+      theme: { dark: '#0a0f1e', cyan: '#00f3ff', pink: '#ff0055' }
+    };
+
+    let currentState = { currentPos: null, startPos: null, endPos: null, endName: "" };
+
+    // --- MAP SETUP ---
+    const map = new maplibregl.Map({
+      container: 'map',
+      // Using OpenMapTiles or similar for the base style (NEON Style)
+      style: {
+        "version": 8,
+        "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+        "sources": {
+          "osm": { "type": "raster", "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"], "tileSize": 256, "attribution": "&copy; NFS Map" },
+          "openmaptiles": { "type": "vector", "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q" }
+        },
+        "layers": [
+          { "id": "background", "type": "background", "paint": { "background-color": "#050510" } },
+          { "id": "water", "type": "fill", "source": "openmaptiles", "source-layer": "water", "paint": { "fill-color": "#001a2a" } },
+          { "id": "road", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "paint": { "line-color": "#00f3ff", "line-width": 1.5, "line-opacity": 0.4 } },
+          { "id": "building-3d", "type": "fill-extrusion", "source": "openmaptiles", "source-layer": "building", "paint": { "fill-extrusion-color": "#0a0f1e", "fill-extrusion-height": ["get", "render_height"], "fill-extrusion-base": ["get", "render_min_height"], "fill-extrusion-opacity": 0.8 } }
+        ]
+      },
+      zoom: 14,
+      center: CONFIG.defaultPos,
+      pitch: 60,
+      canvasContextAttributes: { antialias: true }
+    });
+
+    // --- CUSTOM 3D LAYER ---
+    const customLayer = {
+      id: '3d-model-layer',
+      type: 'custom',
+      renderingMode: '3d',
+      map: null,
+      camera: null,
+      scene: null,
+      renderer: null,
+
+      // Meshes
+      gasStationMeshes: { tanks: null, legs: null },
+      cameraMeshes: { pole: null, box: null },
+
+      onAdd(map, gl) {
+        this.map = map;
+        this.camera = new THREE.Camera();
+        this.scene = new THREE.Scene();
+
+        // Lights
+        const directionalLight = new THREE.DirectionalLight(0xffffff);
+        directionalLight.position.set(0, -70, 100).normalize();
+        this.scene.add(directionalLight);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff);
+        directionalLight2.position.set(0, 70, 100).normalize();
+        this.scene.add(directionalLight2);
+
+        const pointLight = new THREE.PointLight(0x00f3ff, 1, 1000);
+        pointLight.position.set(0, 0, 500);
+        this.scene.add(pointLight);
+
+        this.renderer = new THREE.WebGLRenderer({
+          canvas: map.getCanvas(),
+          context: gl,
+          antialias: true
+        });
+        this.renderer.autoClear = false;
+      },
+
+      render(gl, args) {
+        // Updated to match template: use args.defaultProjectionData.mainMatrix
+        // Note: MapLibre v5 structure.
+        let projectionMatrixArray = args && args.defaultProjectionData ? args.defaultProjectionData.mainMatrix : null;
+        // Fallback if args is not structured as expected (older versions or variations)
+        if (!projectionMatrixArray && Array.isArray(args)) projectionMatrixArray = args; // if args IS the matrix
+
+        if (projectionMatrixArray) {
+          const m = new THREE.Matrix4().fromArray(projectionMatrixArray);
+          this.camera.projectionMatrix = m;
+        }
+
+        this.renderer.resetState();
+        this.renderer.render(this.scene, this.camera);
+        this.map.triggerRepaint();
+      },
+
+      updateGasStations(features) {
+        if (!this.scene) return;
+        if (this.gasStationMeshes.tanks) this.scene.remove(this.gasStationMeshes.tanks);
+        if (this.gasStationMeshes.legs) this.scene.remove(this.gasStationMeshes.legs);
+
+        const count = features.length;
+        if (count === 0) return;
+
+        // ARCADE VISIBILITY: Huge Models
+        const tankGeo = new THREE.CylinderGeometry(15, 15, 40, 16);
+        tankGeo.rotateX(Math.PI / 2);
+        tankGeo.translate(0, 0, 20); // Lift
+
+        const legGeo = new THREE.BoxGeometry(8, 8, 30);
+        legGeo.translate(0, 0, 15);
+
+        const tankMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const legMat = new THREE.MeshBasicMaterial({ color: 0x333333 });
+
+        this.gasStationMeshes.tanks = new THREE.InstancedMesh(tankGeo, tankMat, count);
+        this.gasStationMeshes.legs = new THREE.InstancedMesh(legGeo, legMat, count);
+
+        const dummy = new THREE.Object3D();
+        const color = new THREE.Color();
+
+        features.forEach((f, i) => {
+          const coords = f.geometry.coordinates;
+          const mercator = maplibregl.MercatorCoordinate.fromLngLat(coords, 0);
+          const scale = mercator.meterInMercatorCoordinateUnits();
+
+          dummy.position.set(mercator.x, mercator.y, mercator.z || 0);
+          dummy.scale.set(scale, -scale, scale);
+          dummy.rotation.set(0, 0, 0);
+          dummy.updateMatrix();
+
+          this.gasStationMeshes.tanks.setMatrixAt(i, dummy.matrix);
+          this.gasStationMeshes.legs.setMatrixAt(i, dummy.matrix);
+
+          const type = f.properties.tipooperador;
+          if (type === 'Sólo GNC') color.setHex(0x00ff66);
+          else if (type === 'Combustibles líquidos únicamente') color.setHex(0xffe600);
+          else color.setHex(0xff0055);
+          this.gasStationMeshes.tanks.setColorAt(i, color);
+        });
+
+        this.gasStationMeshes.tanks.instanceMatrix.needsUpdate = true;
+        this.gasStationMeshes.tanks.instanceColor.needsUpdate = true;
+        this.gasStationMeshes.legs.instanceMatrix.needsUpdate = true;
+
+        this.scene.add(this.gasStationMeshes.tanks);
+        this.scene.add(this.gasStationMeshes.legs);
+        console.log("3D Gas Stations Updated: " + count);
+      },
+
+      updateCameras(features) {
+        if (!this.scene) return;
+        if (this.cameraMeshes.pole) this.scene.remove(this.cameraMeshes.pole);
+        if (this.cameraMeshes.box) this.scene.remove(this.cameraMeshes.box);
+
+        const count = features.length;
+        if (count === 0) return;
+
+        // ARCADE VISIBILITY: Huge Camera Tower
+        const poleGeo = new THREE.CylinderGeometry(4, 4, 80, 8);
+        poleGeo.rotateX(Math.PI / 2);
+        poleGeo.translate(0, 0, 40);
+
+        const boxGeo = new THREE.BoxGeometry(16, 16, 16);
+        boxGeo.translate(0, 0, 80); // Top of pole
+
+        // Neon Materials
+        const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const boxMat = new THREE.MeshBasicMaterial({ color: 0x00f3ff });
+
+        this.cameraMeshes.pole = new THREE.InstancedMesh(poleGeo, mat, count);
+        this.cameraMeshes.box = new THREE.InstancedMesh(boxGeo, boxMat, count);
+
+        const dummy = new THREE.Object3D();
+
+        features.forEach((f, i) => {
+          const coords = f.geometry.coordinates;
+          const mercator = maplibregl.MercatorCoordinate.fromLngLat(coords, 0);
+          const scale = mercator.meterInMercatorCoordinateUnits();
+
+          dummy.position.set(mercator.x, mercator.y, mercator.z || 0);
+          dummy.scale.set(scale, -scale, scale);
+          dummy.updateMatrix();
+
+          this.cameraMeshes.pole.setMatrixAt(i, dummy.matrix);
+          this.cameraMeshes.box.setMatrixAt(i, dummy.matrix);
+        });
+
+        this.cameraMeshes.pole.instanceMatrix.needsUpdate = true;
+        this.cameraMeshes.box.instanceMatrix.needsUpdate = true;
+
+        this.scene.add(this.cameraMeshes.pole);
+        this.scene.add(this.cameraMeshes.box);
+        console.log("3D Cameras Updated: " + count + " (MEGA SCALE)");
       }
     };
 
-    let map;
-    let carMesh;
-    let currentState = {
-      currentPos: null,  // Real GPS
-      startPos: null,    // Route Start (default = currentPos)
-      endPos: null,      // Route End
-      endName: ""
-    };
+    map.on('style.load', () => {
+      map.addLayer(customLayer);
+      // Load Data
+      loadData();
+    });
 
-    // --- MAP SETUP ---
-    function initMap() {
-      map = new maplibregl.Map({
-        container: 'map',
-        style: {
-          "version": 8,
-          "sources": {
-            "osm": {
-              "type": "raster",
-              "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
-              "tileSize": 256,
-              "attribution": "&copy; NFS Map"
-            },
-            "openmaptiles": {
-              "type": "vector",
-              "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
-            }
-          },
-          "layers": [
-            {
-              "id": "background",
-              "type": "background",
-              "paint": { "background-color": "#050510" }
-            },
-            {
-              "id": "water",
-              "type": "fill",
-              "source": "openmaptiles",
-              "source-layer": "water",
-              "paint": { "fill-color": "#001a2a" }
-            },
-            {
-              "id": "road",
-              "type": "line",
-              "source": "openmaptiles",
-              "source-layer": "transportation",
-              "paint": {
-                "line-color": "#00f3ff",
-                "line-width": 1.5,
-                "line-opacity": 0.4
-              }
-            },
-            {
-              "id": "building-3d",
-              "type": "fill-extrusion",
-              "source": "openmaptiles",
-              "source-layer": "building",
-              "paint": {
-                "fill-extrusion-color": "#0a0f1e",
-                "fill-extrusion-height": ["get", "render_height"],
-                "fill-extrusion-base": ["get", "render_min_height"],
-                "fill-extrusion-opacity": 0.8
-              }
-            }
-          ]
-        },
-        center: CONFIG.defaultPos,
-        zoom: 14,
-        pitch: 60,
-        bearing: -20,
-        antialias: true
-      });
+    map.on('load', () => {
+      locateUser();
+    });
 
-      map.on('load', () => {
-        // Try Geolocation
-        locateUser();
+    // --- DATA LOADING ---
+    function loadData() {
+      // Gas Stations
+      fetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson')
+        .then(res => res.json())
+        .then(data => {
+          customLayer.updateGasStations(data.features);
+          // Interactive Transparent Layer
+          if (!map.getSource('estaciones-src')) {
+            map.addSource('estaciones-src', { type: 'geojson', data: data });
+            map.addLayer({
+              id: 'estaciones-hitbox',
+              type: 'circle',
+              source: 'estaciones-src',
+              paint: { 'circle-radius': 15, 'circle-opacity': 0, 'circle-color': '#fff' }
+            });
 
-        addDangerZones();
-        addSpeedCameras();
-        addEstacionesServicio();
-      });
+            map.on('click', 'estaciones-hitbox', (e) => {
+              const props = e.features[0].properties;
+              new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(`<b>${props.empresabandera}</b><br>${props.tipooperador}`)
+                .addTo(map);
+            });
+            map.on('mouseenter', 'estaciones-hitbox', () => map.getCanvas().style.cursor = 'pointer');
+            map.on('mouseleave', 'estaciones-hitbox', () => map.getCanvas().style.cursor = '');
+          }
+        });
 
-      map.on('move', () => {
-        checkZones();
-      });
+      // Cameras
+      fetch('./fotomultas/speed_cameras.geojson')
+        .then(res => res.json())
+        .then(data => {
+          customLayer.updateCameras(data.features);
+          if (!map.getSource('cameras-src')) {
+            map.addSource('cameras-src', { type: 'geojson', data: data });
+            map.addLayer({
+              id: 'cameras-hitbox',
+              type: 'circle',
+              source: 'cameras-src',
+              paint: { 'circle-radius': 10, 'circle-opacity': 0, 'circle-color': '#fff' }
+            });
+            map.on('click', 'cameras-hitbox', (e) => {
+              const props = e.features[0].properties;
+              new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(`<b>CAMERA</b><br>${props.velocidadPermitida || 'N/A'} KM/H`)
+                .addTo(map);
+            });
+            map.on('mouseenter', 'cameras-hitbox', () => map.getCanvas().style.cursor = 'pointer');
+            map.on('mouseleave', 'cameras-hitbox', () => map.getCanvas().style.cursor = '');
+          }
+        });
+
+      // Danger Zones
+      fetch('./villas/renabap-2023-12-06.geojson')
+        .then(res => res.json())
+        .then(data => {
+          map.addSource('danger-zone', { type: 'geojson', data: data });
+          map.addLayer({
+            'id': 'danger-fill',
+            'type': 'fill',
+            'source': 'danger-zone',
+            'paint': { 'fill-color': '#ff0055', 'fill-opacity': 0.3 }
+          });
+          map.on('click', 'danger-fill', (e) => {
+            new maplibregl.Popup()
+              .setLngLat(e.lngLat)
+              .setHTML(`<b>DANGER ZONE</b>`)
+              .addTo(map);
+          });
+        }).catch(e => console.log(e));
     }
 
-    // --- GEOLOCATION ---
+    // --- UTILS for HUD ---
+    window.startNavigation = function () {
+      alert("Nav init...");
+    };
+
     function locateUser() {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
-          const { latitude, longitude } = position.coords;
-          const pos = [longitude, latitude];
-
+          const pos = [position.coords.longitude, position.coords.latitude];
           currentState.currentPos = pos;
-          currentState.startPos = pos;
-
-          // Fly to user
           map.flyTo({ center: pos, zoom: 15 });
-
-          // Add User Marker
-          new maplibregl.Marker({ color: CONFIG.theme.cyan })
-            .setLngLat(pos)
-            .setPopup(new maplibregl.Popup({ offset: 25 }).setText('DRIVER LOCATION'))
-            .addTo(map);
-
-        }, error => {
-          console.log("GPS Error:", error);
-          // Fallback to default
-          currentState.currentPos = CONFIG.defaultPos;
-          currentState.startPos = CONFIG.defaultPos;
-        });
-      } else {
-        currentState.currentPos = CONFIG.defaultPos;
-        currentState.startPos = CONFIG.defaultPos;
-      }
-    }
-
-    // --- SAFETY FEATURES (REAL DATA) ---
-    function addDangerZones() {
-      // Load real GeoJSON data
-      fetch('./villas/renabap-2023-12-06.geojson')
-        .then(response => {
-          if (!response.ok) throw new Error("Failed to load danger zones");
-          return response.json();
-        })
-        .then(data => {
-          // Check if source exists to avoid duplicates
-          if (!map.getSource('danger-zone')) {
-            map.addSource('danger-zone', {
-              'type': 'geojson',
-              'data': data
-            });
-
-            map.addLayer({
-              'id': 'danger-fill',
-              'type': 'fill',
-              'source': 'danger-zone',
-              'paint': {
-                'fill-color': '#ff0055',
-                'fill-opacity': 0.3
-              }
-            });
-
-            map.addLayer({
-              'id': 'danger-line',
-              'type': 'line',
-              'source': 'danger-zone',
-              'paint': {
-                'line-color': '#ff0055',
-                'line-width': 2,
-                'line-dasharray': [2, 1]
-              }
-            });
-
-            // --- CLICK LISTENER FOR DANGER ZONES ---
-            map.on('click', 'danger-fill', (e) => {
-              const props = e.features[0].properties;
-              const description = `
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
-                        <strong style="color: #ff0055; font-size: 1.1em;">DANGER ZONE</strong><br>
-                        <span style="font-weight: 600;">${props.nombre_barrio || 'Unknown Area'}</span><br>
-                        <span>${props.provincia || ''}</span>
-                    </div>
-                `;
-              new maplibregl.Popup({ closeButton: false, maxWidth: '200px' })
-                .setLngLat(e.lngLat)
-                .setHTML(description)
-                .addTo(map);
-            });
-
-            // Cursor pointers
-            map.on('mouseenter', 'danger-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
-            map.on('mouseleave', 'danger-fill', () => { map.getCanvas().style.cursor = ''; });
-
-            console.log("Danger Zones Loaded");
-          }
-        })
-        .catch(err => console.error("Error loading danger zones:", err));
-    }
-
-    function addSpeedCameras() {
-      // 1. Load SVG Image for the icon (Parallel)
-      map.loadImage('./fotomultas/speed_camera.svg', (error, image) => {
-        if (error) {
-          console.error("Error loading camera icon:", error);
-        } else {
-          if (!map.hasImage('camera-icon')) map.addImage('camera-icon', image);
-        }
-      });
-
-      // 2. Load real GeoJSON data (Fetch immediately)
-      fetch('./fotomultas/speed_cameras.geojson')
-        .then(response => {
-          if (!response.ok) throw new Error("Status " + response.status);
-          return response.json();
-        })
-        .then(data => {
-          if (!map.getSource('speed-cameras')) {
-            map.addSource('speed-cameras', {
-              type: 'geojson',
-              data: data,
-              cluster: true,
-              clusterMaxZoom: 15,
-              clusterRadius: 50
-            });
-
-            // 1. Clusters
-            map.addLayer({
-              id: 'clusters',
-              type: 'circle',
-              source: 'speed-cameras',
-              filter: ['has', 'point_count'],
-              paint: {
-                'circle-color': '#ff0055',
-                'circle-radius': ['step', ['get', 'point_count'], 15, 20, 20, 100, 25],
-                'circle-stroke-width': 2,
-                'circle-stroke-color': '#fff'
-              }
-            });
-
-            // 2. Cluster Count
-            map.addLayer({
-              id: 'cluster-count',
-              type: 'symbol',
-              source: 'speed-cameras',
-              filter: ['has', 'point_count'],
-              layout: {
-                'text-field': '{point_count_abbreviated}',
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 12
-              },
-              paint: { 'text-color': '#ffffff' }
-            });
-
-            // 3. Unclustered Fallback Circle (Background for Icon)
-            map.addLayer({
-              id: 'unclustered-circle',
-              type: 'circle',
-              source: 'speed-cameras',
-              filter: ['!', ['has', 'point_count']],
-              paint: {
-                'circle-color': '#0a0f1e',
-                'circle-radius': 12,
-                'circle-stroke-color': '#ff0055',
-                'circle-stroke-width': 2
-              }
-            });
-
-            // 4. Unclustered Icon
-            map.addLayer({
-              id: 'unclustered-point',
-              type: 'symbol',
-              source: 'speed-cameras',
-              filter: ['!', ['has', 'point_count']],
-              layout: {
-                'icon-image': 'camera-icon',
-                'icon-size': 2.5,
-                'icon-allow-overlap': true,
-                'icon-ignore-placement': true
-              }
-            });
-
-            // --- Events ---
-
-            // Cluster Click
-            map.on('click', 'clusters', (e) => {
-              const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
-              const clusterId = features[0].properties.cluster_id;
-              map.getSource('speed-cameras').getClusterExpansionZoom(clusterId, (err, zoom) => {
-                if (err) return;
-                map.easeTo({ center: features[0].geometry.coordinates, zoom: zoom });
-              });
-            });
-
-            // Point Click (Icon + Circle)
-            const clickHandler = (e) => showCameraPopup(e);
-            map.on('click', 'unclustered-point', clickHandler);
-            map.on('click', 'unclustered-circle', clickHandler);
-
-            // Cursors
-            const ptr = () => map.getCanvas().style.cursor = 'pointer';
-            const noptr = () => map.getCanvas().style.cursor = '';
-
-            map.on('mouseenter', 'clusters', ptr);
-            map.on('mouseleave', 'clusters', noptr);
-            map.on('mouseenter', 'unclustered-point', ptr);
-            map.on('mouseleave', 'unclustered-point', noptr);
-            map.on('mouseenter', 'unclustered-circle', ptr);
-            map.on('mouseleave', 'unclustered-circle', noptr);
-
-            console.log("Speed Cameras Loaded (Decoupled)");
-          }
-        })
-        .catch(e => console.error("Error adding cameras:", e));
-    }
-
-    function showCameraPopup(e) {
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const props = e.features[0].properties;
-
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      const description = `
-            <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
-                <strong style="color: #ff0055; font-size: 1.1em;">${props.nroSerie || 'CAMERA'}</strong><br>
-                <span style="font-weight: 600;">📍 ${props.calleRuta || 'Location N/A'}</span><br>
-                ${props.sentido ? `<span>➡ ${props.sentido}</span><br>` : ''}
-                ${props.velocidadPermitida ? `<span style="background: #ff0055; color: white; padding: 2px 5px; border-radius: 3px; font-weight: bold; font-size: 0.9em;">MAX ${props.velocidadPermitida} KM/H</span><br>` : ''}
-                ${props.conducta ? `<span style="color: #ffcc00; font-size: 0.9em;">⚠️ ${props.conducta}</span><br>` : ''}
-                ${props.source ? `<small style="color:#666">${props.source}</small>` : ''}
-            </div>
-        `;
-
-      new maplibregl.Popup({ closeButton: false, maxWidth: '200px' })
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
-    }
-
-    function addEstacionesServicio() {
-      fetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson')
-        .then(response => {
-          if (!response.ok) throw new Error("Failed to load gas stations");
-          return response.json();
-        })
-        .then(data => {
-          if (!map.getSource('estaciones')) {
-            map.addSource('estaciones', {
-              type: 'geojson',
-              data: data,
-              cluster: true,
-              clusterMaxZoom: 14,
-              clusterRadius: 50
-            });
-
-            // 1. Clusters
-            map.addLayer({
-              id: 'estaciones-clusters',
-              type: 'circle',
-              source: 'estaciones',
-              filter: ['has', 'point_count'],
-              paint: {
-                'circle-color': '#ffe600', // Yellow for gas stations clusters
-                'circle-radius': ['step', ['get', 'point_count'], 15, 20, 20, 100, 25],
-                'circle-stroke-width': 2,
-                'circle-stroke-color': '#000'
-              }
-            });
-
-            // 2. Cluster Count
-            map.addLayer({
-              id: 'estaciones-cluster-count',
-              type: 'symbol',
-              source: 'estaciones',
-              filter: ['has', 'point_count'],
-              layout: {
-                'text-field': '{point_count_abbreviated}',
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 12
-              },
-              paint: { 'text-color': '#000000' }
-            });
-
-            // 3. Unclustered Points (Type Based Styling)
-            // Types: "Combustibles líquidos únicamente", "Duales (líquidos + GNC)", "Sólo GNC"
-            map.addLayer({
-              id: 'estaciones-point',
-              type: 'circle',
-              source: 'estaciones',
-              filter: ['!', ['has', 'point_count']],
-              paint: {
-                'circle-color': [
-                  'match',
-                  ['get', 'tipooperador'],
-                  'Combustibles líquidos únicamente', '#ffe600', // Yellow
-                  'Duales (líquidos + GNC)', '#ff0055',          // Pink/Red
-                  'Sólo GNC', '#00ff66',                         // Green
-                  '#00f3ff'                                      // Default Cyan
-                ],
-                'circle-radius': 8,
-                'circle-stroke-width': 2,
-                'circle-stroke-color': '#fff'
-              }
-            });
-
-            // 4. Label for type (optional, maybe just one letter: L, D, G)
-            map.addLayer({
-              id: 'estaciones-label',
-              type: 'symbol',
-              source: 'estaciones',
-              filter: ['!', ['has', 'point_count']],
-              layout: {
-                'text-field': [
-                  'match',
-                  ['get', 'tipooperador'],
-                  'Combustibles líquidos únicamente', 'L',
-                  'Duales (líquidos + GNC)', 'D',
-                  'Sólo GNC', 'G',
-                  '?'
-                ],
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 10
-              },
-              paint: {
-                'text-color': '#000000'
-              },
-              minzoom: 12
-            });
-
-            // --- Events ---
-            map.on('click', 'estaciones-clusters', (e) => {
-              const features = map.queryRenderedFeatures(e.point, { layers: ['estaciones-clusters'] });
-              const clusterId = features[0].properties.cluster_id;
-              map.getSource('estaciones').getClusterExpansionZoom(clusterId, (err, zoom) => {
-                if (err) return;
-                map.easeTo({ center: features[0].geometry.coordinates, zoom: zoom });
-              });
-            });
-
-            map.on('click', 'estaciones-point', (e) => {
-              const coordinates = e.features[0].geometry.coordinates.slice();
-              const props = e.features[0].properties;
-
-              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-              }
-
-              const description = `
-                        <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
-                            <strong style="color: #00f3ff; font-size: 1.1em;">${props.empresabandera || 'STATION'}</strong><br>
-                            <span style="font-weight: 600;">${props.razonsocial || ''}</span><br>
-                            <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px;">
-                                📍 ${props.direccion || ''}, ${props.localidad || ''}<br>
-                                <span style="font-weight: bold; color: #ff0055;">${props.tipooperador || 'Unknown Type'}</span>
-                            </div>
-                        </div>
-                    `;
-
-              new maplibregl.Popup({ closeButton: false, maxWidth: '250px' })
-                .setLngLat(coordinates)
-                .setHTML(description)
-                .addTo(map);
-            });
-
-            // Cursors
-            const ptr = () => map.getCanvas().style.cursor = 'pointer';
-            const noptr = () => map.getCanvas().style.cursor = '';
-
-            map.on('mouseenter', 'estaciones-clusters', ptr);
-            map.on('mouseleave', 'estaciones-clusters', noptr);
-            map.on('mouseenter', 'estaciones-point', ptr);
-            map.on('mouseleave', 'estaciones-point', noptr);
-
-            console.log("Gas Stations Loaded");
-          }
-        })
-        .catch(err => console.error("Error loading gas stations:", err));
-    }
-
-    function checkZones() {
-      // Check if user is inside a danger polygon
-      if (!map.getSource('danger-zone')) return;
-
-      const center = map.getCenter();
-      // Check if the center of the screen intersects with the danger layer
-      const features = map.queryRenderedFeatures(map.project(center), { layers: ['danger-fill'] });
-
-      const alertBox = document.getElementById('danger-alert');
-
-      if (features.length > 0) {
-        alertBox.style.display = 'block';
-      } else {
-        alertBox.style.display = 'none';
-      }
-    }
-
-    // --- SEARCH & ROUTING ---
-    const navInput = document.getElementById('nav-input');
-    const resultsBox = document.getElementById('search-results');
-    const routePanel = document.getElementById('route-panel');
-    const startInput = document.getElementById('start-input');
-    const endInput = document.getElementById('end-input');
-
-    // 1. Main Search (Destination)
-    navInput.addEventListener('input', (e) => handleSearch(e.target.value, resultsBox, 'dest'));
-
-    // 2. Start Location Search (Edit Start)
-    startInput.addEventListener('input', (e) => handleSearch(e.target.value, document.getElementById('start-search-results'), 'start'));
-
-    async function handleSearch(query, container, type) {
-      if (query.length < 3) return;
-      container.style.display = 'block';
-
-      const resp = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&limit=3`);
-      const data = await resp.json();
-
-      container.innerHTML = '';
-      data.features.forEach(f => {
-        const div = document.createElement('div');
-        div.className = 'result-item';
-        div.innerText = f.properties.display_name.split(',')[0];
-        div.onclick = () => {
-          selectLocation(f, type);
-          container.style.display = 'none';
-        };
-        container.appendChild(div);
-      });
-    }
-
-    function selectLocation(feature, type) {
-      const coords = feature.geometry.coordinates;
-      const name = feature.properties.display_name;
-
-      if (type === 'dest') {
-        // Set Destination
-        currentState.endPos = coords;
-        currentState.endName = name;
-        endInput.value = name.split(',')[0];
-        navInput.value = ""; // Clear main search
-
-        // Show Route Panel
-        routePanel.style.display = 'block';
-
-        // If Start is not set, default to GPS
-        if (!currentState.startPos && currentState.currentPos) {
-          currentState.startPos = currentState.currentPos;
-          startInput.value = "Current Location";
-        }
-
-        // Preview logic (Fit bounds)
-        fitRouteBounds();
-
-      } else if (type === 'start') {
-        // Set Start
-        currentState.startPos = coords;
-        startInput.value = name.split(',')[0];
-      }
-    }
-
-    function fitRouteBounds() {
-      if (currentState.startPos && currentState.endPos) {
-        const bounds = new maplibregl.LngLatBounds()
-          .extend(currentState.startPos)
-          .extend(currentState.endPos);
-        map.fitBounds(bounds, { padding: 100 });
-        drawRouteLine();
-      }
-    }
-
-    function startNavigation() {
-      // "Go" button logic
-      routePanel.style.display = 'none';
-      addToHistory(currentState.endName);
-
-      // Fly to Start to begin "driving"
-      map.flyTo({
-        center: currentState.startPos,
-        zoom: 17,
-        pitch: 60,
-        bearing: 0
-      });
-
-      // In a real app, this would start turn-by-turn
-      alert("ROUTE INITIATED. DRIVE SAFE.");
-    }
-
-    function drawRouteLine() {
-      // Mock straight line
-      const route = {
-        'type': 'Feature',
-        'properties': {},
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [currentState.startPos, currentState.endPos]
-        }
-      };
-
-      if (map.getSource('route')) {
-        map.getSource('route').setData(route);
-      } else {
-        map.addSource('route', { 'type': 'geojson', 'data': route });
-        map.addLayer({
-          'id': 'route-line',
-          'type': 'line',
-          'source': 'route',
-          'paint': {
-            'line-color': '#ffe600',
-            'line-width': 4,
-            'line-opacity': 0.8
-          }
+          new maplibregl.Marker({ color: '#00f3ff' }).setLngLat(pos).addTo(map);
         });
       }
     }
 
-    // --- HISTORY ---
-    function addToHistory(name) {
-      const list = document.getElementById('history-list');
-      const item = document.createElement('li');
-      item.className = 'history-item';
-      const shortName = name.split(',')[0];
-      item.innerHTML = `> ${shortName}`;
-      list.insertBefore(item, list.firstChild);
-    }
+    // 3D Car Widget
+    import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-    // --- 3D CAR ---
-    function init3D() {
-      const canvas = document.getElementById('car-canvas');
-      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+    const carCanvas = document.getElementById('car-canvas');
+    if (carCanvas) {
+      const renderer = new THREE.WebGLRenderer({ canvas: carCanvas, alpha: true, antialias: true });
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      camera.position.set(0, 1, 3);
+      const camera = new THREE.PerspectiveCamera(45, 180 / 100, 0.1, 1000);
+      camera.position.set(200, 100, 300); // Zoom out a bit for the model
       camera.lookAt(0, 0, 0);
 
-      const geometry = new THREE.BoxGeometry(1, 0.4, 2);
-      const material = new THREE.MeshPhongMaterial({
-        color: 0x00f3ff,
-        emissive: 0x001133,
-        shininess: 100
+      // Light for base visibility
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+      dirLight.position.set(5, 10, 7);
+      scene.add(dirLight);
+
+      let carGroup = new THREE.Group();
+      scene.add(carGroup);
+
+      const loader = new FBXLoader();
+      loader.load('./assets/20251214021233_3c4724df.fbx', (object) => {
+        // STYLE: Simplified Orange Lines (Technical Look)
+        const lineMat = new THREE.LineBasicMaterial({
+          color: 0xffa500, // Orange
+        });
+
+        object.traverse((child) => {
+          if (child.isMesh) {
+            // Create simplified edges (threshold 15 degrees)
+            const edges = new THREE.EdgesGeometry(child.geometry, 15);
+            const line = new THREE.LineSegments(edges, lineMat);
+
+            // Add lines as a child of the mesh
+            child.add(line);
+
+            // Hide the original solid faces
+            child.material = new THREE.MeshBasicMaterial({ visible: false });
+          }
+        });
+
+        // Center and Scale
+        const box = new THREE.Box3().setFromObject(object);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+
+        // Auto-scale to fit roughly in view
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 150 / maxDim; // Target size 150 units
+
+        object.position.x = -center.x; // Center it
+        object.position.y = -center.y;
+        object.position.z = -center.z;
+
+        object.scale.set(scale, scale, scale);
+
+        carGroup.add(object);
+      }, undefined, (error) => {
+        console.error("Error loading car FBX:", error);
       });
-      carMesh = new THREE.Mesh(geometry, material);
-      scene.add(carMesh);
 
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(2, 2, 2);
-      scene.add(light);
-      scene.add(new THREE.AmbientLight(0x404040));
-
-      function animate() {
-        requestAnimationFrame(animate);
-        carMesh.rotation.y += 0.01;
+      function animateCar() {
+        requestAnimationFrame(animateCar);
+        if (carGroup) carGroup.rotation.y += 0.01;
         renderer.render(scene, camera);
       }
-      animate();
+      animateCar();
     }
 
-    initMap();
-    init3D();
   </script>
 </body>
 
