@@ -438,7 +438,7 @@
       renderer: null,
 
       // Meshes
-      gasStationMeshes: { tanks: null, legs: null },
+      gasStationMeshes: { tanks: null, straps1: null, straps2: null, rings: null },
       cameraMeshes: { pole: null, box: null },
 
       onAdd(map, gl) {
@@ -465,11 +465,11 @@
           antialias: true
         });
         this.renderer.autoClear = false;
+        // CRITICAL: Set Pixel Ratio for sharp rendering on high-DPI screens
+        this.renderer.setPixelRatio(window.devicePixelRatio);
       },
 
       render(gl, args) {
-        // Updated to match template: use args.defaultProjectionData.mainMatrix
-        // Note: MapLibre v5 structure.
         let projectionMatrixArray = args && args.defaultProjectionData ? args.defaultProjectionData.mainMatrix : null;
         // Fallback if args is not structured as expected (older versions or variations)
         if (!projectionMatrixArray && Array.isArray(args)) projectionMatrixArray = args; // if args IS the matrix
@@ -486,25 +486,104 @@
 
       updateGasStations(features) {
         if (!this.scene) return;
-        if (this.gasStationMeshes.tanks) this.scene.remove(this.gasStationMeshes.tanks);
+
+        // Clean up previous meshes
+        const keys = ['tanks', 'straps1', 'straps2', 'rings', 'bands', 'text'];
+        keys.forEach(k => { if (this.gasStationMeshes[k]) this.scene.remove(this.gasStationMeshes[k]); });
         if (this.gasStationMeshes.legs) this.scene.remove(this.gasStationMeshes.legs);
+
+        // Clean up GLTF instances if any
+        if (this.gasStationMeshes.scadInstances) {
+          this.gasStationMeshes.scadInstances.forEach(im => this.scene.remove(im));
+        }
+        this.gasStationMeshes.scadInstances = [];
 
         const count = features.length;
         if (count === 0) return;
 
-        // ARCADE VISIBILITY: Huge Models
-        const tankGeo = new THREE.CylinderGeometry(15, 15, 40, 16);
-        tankGeo.rotateX(Math.PI / 2);
-        tankGeo.translate(0, 0, 20); // Lift
+        const S = 0.05; // Scale
 
-        const legGeo = new THREE.BoxGeometry(8, 8, 30);
-        legGeo.translate(0, 0, 15);
+        // --- 1. TANK (Capsule) ---
+        // Ref: CapsuleGeometry(160, 800, 8, 32)
+        // Improved: 16 cap segments, 64 radial for smoothness
+        const tankGeo = new THREE.CapsuleGeometry(160 * S, 800 * S, 16, 64);
+        tankGeo.rotateZ(Math.PI / 2);
+        tankGeo.translate(0, 0, 15);
 
-        const tankMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const legMat = new THREE.MeshBasicMaterial({ color: 0x333333 });
+        // Ref Material:
+        // color: 0xFFD342, metalness: 0.3, roughness: 0.4, clearcoat: 0.5, clearcoatRoughness: 0.1
+        const tankMat = new THREE.MeshPhysicalMaterial({
+          color: 0xFFD342,
+          metalness: 0.3,
+          roughness: 0.4,
+          clearcoat: 0.5,
+          clearcoatRoughness: 0.1
+        });
 
+        // --- 2. BAND (White Cylinder) ---
+        // Ref: CylinderGeometry(201, 201, 60, 64, 1, true)
+        const bandGeo = new THREE.CylinderGeometry(201 * S, 201 * S, 60 * S, 128, 1, true); // 128 segs
+        bandGeo.rotateZ(Math.PI / 2);
+        bandGeo.translate(0, 0, 15);
+
+        const bandMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide });
+
+        // --- 3. RING (Power Up) ---
+        // Ref: TorusGeometry(187.5, 12.5, 32, 100)
+        // Improved: 48 radial, 128 tubular
+        const ringGeo = new THREE.TorusGeometry(187.5 * S, 12.5 * S, 48, 128);
+        ringGeo.rotateY(Math.PI / 2);
+        ringGeo.translate(0, 0, 15);
+
+        // Ref Material:
+        // color: 0xB200FF, metalness: 0.1, roughness: 0.05, transmission: 0.3
+        // opacity: 0.5, transparent: true, emissive: 0x660099, emissiveIntensity: 0.6
+        const ringMat = new THREE.MeshPhysicalMaterial({
+          color: 0xB200FF,
+          metalness: 0.1,
+          roughness: 0.05,
+          transmission: 0.3,
+          thickness: 10,
+          opacity: 0.5,
+          transparent: true,
+          depthWrite: false, // Critical for transparency
+          emissive: 0x660099,
+          emissiveIntensity: 0.6,
+          side: THREE.DoubleSide
+        });
+
+        // --- 4. TEXT (GNC) ---
+        // High-Res Canvas (2048x512) for crispy text
+        const canvas = document.createElement('canvas');
+        canvas.width = 2048; canvas.height = 512;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'rgba(0,0,0,0)'; ctx.fillRect(0, 0, 2048, 512);
+        ctx.fillStyle = '#0d0d0d';
+        ctx.font = 'bold 320px "Arial Black", Arial'; // Larger font
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('GNC', 1024, 256);
+
+        const textTex = new THREE.CanvasTexture(canvas);
+        textTex.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+        textTex.minFilter = THREE.LinearMenuItemFilter; // Better minification
+
+        // Ref: CylinderGeometry(203, 203, 50, 32...)
+        const textGeo = new THREE.CylinderGeometry(203 * S, 203 * S, 50 * S, 128, 1, true, -Math.PI / 6, Math.PI / 3);
+        textGeo.rotateZ(Math.PI / 2);
+        textGeo.rotateY(-Math.PI / 2);
+        textGeo.translate(0, 0, 15);
+
+        const textMat = new THREE.MeshBasicMaterial({
+          map: textTex,
+          transparent: true,
+          side: THREE.DoubleSide
+        });
+
+        // --- INSTANCING ---
         this.gasStationMeshes.tanks = new THREE.InstancedMesh(tankGeo, tankMat, count);
-        this.gasStationMeshes.legs = new THREE.InstancedMesh(legGeo, legMat, count);
+        this.gasStationMeshes.bands = new THREE.InstancedMesh(bandGeo, bandMat, count);
+        this.gasStationMeshes.rings = new THREE.InstancedMesh(ringGeo, ringMat, count);
+        this.gasStationMeshes.text = new THREE.InstancedMesh(textGeo, textMat, count);
 
         const dummy = new THREE.Object3D();
         const color = new THREE.Color();
@@ -520,22 +599,27 @@
           dummy.updateMatrix();
 
           this.gasStationMeshes.tanks.setMatrixAt(i, dummy.matrix);
-          this.gasStationMeshes.legs.setMatrixAt(i, dummy.matrix);
+          this.gasStationMeshes.bands.setMatrixAt(i, dummy.matrix);
+          this.gasStationMeshes.rings.setMatrixAt(i, dummy.matrix);
+          this.gasStationMeshes.text.setMatrixAt(i, dummy.matrix);
 
-          const type = f.properties.tipooperador;
-          if (type === 'Sólo GNC') color.setHex(0x00ff66);
-          else if (type === 'Combustibles líquidos únicamente') color.setHex(0xffe600);
-          else color.setHex(0xff0055);
+          // Set all to Reference Gold
+          color.setHex(0xFFD342);
           this.gasStationMeshes.tanks.setColorAt(i, color);
         });
 
         this.gasStationMeshes.tanks.instanceMatrix.needsUpdate = true;
         this.gasStationMeshes.tanks.instanceColor.needsUpdate = true;
-        this.gasStationMeshes.legs.instanceMatrix.needsUpdate = true;
+        this.gasStationMeshes.bands.instanceMatrix.needsUpdate = true;
+        this.gasStationMeshes.rings.instanceMatrix.needsUpdate = true;
+        this.gasStationMeshes.text.instanceMatrix.needsUpdate = true;
 
         this.scene.add(this.gasStationMeshes.tanks);
-        this.scene.add(this.gasStationMeshes.legs);
-        console.log("3D Gas Stations Updated: " + count);
+        this.scene.add(this.gasStationMeshes.bands);
+        this.scene.add(this.gasStationMeshes.rings);
+        this.scene.add(this.gasStationMeshes.text);
+
+        console.log("3D Gas Stations Updated (Ref Exact Match - Optimized)");
       },
 
       updateCameras(features) {

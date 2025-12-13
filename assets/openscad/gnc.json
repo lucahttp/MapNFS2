@@ -1,0 +1,21 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "$fn": "100",
+            "alto_anillo_purple": "140",
+            "ancho_cinta": "40",
+            "color_banda": "[1, 1, 1]",
+            "color_cintas": "[0.15, 0.15, 0.15]",
+            "color_powerup_glow": "[0.7, 0, 1]",
+            "color_tanque": "[1, 0.827, 0.259]",
+            "color_texto": "[0.05, 0.05, 0.05]",
+            "diametro_tanque": "320",
+            "gap_anillo": "13",
+            "grosor_anillo": "25",
+            "largo_tanque": "500",
+            "separacion_cintas": "200",
+            "tamano_texto": "48"
+        }
+    }
+}
