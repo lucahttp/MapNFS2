@@ -1,841 +1,1077 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>NFS SUC</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta charset="utf-8" />
+  <title>NFS SUC</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Fonts: Orbitron for numbers/tech, Rajdhani for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts: Orbitron for numbers/tech, Rajdhani for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
-    <!-- MapLibre -->
-    <script src="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css" rel="stylesheet" />
-    
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+  <!-- MapLibre -->
+  <script src="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css" rel="stylesheet" />
 
-    <style>
-        :root {
-            --nfs-cyan: #00f3ff;
-            --nfs-pink: #ff0055;
-            --nfs-yellow: #ffe600;
-            --nfs-dark: #0a0f1e;
-            --nfs-dark-trans: rgba(10, 15, 30, 0.95);
-            --hud-skew: -15deg;
-        }
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            font-family: 'Rajdhani', sans-serif;
-            overflow: hidden;
-            color: var(--nfs-cyan);
-        }
+  <style>
+    :root {
+      --nfs-cyan: #00f3ff;
+      --nfs-pink: #ff0055;
+      --nfs-yellow: #ffe600;
+      --nfs-dark: #0a0f1e;
+      --nfs-dark-trans: rgba(10, 15, 30, 0.95);
+      --hud-skew: -15deg;
+    }
 
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; z-index: 0; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: 'Rajdhani', sans-serif;
+      overflow: hidden;
+      color: var(--nfs-cyan);
+    }
 
-        /* --- HUD CONTAINER --- */
-        .hud-layer {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-            box-sizing: border-box;
-        }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 0;
+    }
 
-        .hud-element {
-            pointer-events: auto;
-        }
+    /* --- HUD CONTAINER --- */
+    .hud-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      box-sizing: border-box;
+    }
 
-        /* --- TOP BAR (Search & Status) --- */
-        .top-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 20px;
-            box-sizing: border-box;
-            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-        }
+    .hud-element {
+      pointer-events: auto;
+    }
 
-        .nav-hub {
-            position: relative;
-            width: 350px;
-            max-width: 100%;
-        }
+    /* --- TOP BAR (Search & Status) --- */
+    .top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    }
 
-        .nav-input-container {
-            position: relative;
-            transform: skewX(var(--hud-skew));
-            background: var(--nfs-dark-trans);
-            border: 2px solid var(--nfs-cyan);
-            padding: 5px;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
-        }
+    .nav-hub {
+      position: relative;
+      width: 350px;
+      max-width: 100%;
+    }
 
-        .nav-label {
-            position: absolute;
-            top: -18px;
-            left: 10px;
-            font-size: 0.8rem;
-            color: var(--nfs-yellow);
-            font-weight: 700;
-            text-shadow: 0 0 5px var(--nfs-yellow);
-        }
+    .nav-input-container {
+      position: relative;
+      transform: skewX(var(--hud-skew));
+      background: var(--nfs-dark-trans);
+      border: 2px solid var(--nfs-cyan);
+      padding: 5px;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    }
 
-        input.hud-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            text-transform: uppercase;
-            outline: none;
-            transform: skewX(15deg);
-        }
-        input.hud-input::placeholder { color: rgba(0, 243, 255, 0.5); }
+    .nav-label {
+      position: absolute;
+      top: -18px;
+      left: 10px;
+      font-size: 0.8rem;
+      color: var(--nfs-yellow);
+      font-weight: 700;
+      text-shadow: 0 0 5px var(--nfs-yellow);
+    }
 
-        .search-results {
-            position: absolute;
-            top: 110%;
-            left: 0;
-            width: 100%;
-            background: var(--nfs-dark-trans);
-            border: 1px solid var(--nfs-cyan);
-            max-height: 250px;
-            overflow-y: auto;
-            display: none;
-            transform: skewX(var(--hud-skew));
-        }
+    input.hud-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      outline: none;
+      transform: skewX(15deg);
+    }
 
-        .result-item {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
-            color: #fff;
-            cursor: pointer;
-            transform: skewX(15deg);
-            transition: background 0.2s;
-            font-size: 1.1rem;
-        }
-        .result-item:hover { background: rgba(0, 243, 255, 0.2); color: var(--nfs-yellow); }
+    input.hud-input::placeholder {
+      color: rgba(0, 243, 255, 0.5);
+    }
 
-        /* --- ROUTE PANEL (Hidden by default) --- */
-        .route-panel {
-            position: absolute;
-            top: 80px;
-            left: 20px;
-            width: 350px;
-            max-width: 90%;
-            background: var(--nfs-dark-trans);
-            border: 2px solid var(--nfs-yellow);
-            transform: skewX(var(--hud-skew));
-            padding: 15px;
-            display: none; /* Toggled */
-            box-shadow: 0 0 20px rgba(255, 230, 0, 0.2);
-        }
-        
-        .route-row {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            transform: skewX(15deg);
-        }
-        
-        .route-label {
-            width: 50px;
-            font-weight: bold;
-            color: var(--nfs-cyan);
-        }
-        
-        .route-input-box {
-            flex: 1;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid var(--nfs-cyan);
-            padding: 5px;
-        }
-        
-        .route-input-box input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-family: 'Rajdhani';
-            font-size: 1rem;
-            outline: none;
-        }
+    .search-results {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      width: 100%;
+      background: var(--nfs-dark-trans);
+      border: 1px solid var(--nfs-cyan);
+      max-height: 250px;
+      overflow-y: auto;
+      display: none;
+      transform: skewX(var(--hud-skew));
+    }
 
-        .btn-go {
-            width: 100%;
-            background: var(--nfs-pink);
-            border: none;
-            color: #fff;
-            font-family: 'Orbitron';
-            font-size: 1.2rem;
-            padding: 10px;
-            margin-top: 10px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: 900;
-            transform: skewX(15deg); /* Counter parent */
-            transition: 0.2s;
-        }
-        .btn-go:hover { background: #ff3377; box-shadow: 0 0 15px var(--nfs-pink); }
+    .result-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+      color: #fff;
+      cursor: pointer;
+      transform: skewX(15deg);
+      transition: background 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .result-item:hover {
+      background: rgba(0, 243, 255, 0.2);
+      color: var(--nfs-yellow);
+    }
+
+    /* --- ROUTE PANEL (Hidden by default) --- */
+    .route-panel {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      width: 350px;
+      max-width: 90%;
+      background: var(--nfs-dark-trans);
+      border: 2px solid var(--nfs-yellow);
+      transform: skewX(var(--hud-skew));
+      padding: 15px;
+      display: none;
+      /* Toggled */
+      box-shadow: 0 0 20px rgba(255, 230, 0, 0.2);
+    }
+
+    .route-row {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      transform: skewX(15deg);
+    }
+
+    .route-label {
+      width: 50px;
+      font-weight: bold;
+      color: var(--nfs-cyan);
+    }
+
+    .route-input-box {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--nfs-cyan);
+      padding: 5px;
+    }
+
+    .route-input-box input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: 'Rajdhani';
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .btn-go {
+      width: 100%;
+      background: var(--nfs-pink);
+      border: none;
+      color: #fff;
+      font-family: 'Orbitron';
+      font-size: 1.2rem;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 900;
+      transform: skewX(15deg);
+      /* Counter parent */
+      transition: 0.2s;
+    }
+
+    .btn-go:hover {
+      background: #ff3377;
+      box-shadow: 0 0 15px var(--nfs-pink);
+    }
 
 
-        /* --- DANGER WARNING WIDGET --- */
-        .danger-widget {
-            display: none;
-            background: rgba(255, 0, 85, 0.2);
-            border: 2px solid var(--nfs-pink);
-            padding: 10px 30px;
-            transform: skewX(var(--hud-skew));
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
-            animation: pulse-danger 1s infinite alternate;
-        }
-        .danger-text {
-            color: var(--nfs-pink);
-            font-family: 'Orbitron';
-            font-weight: 900;
-            font-size: 1.5rem;
-            transform: skewX(15deg);
-            text-transform: uppercase;
-        }
+    /* --- DANGER WARNING WIDGET --- */
+    .danger-widget {
+      display: none;
+      background: rgba(255, 0, 85, 0.2);
+      border: 2px solid var(--nfs-pink);
+      padding: 10px 30px;
+      transform: skewX(var(--hud-skew));
+      box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+      animation: pulse-danger 1s infinite alternate;
+    }
 
-        @keyframes pulse-danger {
-            from { opacity: 0.6; box-shadow: 0 0 10px var(--nfs-pink); }
-            to { opacity: 1; box-shadow: 0 0 30px var(--nfs-pink); }
-        }
+    .danger-text {
+      color: var(--nfs-pink);
+      font-family: 'Orbitron';
+      font-weight: 900;
+      font-size: 1.5rem;
+      transform: skewX(15deg);
+      text-transform: uppercase;
+    }
 
-        /* --- BOTTOM CONTROLS --- */
-        .bottom-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 20px;
-            box-sizing: border-box;
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-        }
+    @keyframes pulse-danger {
+      from {
+        opacity: 0.6;
+        box-shadow: 0 0 10px var(--nfs-pink);
+      }
 
-        /* Recent Locations / Stats */
-        .history-panel {
-            background: var(--nfs-dark-trans);
-            border-left: 4px solid var(--nfs-yellow);
-            padding: 15px;
-            max-width: 250px;
-            transform: skewX(var(--hud-skew));
-            margin-bottom: 10px;
-        }
-        
-        .history-title {
-            color: var(--nfs-yellow);
-            font-family: 'Orbitron';
-            font-size: 1rem;
-            margin-bottom: 10px;
-            transform: skewX(15deg);
-        }
+      to {
+        opacity: 1;
+        box-shadow: 0 0 30px var(--nfs-pink);
+      }
+    }
 
-        .history-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            transform: skewX(15deg);
-        }
-        .history-item {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 230, 0, 0.2);
-            cursor: pointer;
-            font-size: 1rem;
-            color: #ddd;
-        }
-        .history-item:hover { color: #fff; text-shadow: 0 0 5px var(--nfs-yellow); }
+    /* --- BOTTOM CONTROLS --- */
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    }
 
-        /* Speed / Car Stats */
-        .speed-cluster {
-            position: relative;
-            text-align: right;
-            transform: skewX(var(--hud-skew));
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .speed-value {
-            font-family: 'Orbitron';
-            font-size: 6rem;
-            font-weight: 900;
-            color: #fff;
-            line-height: 0.8;
-            text-shadow: 0 0 20px var(--nfs-cyan);
-        }
-        .speed-label {
-            font-family: 'Rajdhani';
-            font-size: 1.5rem;
-            color: var(--nfs-cyan);
-            font-weight: 700;
-            margin-right: 10px;
-        }
-        
-        /* 3D Car Integrator */
-        #car-canvas-container {
-            width: 180px;
-            height: 100px;
-            margin-top: -20px;
-            margin-right: -20px;
-            opacity: 0.8;
-            transform: skewX(15deg);
-        }
+    /* Recent Locations / Stats */
+    .history-panel {
+      background: var(--nfs-dark-trans);
+      border-left: 4px solid var(--nfs-yellow);
+      padding: 15px;
+      max-width: 250px;
+      transform: skewX(var(--hud-skew));
+      margin-bottom: 10px;
+    }
 
-        /* --- MAP MARKERS --- */
-        .marker-camera {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0055"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-4-8c0 2.21 1.79 4 4 4s4-1.79 4-4-1.79-4-4-4-4 1.79-4 4z"/><circle cx="12" cy="12" r="2" fill="%23fff"/></svg>');
-            width: 30px;
-            height: 30px;
-            background-size: cover;
-            filter: drop-shadow(0 0 5px var(--nfs-pink));
-        }
-        
-        @media (max-width: 768px) {
-            .speed-value { font-size: 4rem; }
-            .nav-hub { width: 100%; }
-        }
+    .history-title {
+      color: var(--nfs-yellow);
+      font-family: 'Orbitron';
+      font-size: 1rem;
+      margin-bottom: 10px;
+      transform: skewX(15deg);
+    }
 
-    </style>
+    .history-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      transform: skewX(15deg);
+    }
+
+    .history-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 230, 0, 0.2);
+      cursor: pointer;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .history-item:hover {
+      color: #fff;
+      text-shadow: 0 0 5px var(--nfs-yellow);
+    }
+
+    /* Speed / Car Stats */
+    .speed-cluster {
+      position: relative;
+      text-align: right;
+      transform: skewX(var(--hud-skew));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .speed-value {
+      font-family: 'Orbitron';
+      font-size: 6rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 0.8;
+      text-shadow: 0 0 20px var(--nfs-cyan);
+    }
+
+    .speed-label {
+      font-family: 'Rajdhani';
+      font-size: 1.5rem;
+      color: var(--nfs-cyan);
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    /* 3D Car Integrator */
+    #car-canvas-container {
+      width: 180px;
+      height: 100px;
+      margin-top: -20px;
+      margin-right: -20px;
+      opacity: 0.8;
+      transform: skewX(15deg);
+    }
+
+    /* --- MAP MARKERS --- */
+    .marker-camera {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0055"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-4-8c0 2.21 1.79 4 4 4s4-1.79 4-4-1.79-4-4-4-4 1.79-4 4z"/><circle cx="12" cy="12" r="2" fill="%23fff"/></svg>');
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      filter: drop-shadow(0 0 5px var(--nfs-pink));
+    }
+
+    @media (max-width: 768px) {
+      .speed-value {
+        font-size: 4rem;
+      }
+
+      .nav-hub {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div id="map"></div>
+  <div id="map"></div>
 
-    <div class="hud-layer">
-        <!-- TOP HUD -->
-        <div class="top-bar">
-            <!-- Search / Dest Input -->
-            <div class="nav-hub hud-element">
-                <div class="nav-input-container">
-                    <span class="nav-label">DESTINATION</span>
-                    <input type="text" id="nav-input" class="hud-input" placeholder="SEARCH..." />
-                </div>
-                <!-- Search Autocomplete Results -->
-                <div class="search-results" id="search-results"></div>
-                
-                <!-- Expanded Route Panel -->
-                <div class="route-panel" id="route-panel">
-                    <div class="route-row">
-                        <span class="route-label">FROM:</span>
-                        <div class="route-input-box">
-                            <input type="text" id="start-input" value="Current Location" />
-                        </div>
-                    </div>
-                    <div class="route-row">
-                        <span class="route-label">TO:</span>
-                        <div class="route-input-box">
-                            <input type="text" id="end-input" readonly />
-                        </div>
-                    </div>
-                    <button class="btn-go" onclick="startNavigation()">INITIATE ROUTE</button>
-                    <!-- Sub-results for Start Input -->
-                    <div class="search-results" id="start-search-results" style="top: 100%; display:none;"></div>
-                </div>
-            </div>
-
-            <div class="danger-widget hud-element" id="danger-alert">
-                <div class="danger-text">! HIGH RISK ZONE !</div>
-            </div>
+  <div class="hud-layer">
+    <!-- TOP HUD -->
+    <div class="top-bar">
+      <!-- Search / Dest Input -->
+      <div class="nav-hub hud-element">
+        <div class="nav-input-container">
+          <span class="nav-label">DESTINATION</span>
+          <input type="text" id="nav-input" class="hud-input" placeholder="SEARCH..." />
         </div>
+        <!-- Search Autocomplete Results -->
+        <div class="search-results" id="search-results"></div>
 
-        <!-- BOTTOM HUD -->
-        <div class="bottom-bar">
-            <div class="history-panel hud-element">
-                <div class="history-title">RECENT LOCATIONS</div>
-                <ul class="history-list" id="history-list">
-                    <li class="history-item">SYSTEM READY...</li>
-                </ul>
+        <!-- Expanded Route Panel -->
+        <div class="route-panel" id="route-panel">
+          <div class="route-row">
+            <span class="route-label">FROM:</span>
+            <div class="route-input-box">
+              <input type="text" id="start-input" value="Current Location" />
             </div>
-
-            <div class="speed-cluster hud-element">
-                <div class="speed-value">0</div>
-                <div class="speed-label">KM/H</div>
-                <div id="car-canvas-container">
-                    <canvas id="car-canvas"></canvas>
-                </div>
+          </div>
+          <div class="route-row">
+            <span class="route-label">TO:</span>
+            <div class="route-input-box">
+              <input type="text" id="end-input" readonly />
             </div>
+          </div>
+          <button class="btn-go" onclick="startNavigation()">INITIATE ROUTE</button>
+          <!-- Sub-results for Start Input -->
+          <div class="search-results" id="start-search-results" style="top: 100%; display:none;"></div>
         </div>
+      </div>
+
+      <div class="danger-widget hud-element" id="danger-alert">
+        <div class="danger-text">! HIGH RISK ZONE !</div>
+      </div>
     </div>
 
-    <script>
-        // --- CONFIG & STATE ---
-        const CONFIG = {
-            defaultPos: [-122.4187, 37.7977], // Fallback if no GPS
-            theme: {
-                dark: '#0a0f1e',
-                cyan: '#00f3ff',
-                pink: '#ff0055'
+    <!-- BOTTOM HUD -->
+    <div class="bottom-bar">
+      <div class="history-panel hud-element">
+        <div class="history-title">RECENT LOCATIONS</div>
+        <ul class="history-list" id="history-list">
+          <li class="history-item">SYSTEM READY...</li>
+        </ul>
+      </div>
+
+      <div class="speed-cluster hud-element">
+        <div class="speed-value">0</div>
+        <div class="speed-label">KM/H</div>
+        <div id="car-canvas-container">
+          <canvas id="car-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- CONFIG & STATE ---
+    const CONFIG = {
+      defaultPos: [-122.4187, 37.7977], // Fallback if no GPS
+      theme: {
+        dark: '#0a0f1e',
+        cyan: '#00f3ff',
+        pink: '#ff0055'
+      }
+    };
+
+    let map;
+    let carMesh;
+    let currentState = {
+      currentPos: null,  // Real GPS
+      startPos: null,    // Route Start (default = currentPos)
+      endPos: null,      // Route End
+      endName: ""
+    };
+
+    // --- MAP SETUP ---
+    function initMap() {
+      map = new maplibregl.Map({
+        container: 'map',
+        style: {
+          "version": 8,
+          "sources": {
+            "osm": {
+              "type": "raster",
+              "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+              "tileSize": 256,
+              "attribution": "&copy; NFS Map"
+            },
+            "openmaptiles": {
+              "type": "vector",
+              "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
             }
-        };
-        
-        let map;
-        let carMesh;
-        let currentState = {
-            currentPos: null,  // Real GPS
-            startPos: null,    // Route Start (default = currentPos)
-            endPos: null,      // Route End
-            endName: ""
-        };
-        
-        // --- MAP SETUP ---
-        function initMap() {
-            map = new maplibregl.Map({
-                container: 'map',
-                style: {
-                    "version": 8,
-                    "sources": {
-                        "osm": {
-                            "type": "raster",
-                            "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
-                            "tileSize": 256,
-                            "attribution": "&copy; NFS Map"
-                        },
-                        "openmaptiles": {
-                            "type": "vector",
-                            "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=JZURWSSXaezauUK6D94q"
-                        }
-                    },
-                    "layers": [
-                        {
-                            "id": "background",
-                            "type": "background",
-                            "paint": {"background-color": "#050510"}
-                        },
-                        {
-                            "id": "water",
-                            "type": "fill",
-                            "source": "openmaptiles",
-                            "source-layer": "water",
-                            "paint": {"fill-color": "#001a2a"}
-                        },
-                        {
-                            "id": "road",
-                            "type": "line",
-                            "source": "openmaptiles",
-                            "source-layer": "transportation",
-                            "paint": {
-                                "line-color": "#00f3ff",
-                                "line-width": 1.5,
-                                "line-opacity": 0.4
-                            }
-                        },
-                        {
-                            "id": "building-3d",
-                            "type": "fill-extrusion",
-                            "source": "openmaptiles",
-                            "source-layer": "building",
-                            "paint": {
-                                "fill-extrusion-color": "#0a0f1e",
-                                "fill-extrusion-height": ["get", "render_height"],
-                                "fill-extrusion-base": ["get", "render_min_height"],
-                                "fill-extrusion-opacity": 0.8
-                            }
-                        }
-                    ]
-                },
-                center: CONFIG.defaultPos,
-                zoom: 14,
-                pitch: 60,
-                bearing: -20,
-                antialias: true
-            });
-
-            map.on('load', () => {
-                // Try Geolocation
-                locateUser();
-                
-                addDangerZones();
-                addSpeedCameras();
-            });
-
-            map.on('move', () => {
-                checkZones();
-            });
-        }
-
-        // --- GEOLOCATION ---
-        function locateUser() {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    const { latitude, longitude } = position.coords;
-                    const pos = [longitude, latitude];
-                    
-                    currentState.currentPos = pos;
-                    currentState.startPos = pos;
-                    
-                    // Fly to user
-                    map.flyTo({ center: pos, zoom: 15 });
-                    
-                    // Add User Marker
-                    new maplibregl.Marker({ color: CONFIG.theme.cyan })
-                        .setLngLat(pos)
-                        .setPopup(new maplibregl.Popup({ offset: 25 }).setText('DRIVER LOCATION'))
-                        .addTo(map);
-
-                }, error => {
-                    console.log("GPS Error:", error);
-                    // Fallback to default
-                    currentState.currentPos = CONFIG.defaultPos;
-                    currentState.startPos = CONFIG.defaultPos;
-                });
-            } else {
-                currentState.currentPos = CONFIG.defaultPos;
-                currentState.startPos = CONFIG.defaultPos;
+          },
+          "layers": [
+            {
+              "id": "background",
+              "type": "background",
+              "paint": { "background-color": "#050510" }
+            },
+            {
+              "id": "water",
+              "type": "fill",
+              "source": "openmaptiles",
+              "source-layer": "water",
+              "paint": { "fill-color": "#001a2a" }
+            },
+            {
+              "id": "road",
+              "type": "line",
+              "source": "openmaptiles",
+              "source-layer": "transportation",
+              "paint": {
+                "line-color": "#00f3ff",
+                "line-width": 1.5,
+                "line-opacity": 0.4
+              }
+            },
+            {
+              "id": "building-3d",
+              "type": "fill-extrusion",
+              "source": "openmaptiles",
+              "source-layer": "building",
+              "paint": {
+                "fill-extrusion-color": "#0a0f1e",
+                "fill-extrusion-height": ["get", "render_height"],
+                "fill-extrusion-base": ["get", "render_min_height"],
+                "fill-extrusion-opacity": 0.8
+              }
             }
+          ]
+        },
+        center: CONFIG.defaultPos,
+        zoom: 14,
+        pitch: 60,
+        bearing: -20,
+        antialias: true
+      });
+
+      map.on('load', () => {
+        // Try Geolocation
+        locateUser();
+
+        addDangerZones();
+        addSpeedCameras();
+        addEstacionesServicio();
+      });
+
+      map.on('move', () => {
+        checkZones();
+      });
+    }
+
+    // --- GEOLOCATION ---
+    function locateUser() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const { latitude, longitude } = position.coords;
+          const pos = [longitude, latitude];
+
+          currentState.currentPos = pos;
+          currentState.startPos = pos;
+
+          // Fly to user
+          map.flyTo({ center: pos, zoom: 15 });
+
+          // Add User Marker
+          new maplibregl.Marker({ color: CONFIG.theme.cyan })
+            .setLngLat(pos)
+            .setPopup(new maplibregl.Popup({ offset: 25 }).setText('DRIVER LOCATION'))
+            .addTo(map);
+
+        }, error => {
+          console.log("GPS Error:", error);
+          // Fallback to default
+          currentState.currentPos = CONFIG.defaultPos;
+          currentState.startPos = CONFIG.defaultPos;
+        });
+      } else {
+        currentState.currentPos = CONFIG.defaultPos;
+        currentState.startPos = CONFIG.defaultPos;
+      }
+    }
+
+    // --- SAFETY FEATURES (REAL DATA) ---
+    function addDangerZones() {
+      // Load real GeoJSON data
+      fetch('./villas/renabap-2023-12-06.geojson')
+        .then(response => {
+          if (!response.ok) throw new Error("Failed to load danger zones");
+          return response.json();
+        })
+        .then(data => {
+          // Check if source exists to avoid duplicates
+          if (!map.getSource('danger-zone')) {
+            map.addSource('danger-zone', {
+              'type': 'geojson',
+              'data': data
+            });
+
+            map.addLayer({
+              'id': 'danger-fill',
+              'type': 'fill',
+              'source': 'danger-zone',
+              'paint': {
+                'fill-color': '#ff0055',
+                'fill-opacity': 0.3
+              }
+            });
+
+            map.addLayer({
+              'id': 'danger-line',
+              'type': 'line',
+              'source': 'danger-zone',
+              'paint': {
+                'line-color': '#ff0055',
+                'line-width': 2,
+                'line-dasharray': [2, 1]
+              }
+            });
+
+            // --- CLICK LISTENER FOR DANGER ZONES ---
+            map.on('click', 'danger-fill', (e) => {
+              const props = e.features[0].properties;
+              const description = `
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
+                        <strong style="color: #ff0055; font-size: 1.1em;">DANGER ZONE</strong><br>
+                        <span style="font-weight: 600;">${props.nombre_barrio || 'Unknown Area'}</span><br>
+                        <span>${props.provincia || ''}</span>
+                    </div>
+                `;
+              new maplibregl.Popup({ closeButton: false, maxWidth: '200px' })
+                .setLngLat(e.lngLat)
+                .setHTML(description)
+                .addTo(map);
+            });
+
+            // Cursor pointers
+            map.on('mouseenter', 'danger-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+            map.on('mouseleave', 'danger-fill', () => { map.getCanvas().style.cursor = ''; });
+
+            console.log("Danger Zones Loaded");
+          }
+        })
+        .catch(err => console.error("Error loading danger zones:", err));
+    }
+
+    function addSpeedCameras() {
+      // 1. Load SVG Image for the icon (Parallel)
+      map.loadImage('./fotomultas/speed_camera.svg', (error, image) => {
+        if (error) {
+          console.error("Error loading camera icon:", error);
+        } else {
+          if (!map.hasImage('camera-icon')) map.addImage('camera-icon', image);
         }
+      });
 
-        // --- SAFETY FEATURES (REAL DATA) ---
-        function addDangerZones() {
-            // Load real GeoJSON data
-            fetch('./renabap-2023-12-06.geojson')
-                .then(response => {
-                    if (!response.ok) throw new Error("Failed to load danger zones");
-                    return response.json();
-                })
-                .then(data => {
-                    // Check if source exists to avoid duplicates
-                    if(!map.getSource('danger-zone')) {
-                        map.addSource('danger-zone', {
-                            'type': 'geojson',
-                            'data': data
-                        });
-                        
-                        map.addLayer({
-                            'id': 'danger-fill',
-                            'type': 'fill',
-                            'source': 'danger-zone',
-                            'paint': {
-                                'fill-color': '#ff0055',
-                                'fill-opacity': 0.3
-                            }
-                        });
-                        
-                        map.addLayer({
-                            'id': 'danger-line',
-                            'type': 'line',
-                            'source': 'danger-zone',
-                            'paint': {
-                                'line-color': '#ff0055',
-                                'line-width': 2,
-                                'line-dasharray': [2, 1]
-                            }
-                        });
-                        console.log("Danger Zones Loaded");
-                    }
-                })
-                .catch(err => console.error("Error loading danger zones:", err));
-        }
+      // 2. Load real GeoJSON data (Fetch immediately)
+      fetch('./fotomultas/speed_cameras.geojson')
+        .then(response => {
+          if (!response.ok) throw new Error("Status " + response.status);
+          return response.json();
+        })
+        .then(data => {
+          if (!map.getSource('speed-cameras')) {
+            map.addSource('speed-cameras', {
+              type: 'geojson',
+              data: data,
+              cluster: true,
+              clusterMaxZoom: 15,
+              clusterRadius: 50
+            });
 
-        function addSpeedCameras() {
-            // Load SVG Image for the icon
-            map.loadImage('/speed_camera.svg', (error, image) => {
-                if (error) { console.error(error); return; }
-                if (!map.hasImage('camera-icon')) map.addImage('camera-icon', image);
-                
-                // Add Source with Clustering
-                map.addSource('speed-cameras', {
-                    type: 'geojson',
-                    data: '/speed_cameras.geojson',
-                    cluster: true,
-                    clusterMaxZoom: 14, // Max zoom to cluster points on
-                    clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-                });
+            // 1. Clusters
+            map.addLayer({
+              id: 'clusters',
+              type: 'circle',
+              source: 'speed-cameras',
+              filter: ['has', 'point_count'],
+              paint: {
+                'circle-color': '#ff0055',
+                'circle-radius': ['step', ['get', 'point_count'], 15, 20, 20, 100, 25],
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#fff'
+              }
+            });
 
-                // 1. Clusters (Circles)
-                map.addLayer({
-                    id: 'clusters',
-                    type: 'circle',
-                    source: 'speed-cameras',
-                    filter: ['has', 'point_count'],
-                    paint: {
-                        'circle-color': '#ff0055',
-                        'circle-radius': [
-                            'step',
-                            ['get', 'point_count'],
-                            15, // Size 15px for < 20 items
-                            20, // step 1
-                            20, // size 20px
-                            100, // step 2
-                            25  // size 25px for > 100 items
-                        ],
-                        'circle-stroke-width': 2,
-                        'circle-stroke-color': '#fff'
-                    }
-                });
+            // 2. Cluster Count
+            map.addLayer({
+              id: 'cluster-count',
+              type: 'symbol',
+              source: 'speed-cameras',
+              filter: ['has', 'point_count'],
+              layout: {
+                'text-field': '{point_count_abbreviated}',
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12
+              },
+              paint: { 'text-color': '#ffffff' }
+            });
 
-                // 2. Cluster Counts (Text)
-                map.addLayer({
-                    id: 'cluster-count',
-                    type: 'symbol',
-                    source: 'speed-cameras',
-                    filter: ['has', 'point_count'],
-                    layout: {
-                        'text-field': '{point_count_abbreviated}',
-                        'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                        'text-size': 12
-                    },
-                    paint: {
-                        'text-color': '#ffffff'
-                    }
-                });
+            // 3. Unclustered Fallback Circle (Background for Icon)
+            map.addLayer({
+              id: 'unclustered-circle',
+              type: 'circle',
+              source: 'speed-cameras',
+              filter: ['!', ['has', 'point_count']],
+              paint: {
+                'circle-color': '#0a0f1e',
+                'circle-radius': 12,
+                'circle-stroke-color': '#ff0055',
+                'circle-stroke-width': 2
+              }
+            });
 
-                // 3. Unclustered Points (Individual Cameras)
-                map.addLayer({
-                    id: 'unclustered-point',
-                    type: 'symbol',
-                    source: 'speed-cameras',
-                    filter: ['!', ['has', 'point_count']],
-                    layout: {
-                        'icon-image': 'camera-icon',
-                        'icon-size': 1.5, // The SVG is small (24x24), scale it up slightly
-                        'icon-allow-overlap': true
-                    }
-                });
+            // 4. Unclustered Icon
+            map.addLayer({
+              id: 'unclustered-point',
+              type: 'symbol',
+              source: 'speed-cameras',
+              filter: ['!', ['has', 'point_count']],
+              layout: {
+                'icon-image': 'camera-icon',
+                'icon-size': 2.5,
+                'icon-allow-overlap': true,
+                'icon-ignore-placement': true
+              }
+            });
 
-                // Inspect a cluster on click
-                map.on('click', 'clusters', (e) => {
-                    const features = map.queryRenderedFeatures(e.point, {
-                        layers: ['clusters']
-                    });
-                    const clusterId = features[0].properties.cluster_id;
-                    map.getSource('speed-cameras').getClusterExpansionZoom(
-                        clusterId,
-                        (err, zoom) => {
-                            if (err) return;
-                            map.easeTo({
-                                center: features[0].geometry.coordinates,
-                                zoom: zoom
-                            });
-                        }
-                    );
-                });
+            // --- Events ---
 
-                // Initial Popup for individual points
-                map.on('click', 'unclustered-point', (e) => {
-                    const coordinates = e.features[0].geometry.coordinates.slice();
-                    const props = e.features[0].properties;
-                    const description = `
+            // Cluster Click
+            map.on('click', 'clusters', (e) => {
+              const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
+              const clusterId = features[0].properties.cluster_id;
+              map.getSource('speed-cameras').getClusterExpansionZoom(clusterId, (err, zoom) => {
+                if (err) return;
+                map.easeTo({ center: features[0].geometry.coordinates, zoom: zoom });
+              });
+            });
+
+            // Point Click (Icon + Circle)
+            const clickHandler = (e) => showCameraPopup(e);
+            map.on('click', 'unclustered-point', clickHandler);
+            map.on('click', 'unclustered-circle', clickHandler);
+
+            // Cursors
+            const ptr = () => map.getCanvas().style.cursor = 'pointer';
+            const noptr = () => map.getCanvas().style.cursor = '';
+
+            map.on('mouseenter', 'clusters', ptr);
+            map.on('mouseleave', 'clusters', noptr);
+            map.on('mouseenter', 'unclustered-point', ptr);
+            map.on('mouseleave', 'unclustered-point', noptr);
+            map.on('mouseenter', 'unclustered-circle', ptr);
+            map.on('mouseleave', 'unclustered-circle', noptr);
+
+            console.log("Speed Cameras Loaded (Decoupled)");
+          }
+        })
+        .catch(e => console.error("Error adding cameras:", e));
+    }
+
+    function showCameraPopup(e) {
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const props = e.features[0].properties;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      const description = `
+            <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
+                <strong style="color: #ff0055; font-size: 1.1em;">${props.nroSerie || 'CAMERA'}</strong><br>
+                <span style="font-weight: 600;">📍 ${props.calleRuta || 'Location N/A'}</span><br>
+                ${props.sentido ? `<span>➡ ${props.sentido}</span><br>` : ''}
+                ${props.velocidadPermitida ? `<span style="background: #ff0055; color: white; padding: 2px 5px; border-radius: 3px; font-weight: bold; font-size: 0.9em;">MAX ${props.velocidadPermitida} KM/H</span><br>` : ''}
+                ${props.conducta ? `<span style="color: #ffcc00; font-size: 0.9em;">⚠️ ${props.conducta}</span><br>` : ''}
+                ${props.source ? `<small style="color:#666">${props.source}</small>` : ''}
+            </div>
+        `;
+
+      new maplibregl.Popup({ closeButton: false, maxWidth: '200px' })
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    }
+
+    function addEstacionesServicio() {
+      fetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson')
+        .then(response => {
+          if (!response.ok) throw new Error("Failed to load gas stations");
+          return response.json();
+        })
+        .then(data => {
+          if (!map.getSource('estaciones')) {
+            map.addSource('estaciones', {
+              type: 'geojson',
+              data: data,
+              cluster: true,
+              clusterMaxZoom: 14,
+              clusterRadius: 50
+            });
+
+            // 1. Clusters
+            map.addLayer({
+              id: 'estaciones-clusters',
+              type: 'circle',
+              source: 'estaciones',
+              filter: ['has', 'point_count'],
+              paint: {
+                'circle-color': '#ffe600', // Yellow for gas stations clusters
+                'circle-radius': ['step', ['get', 'point_count'], 15, 20, 20, 100, 25],
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#000'
+              }
+            });
+
+            // 2. Cluster Count
+            map.addLayer({
+              id: 'estaciones-cluster-count',
+              type: 'symbol',
+              source: 'estaciones',
+              filter: ['has', 'point_count'],
+              layout: {
+                'text-field': '{point_count_abbreviated}',
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12
+              },
+              paint: { 'text-color': '#000000' }
+            });
+
+            // 3. Unclustered Points (Type Based Styling)
+            // Types: "Combustibles líquidos únicamente", "Duales (líquidos + GNC)", "Sólo GNC"
+            map.addLayer({
+              id: 'estaciones-point',
+              type: 'circle',
+              source: 'estaciones',
+              filter: ['!', ['has', 'point_count']],
+              paint: {
+                'circle-color': [
+                  'match',
+                  ['get', 'tipooperador'],
+                  'Combustibles líquidos únicamente', '#ffe600', // Yellow
+                  'Duales (líquidos + GNC)', '#ff0055',          // Pink/Red
+                  'Sólo GNC', '#00ff66',                         // Green
+                  '#00f3ff'                                      // Default Cyan
+                ],
+                'circle-radius': 8,
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#fff'
+              }
+            });
+
+            // 4. Label for type (optional, maybe just one letter: L, D, G)
+            map.addLayer({
+              id: 'estaciones-label',
+              type: 'symbol',
+              source: 'estaciones',
+              filter: ['!', ['has', 'point_count']],
+              layout: {
+                'text-field': [
+                  'match',
+                  ['get', 'tipooperador'],
+                  'Combustibles líquidos únicamente', 'L',
+                  'Duales (líquidos + GNC)', 'D',
+                  'Sólo GNC', 'G',
+                  '?'
+                ],
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 10
+              },
+              paint: {
+                'text-color': '#000000'
+              },
+              minzoom: 12
+            });
+
+            // --- Events ---
+            map.on('click', 'estaciones-clusters', (e) => {
+              const features = map.queryRenderedFeatures(e.point, { layers: ['estaciones-clusters'] });
+              const clusterId = features[0].properties.cluster_id;
+              map.getSource('estaciones').getClusterExpansionZoom(clusterId, (err, zoom) => {
+                if (err) return;
+                map.easeTo({ center: features[0].geometry.coordinates, zoom: zoom });
+              });
+            });
+
+            map.on('click', 'estaciones-point', (e) => {
+              const coordinates = e.features[0].geometry.coordinates.slice();
+              const props = e.features[0].properties;
+
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+
+              const description = `
                         <div style="font-family: 'Rajdhani', sans-serif; color: #0a0f1e;">
-                            <strong style="color: #ff0055; font-size: 1.1em;">${props.nroSerie || 'N/A'}</strong><br>
-                            <span style="font-weight: 600;">📍 ${props.calleRuta || 'Unknown Location'}</span><br>
-                            ${props.sentido ? `<span>➡ ${props.sentido}</span><br>` : ''}
-                            ${props.velocidadPermitida ? `<span style="background: #ff0055; color: white; padding: 2px 5px; border-radius: 3px; font-weight: bold; font-size: 0.9em;">MAX ${props.velocidadPermitida} KM/H</span>` : ''}
+                            <strong style="color: #00f3ff; font-size: 1.1em;">${props.empresabandera || 'STATION'}</strong><br>
+                            <span style="font-weight: 600;">${props.razonsocial || ''}</span><br>
+                            <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px;">
+                                📍 ${props.direccion || ''}, ${props.localidad || ''}<br>
+                                <span style="font-weight: bold; color: #ff0055;">${props.tipooperador || 'Unknown Type'}</span>
+                            </div>
                         </div>
                     `;
 
-                    new maplibregl.Popup({ closeButton: false, maxWidth: '200px' })
-                        .setLngLat(coordinates)
-                        .setHTML(description)
-                        .addTo(map);
-                });
-                
-                // Change cursor on hover
-                map.on('mouseenter', 'clusters', () => { map.getCanvas().style.cursor = 'pointer'; });
-                map.on('mouseleave', 'clusters', () => { map.getCanvas().style.cursor = ''; });
-                map.on('mouseenter', 'unclustered-point', () => { map.getCanvas().style.cursor = 'pointer'; });
-                map.on('mouseleave', 'unclustered-point', () => { map.getCanvas().style.cursor = ''; });
-
-                console.log("Speed Cameras Loaded (GeoJSON)");
+              new maplibregl.Popup({ closeButton: false, maxWidth: '250px' })
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
             });
+
+            // Cursors
+            const ptr = () => map.getCanvas().style.cursor = 'pointer';
+            const noptr = () => map.getCanvas().style.cursor = '';
+
+            map.on('mouseenter', 'estaciones-clusters', ptr);
+            map.on('mouseleave', 'estaciones-clusters', noptr);
+            map.on('mouseenter', 'estaciones-point', ptr);
+            map.on('mouseleave', 'estaciones-point', noptr);
+
+            console.log("Gas Stations Loaded");
+          }
+        })
+        .catch(err => console.error("Error loading gas stations:", err));
+    }
+
+    function checkZones() {
+      // Check if user is inside a danger polygon
+      if (!map.getSource('danger-zone')) return;
+
+      const center = map.getCenter();
+      // Check if the center of the screen intersects with the danger layer
+      const features = map.queryRenderedFeatures(map.project(center), { layers: ['danger-fill'] });
+
+      const alertBox = document.getElementById('danger-alert');
+
+      if (features.length > 0) {
+        alertBox.style.display = 'block';
+      } else {
+        alertBox.style.display = 'none';
+      }
+    }
+
+    // --- SEARCH & ROUTING ---
+    const navInput = document.getElementById('nav-input');
+    const resultsBox = document.getElementById('search-results');
+    const routePanel = document.getElementById('route-panel');
+    const startInput = document.getElementById('start-input');
+    const endInput = document.getElementById('end-input');
+
+    // 1. Main Search (Destination)
+    navInput.addEventListener('input', (e) => handleSearch(e.target.value, resultsBox, 'dest'));
+
+    // 2. Start Location Search (Edit Start)
+    startInput.addEventListener('input', (e) => handleSearch(e.target.value, document.getElementById('start-search-results'), 'start'));
+
+    async function handleSearch(query, container, type) {
+      if (query.length < 3) return;
+      container.style.display = 'block';
+
+      const resp = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&limit=3`);
+      const data = await resp.json();
+
+      container.innerHTML = '';
+      data.features.forEach(f => {
+        const div = document.createElement('div');
+        div.className = 'result-item';
+        div.innerText = f.properties.display_name.split(',')[0];
+        div.onclick = () => {
+          selectLocation(f, type);
+          container.style.display = 'none';
+        };
+        container.appendChild(div);
+      });
+    }
+
+    function selectLocation(feature, type) {
+      const coords = feature.geometry.coordinates;
+      const name = feature.properties.display_name;
+
+      if (type === 'dest') {
+        // Set Destination
+        currentState.endPos = coords;
+        currentState.endName = name;
+        endInput.value = name.split(',')[0];
+        navInput.value = ""; // Clear main search
+
+        // Show Route Panel
+        routePanel.style.display = 'block';
+
+        // If Start is not set, default to GPS
+        if (!currentState.startPos && currentState.currentPos) {
+          currentState.startPos = currentState.currentPos;
+          startInput.value = "Current Location";
         }
 
-        function checkZones() {
-            // Check if user is inside a danger polygon
-            if(!map.getSource('danger-zone')) return;
+        // Preview logic (Fit bounds)
+        fitRouteBounds();
 
-            const center = map.getCenter();
-            // Check if the center of the screen intersects with the danger layer
-            const features = map.queryRenderedFeatures(map.project(center), { layers: ['danger-fill'] });
-            
-            const alertBox = document.getElementById('danger-alert');
-            
-            if (features.length > 0) {
-                alertBox.style.display = 'block';
-            } else {
-                alertBox.style.display = 'none';
-            }
+      } else if (type === 'start') {
+        // Set Start
+        currentState.startPos = coords;
+        startInput.value = name.split(',')[0];
+      }
+    }
+
+    function fitRouteBounds() {
+      if (currentState.startPos && currentState.endPos) {
+        const bounds = new maplibregl.LngLatBounds()
+          .extend(currentState.startPos)
+          .extend(currentState.endPos);
+        map.fitBounds(bounds, { padding: 100 });
+        drawRouteLine();
+      }
+    }
+
+    function startNavigation() {
+      // "Go" button logic
+      routePanel.style.display = 'none';
+      addToHistory(currentState.endName);
+
+      // Fly to Start to begin "driving"
+      map.flyTo({
+        center: currentState.startPos,
+        zoom: 17,
+        pitch: 60,
+        bearing: 0
+      });
+
+      // In a real app, this would start turn-by-turn
+      alert("ROUTE INITIATED. DRIVE SAFE.");
+    }
+
+    function drawRouteLine() {
+      // Mock straight line
+      const route = {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [currentState.startPos, currentState.endPos]
         }
+      };
 
-        // --- SEARCH & ROUTING ---
-        const navInput = document.getElementById('nav-input');
-        const resultsBox = document.getElementById('search-results');
-        const routePanel = document.getElementById('route-panel');
-        const startInput = document.getElementById('start-input');
-        const endInput = document.getElementById('end-input');
+      if (map.getSource('route')) {
+        map.getSource('route').setData(route);
+      } else {
+        map.addSource('route', { 'type': 'geojson', 'data': route });
+        map.addLayer({
+          'id': 'route-line',
+          'type': 'line',
+          'source': 'route',
+          'paint': {
+            'line-color': '#ffe600',
+            'line-width': 4,
+            'line-opacity': 0.8
+          }
+        });
+      }
+    }
 
-        // 1. Main Search (Destination)
-        navInput.addEventListener('input', (e) => handleSearch(e.target.value, resultsBox, 'dest'));
-        
-        // 2. Start Location Search (Edit Start)
-        startInput.addEventListener('input', (e) => handleSearch(e.target.value, document.getElementById('start-search-results'), 'start'));
+    // --- HISTORY ---
+    function addToHistory(name) {
+      const list = document.getElementById('history-list');
+      const item = document.createElement('li');
+      item.className = 'history-item';
+      const shortName = name.split(',')[0];
+      item.innerHTML = `> ${shortName}`;
+      list.insertBefore(item, list.firstChild);
+    }
 
-        async function handleSearch(query, container, type) {
-            if(query.length < 3) return;
-            container.style.display = 'block';
-            
-            const resp = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&limit=3`);
-            const data = await resp.json();
-            
-            container.innerHTML = '';
-            data.features.forEach(f => {
-                const div = document.createElement('div');
-                div.className = 'result-item';
-                div.innerText = f.properties.display_name.split(',')[0]; 
-                div.onclick = () => {
-                    selectLocation(f, type);
-                    container.style.display = 'none';
-                };
-                container.appendChild(div);
-            });
-        }
+    // --- 3D CAR ---
+    function init3D() {
+      const canvas = document.getElementById('car-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      camera.position.set(0, 1, 3);
+      camera.lookAt(0, 0, 0);
 
-        function selectLocation(feature, type) {
-            const coords = feature.geometry.coordinates;
-            const name = feature.properties.display_name;
+      const geometry = new THREE.BoxGeometry(1, 0.4, 2);
+      const material = new THREE.MeshPhongMaterial({
+        color: 0x00f3ff,
+        emissive: 0x001133,
+        shininess: 100
+      });
+      carMesh = new THREE.Mesh(geometry, material);
+      scene.add(carMesh);
 
-            if(type === 'dest') {
-                // Set Destination
-                currentState.endPos = coords;
-                currentState.endName = name;
-                endInput.value = name.split(',')[0];
-                navInput.value = ""; // Clear main search
-                
-                // Show Route Panel
-                routePanel.style.display = 'block';
-                
-                // If Start is not set, default to GPS
-                if(!currentState.startPos && currentState.currentPos) {
-                    currentState.startPos = currentState.currentPos;
-                    startInput.value = "Current Location";
-                }
-                
-                // Preview logic (Fit bounds)
-                fitRouteBounds();
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(2, 2, 2);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0x404040));
 
-            } else if (type === 'start') {
-                // Set Start
-                currentState.startPos = coords;
-                startInput.value = name.split(',')[0];
-            }
-        }
+      function animate() {
+        requestAnimationFrame(animate);
+        carMesh.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
 
-        function fitRouteBounds() {
-            if(currentState.startPos && currentState.endPos) {
-                 const bounds = new maplibregl.LngLatBounds()
-                    .extend(currentState.startPos)
-                    .extend(currentState.endPos);
-                map.fitBounds(bounds, { padding: 100 });
-                drawRouteLine();
-            }
-        }
-
-        function startNavigation() {
-            // "Go" button logic
-            routePanel.style.display = 'none';
-            addToHistory(currentState.endName);
-            
-            // Fly to Start to begin "driving"
-            map.flyTo({
-                center: currentState.startPos,
-                zoom: 17,
-                pitch: 60,
-                bearing: 0
-            });
-            
-            // In a real app, this would start turn-by-turn
-            alert("ROUTE INITIATED. DRIVE SAFE.");
-        }
-
-        function drawRouteLine() {
-            // Mock straight line
-            const route = {
-                'type': 'Feature',
-                'properties': {},
-                'geometry': {
-                    'type': 'LineString',
-                    'coordinates': [currentState.startPos, currentState.endPos]
-                }
-            };
-            
-            if(map.getSource('route')) {
-                map.getSource('route').setData(route);
-            } else {
-                map.addSource('route', {'type': 'geojson', 'data': route});
-                map.addLayer({
-                    'id': 'route-line',
-                    'type': 'line',
-                    'source': 'route',
-                    'paint': {
-                        'line-color': '#ffe600',
-                        'line-width': 4,
-                        'line-opacity': 0.8
-                    }
-                });
-            }
-        }
-
-        // --- HISTORY ---
-        function addToHistory(name) {
-            const list = document.getElementById('history-list');
-            const item = document.createElement('li');
-            item.className = 'history-item';
-            const shortName = name.split(',')[0];
-            item.innerHTML = `> ${shortName}`;
-            list.insertBefore(item, list.firstChild);
-        }
-
-        // --- 3D CAR ---
-        function init3D() {
-            const canvas = document.getElementById('car-canvas');
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
-            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            camera.position.set(0, 1, 3);
-            camera.lookAt(0, 0, 0);
-
-            const geometry = new THREE.BoxGeometry(1, 0.4, 2);
-            const material = new THREE.MeshPhongMaterial({
-                color: 0x00f3ff,
-                emissive: 0x001133,
-                shininess: 100
-            });
-            carMesh = new THREE.Mesh(geometry, material);
-            scene.add(carMesh);
-
-            const light = new THREE.DirectionalLight(0xffffff, 1);
-            light.position.set(2, 2, 2);
-            scene.add(light);
-            scene.add(new THREE.AmbientLight(0x404040));
-
-            function animate() {
-                requestAnimationFrame(animate);
-                carMesh.rotation.y += 0.01;
-                renderer.render(scene, camera);
-            }
-            animate();
-        }
-
-        initMap();
-        init3D();
-    </script>
+    initMap();
+    init3D();
+  </script>
 </body>
+
 </html>
