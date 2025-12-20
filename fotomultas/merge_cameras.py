@@ -53,7 +53,7 @@ def process_caba():
         # Validate columns flexibly
         lat_key = next((k for k in row.keys() if k and 'latitud' in k.lower()), None)
         lon_key = next((k for k in row.keys() if k and 'longitud' in k.lower()), None)
-        ubi_key = next((k for k in row.keys() if k and 'ubicaci' in k.lower()), None)
+        ubi_key = next((k for k in row.keys() if k and 'ubicacion' in k.lower()), None)
         
         if lat_key and lon_key:
             lat = safe_float(row[lat_key])

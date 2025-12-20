@@ -427,331 +427,206 @@
       canvasContextAttributes: { antialias: true }
     });
 
-    // --- CUSTOM 3D LAYER ---
-    const customLayer = {
-      id: '3d-model-layer',
-      type: 'custom',
-      renderingMode: '3d',
-      map: null,
-      camera: null,
-      scene: null,
-      renderer: null,
 
-      // Meshes
-      gasStationMeshes: { tanks: null, straps1: null, straps2: null, rings: null },
-      cameraMeshes: { pole: null, box: null },
-
-      onAdd(map, gl) {
-        this.map = map;
-        this.camera = new THREE.Camera();
-        this.scene = new THREE.Scene();
-
-        // Lights
-        const directionalLight = new THREE.DirectionalLight(0xffffff);
-        directionalLight.position.set(0, -70, 100).normalize();
-        this.scene.add(directionalLight);
-
-        const directionalLight2 = new THREE.DirectionalLight(0xffffff);
-        directionalLight2.position.set(0, 70, 100).normalize();
-        this.scene.add(directionalLight2);
-
-        const pointLight = new THREE.PointLight(0x00f3ff, 1, 1000);
-        pointLight.position.set(0, 0, 500);
-        this.scene.add(pointLight);
-
-        this.renderer = new THREE.WebGLRenderer({
-          canvas: map.getCanvas(),
-          context: gl,
-          antialias: true
-        });
-        this.renderer.autoClear = false;
-        // CRITICAL: Set Pixel Ratio for sharp rendering on high-DPI screens
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-      },
-
-      render(gl, args) {
-        let projectionMatrixArray = args && args.defaultProjectionData ? args.defaultProjectionData.mainMatrix : null;
-        // Fallback if args is not structured as expected (older versions or variations)
-        if (!projectionMatrixArray && Array.isArray(args)) projectionMatrixArray = args; // if args IS the matrix
-
-        if (projectionMatrixArray) {
-          const m = new THREE.Matrix4().fromArray(projectionMatrixArray);
-          this.camera.projectionMatrix = m;
-        }
-
-        this.renderer.resetState();
-        this.renderer.render(this.scene, this.camera);
-        this.map.triggerRepaint();
-      },
-
-      updateGasStations(features) {
-        if (!this.scene) return;
-
-        // Clean up previous meshes
-        const keys = ['tanks', 'straps1', 'straps2', 'rings', 'bands', 'text'];
-        keys.forEach(k => { if (this.gasStationMeshes[k]) this.scene.remove(this.gasStationMeshes[k]); });
-        if (this.gasStationMeshes.legs) this.scene.remove(this.gasStationMeshes.legs);
-
-        // Clean up GLTF instances if any
-        if (this.gasStationMeshes.scadInstances) {
-          this.gasStationMeshes.scadInstances.forEach(im => this.scene.remove(im));
-        }
-        this.gasStationMeshes.scadInstances = [];
-
-        const count = features.length;
-        if (count === 0) return;
-
-        const S = 0.05; // Scale
-
-        // --- 1. TANK (Capsule) ---
-        // Ref: CapsuleGeometry(160, 800, 8, 32)
-        // Improved: 16 cap segments, 64 radial for smoothness
-        const tankGeo = new THREE.CapsuleGeometry(160 * S, 800 * S, 16, 64);
-        tankGeo.rotateZ(Math.PI / 2);
-        tankGeo.translate(0, 0, 15);
-
-        // Ref Material:
-        // color: 0xFFD342, metalness: 0.3, roughness: 0.4, clearcoat: 0.5, clearcoatRoughness: 0.1
-        const tankMat = new THREE.MeshPhysicalMaterial({
-          color: 0xFFD342,
-          metalness: 0.3,
-          roughness: 0.4,
-          clearcoat: 0.5,
-          clearcoatRoughness: 0.1
-        });
-
-        // --- 2. BAND (White Cylinder) ---
-        // Ref: CylinderGeometry(201, 201, 60, 64, 1, true)
-        const bandGeo = new THREE.CylinderGeometry(201 * S, 201 * S, 60 * S, 128, 1, true); // 128 segs
-        bandGeo.rotateZ(Math.PI / 2);
-        bandGeo.translate(0, 0, 15);
-
-        const bandMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide });
-
-        // --- 3. RING (Power Up) ---
-        // Ref: TorusGeometry(187.5, 12.5, 32, 100)
-        // Improved: 48 radial, 128 tubular
-        const ringGeo = new THREE.TorusGeometry(187.5 * S, 12.5 * S, 48, 128);
-        ringGeo.rotateY(Math.PI / 2);
-        ringGeo.translate(0, 0, 15);
-
-        // Ref Material:
-        // color: 0xB200FF, metalness: 0.1, roughness: 0.05, transmission: 0.3
-        // opacity: 0.5, transparent: true, emissive: 0x660099, emissiveIntensity: 0.6
-        const ringMat = new THREE.MeshPhysicalMaterial({
-          color: 0xB200FF,
-          metalness: 0.1,
-          roughness: 0.05,
-          transmission: 0.3,
-          thickness: 10,
-          opacity: 0.5,
-          transparent: true,
-          depthWrite: false, // Critical for transparency
-          emissive: 0x660099,
-          emissiveIntensity: 0.6,
-          side: THREE.DoubleSide
-        });
-
-        // --- 4. TEXT (GNC) ---
-        // High-Res Canvas (2048x512) for crispy text
-        const canvas = document.createElement('canvas');
-        canvas.width = 2048; canvas.height = 512;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = 'rgba(0,0,0,0)'; ctx.fillRect(0, 0, 2048, 512);
-        ctx.fillStyle = '#0d0d0d';
-        ctx.font = 'bold 320px "Arial Black", Arial'; // Larger font
-        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText('GNC', 1024, 256);
-
-        const textTex = new THREE.CanvasTexture(canvas);
-        textTex.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
-        textTex.minFilter = THREE.LinearMenuItemFilter; // Better minification
-
-        // Ref: CylinderGeometry(203, 203, 50, 32...)
-        const textGeo = new THREE.CylinderGeometry(203 * S, 203 * S, 50 * S, 128, 1, true, -Math.PI / 6, Math.PI / 3);
-        textGeo.rotateZ(Math.PI / 2);
-        textGeo.rotateY(-Math.PI / 2);
-        textGeo.translate(0, 0, 15);
-
-        const textMat = new THREE.MeshBasicMaterial({
-          map: textTex,
-          transparent: true,
-          side: THREE.DoubleSide
-        });
-
-        // --- INSTANCING ---
-        this.gasStationMeshes.tanks = new THREE.InstancedMesh(tankGeo, tankMat, count);
-        this.gasStationMeshes.bands = new THREE.InstancedMesh(bandGeo, bandMat, count);
-        this.gasStationMeshes.rings = new THREE.InstancedMesh(ringGeo, ringMat, count);
-        this.gasStationMeshes.text = new THREE.InstancedMesh(textGeo, textMat, count);
-
-        const dummy = new THREE.Object3D();
-        const color = new THREE.Color();
-
-        features.forEach((f, i) => {
-          const coords = f.geometry.coordinates;
-          const mercator = maplibregl.MercatorCoordinate.fromLngLat(coords, 0);
-          const scale = mercator.meterInMercatorCoordinateUnits();
-
-          dummy.position.set(mercator.x, mercator.y, mercator.z || 0);
-          dummy.scale.set(scale, -scale, scale);
-          dummy.rotation.set(0, 0, 0);
-          dummy.updateMatrix();
-
-          this.gasStationMeshes.tanks.setMatrixAt(i, dummy.matrix);
-          this.gasStationMeshes.bands.setMatrixAt(i, dummy.matrix);
-          this.gasStationMeshes.rings.setMatrixAt(i, dummy.matrix);
-          this.gasStationMeshes.text.setMatrixAt(i, dummy.matrix);
-
-          // Set all to Reference Gold
-          color.setHex(0xFFD342);
-          this.gasStationMeshes.tanks.setColorAt(i, color);
-        });
-
-        this.gasStationMeshes.tanks.instanceMatrix.needsUpdate = true;
-        this.gasStationMeshes.tanks.instanceColor.needsUpdate = true;
-        this.gasStationMeshes.bands.instanceMatrix.needsUpdate = true;
-        this.gasStationMeshes.rings.instanceMatrix.needsUpdate = true;
-        this.gasStationMeshes.text.instanceMatrix.needsUpdate = true;
-
-        this.scene.add(this.gasStationMeshes.tanks);
-        this.scene.add(this.gasStationMeshes.bands);
-        this.scene.add(this.gasStationMeshes.rings);
-        this.scene.add(this.gasStationMeshes.text);
-
-        console.log("3D Gas Stations Updated (Ref Exact Match - Optimized)");
-      },
-
-      updateCameras(features) {
-        if (!this.scene) return;
-        if (this.cameraMeshes.pole) this.scene.remove(this.cameraMeshes.pole);
-        if (this.cameraMeshes.box) this.scene.remove(this.cameraMeshes.box);
-
-        const count = features.length;
-        if (count === 0) return;
-
-        // ARCADE VISIBILITY: Huge Camera Tower
-        const poleGeo = new THREE.CylinderGeometry(4, 4, 80, 8);
-        poleGeo.rotateX(Math.PI / 2);
-        poleGeo.translate(0, 0, 40);
-
-        const boxGeo = new THREE.BoxGeometry(16, 16, 16);
-        boxGeo.translate(0, 0, 80); // Top of pole
-
-        // Neon Materials
-        const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const boxMat = new THREE.MeshBasicMaterial({ color: 0x00f3ff });
-
-        this.cameraMeshes.pole = new THREE.InstancedMesh(poleGeo, mat, count);
-        this.cameraMeshes.box = new THREE.InstancedMesh(boxGeo, boxMat, count);
-
-        const dummy = new THREE.Object3D();
-
-        features.forEach((f, i) => {
-          const coords = f.geometry.coordinates;
-          const mercator = maplibregl.MercatorCoordinate.fromLngLat(coords, 0);
-          const scale = mercator.meterInMercatorCoordinateUnits();
-
-          dummy.position.set(mercator.x, mercator.y, mercator.z || 0);
-          dummy.scale.set(scale, -scale, scale);
-          dummy.updateMatrix();
-
-          this.cameraMeshes.pole.setMatrixAt(i, dummy.matrix);
-          this.cameraMeshes.box.setMatrixAt(i, dummy.matrix);
-        });
-
-        this.cameraMeshes.pole.instanceMatrix.needsUpdate = true;
-        this.cameraMeshes.box.instanceMatrix.needsUpdate = true;
-
-        this.scene.add(this.cameraMeshes.pole);
-        this.scene.add(this.cameraMeshes.box);
-        console.log("3D Cameras Updated: " + count + " (MEGA SCALE)");
-      }
-    };
-
-    map.on('style.load', () => {
-      map.addLayer(customLayer);
-      // Load Data
-      loadData();
-    });
 
     map.on('load', () => {
       locateUser();
+      loadData();
     });
 
     // --- DATA LOADING ---
     function loadData() {
-      // Gas Stations
+      // 1. Load SVG Icon
+      map.loadImage('./fotomultas/speed_camera.svg', (error, image) => {
+        if (error) {
+          console.error("Error loading SVG icon:", error);
+          alert("Error loading Speed Camera Icon: " + error.message);
+          return;
+        }
+        if (!map.hasImage('marker-icon')) {
+          map.addImage('marker-icon', image, { sdf: true });
+          console.log("Icon loaded and added to map.");
+        }
+      });
+
+      // 2. Load Gas Stations
       fetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson')
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error("HTTP error " + res.status);
+          return res.json();
+        })
         .then(data => {
-          customLayer.updateGasStations(data.features);
-          // Interactive Transparent Layer
+          console.log("Gas Stations loaded:", data.features.length);
+          // Interactive Symbol Layer
           if (!map.getSource('estaciones-src')) {
             map.addSource('estaciones-src', { type: 'geojson', data: data });
+
+            // Debug Circle Layer (To confirm data is loaded)
             map.addLayer({
-              id: 'estaciones-hitbox',
+              id: 'estaciones-circle-debug',
               type: 'circle',
               source: 'estaciones-src',
-              paint: { 'circle-radius': 15, 'circle-opacity': 0, 'circle-color': '#fff' }
+              paint: {
+                'circle-radius': 5,
+                'circle-color': '#ffff00', // Yellow debug color
+                'circle-opacity': 0.5
+              }
             });
 
-            map.on('click', 'estaciones-hitbox', (e) => {
-              const props = e.features[0].properties;
-              new maplibregl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(`<b>${props.empresabandera}</b><br>${props.tipooperador}`)
-                .addTo(map);
+            map.addLayer({
+              id: 'estaciones-layer',
+              type: 'symbol',
+              source: 'estaciones-src',
+              layout: {
+                'icon-image': 'marker-icon', // Will wait for image if not ready? No, safer to ensure order or update style.
+                // Actually MapLibre handles async image adding gracefully usually, 
+                // but let's ensure image is there or use a fallback circle? 
+                // For now, let's assume image loads fast or the layer waits.
+                'icon-size': 2,
+                'icon-allow-overlap': true,
+                'visibility': 'visible'
+              },
+              paint: {
+                'icon-color': [
+                  'case',
+                  ['all',
+                    ['in', 'gnc', ['downcase', ['get', 'tipooperador']]],
+                    ['in', 'líquidos', ['downcase', ['get', 'tipooperador']]]
+                  ], '#cc00ff', // Both = Purple
+                  ['in', 'gnc', ['downcase', ['get', 'tipooperador']]], '#00ffcc', // CNG = Green
+                  ['==', ['get', 'tipooperador'], 'Combustibles líquidos únicamente'], '#00ccff', // Liquid = Blue
+                  '#ffffff' // Default White
+                ],
+                'icon-halo-color': '#000000',
+                'icon-halo-width': 2,
+                'icon-opacity': 0.9
+              }
             });
-            map.on('mouseenter', 'estaciones-hitbox', () => map.getCanvas().style.cursor = 'pointer');
-            map.on('mouseleave', 'estaciones-hitbox', () => map.getCanvas().style.cursor = '');
+
+            map.on('click', 'estaciones-layer', (e) => {
+              if (e.features && e.features.length > 0) {
+                const props = e.features[0].properties;
+                new maplibregl.Popup()
+                  .setLngLat(e.lngLat)
+                  .setHTML(`
+                        <div style="color:black; font-family:sans-serif;">
+                            <h3 style="margin:0;">${props.empresabandera}</h3>
+                            <p style="margin:5px 0;">${props.tipooperador}</p>
+                            <p style="font-size:0.8em; color:gray;">${props.direccion || ''}</p>
+                        </div>
+                    `)
+                  .addTo(map);
+              }
+            });
+            map.on('mouseenter', 'estaciones-layer', () => map.getCanvas().style.cursor = 'pointer');
+            map.on('mouseleave', 'estaciones-layer', () => map.getCanvas().style.cursor = '');
           }
+        })
+        .catch(err => {
+          console.error("Gas Stations Error:", err);
+          alert("Error loading Gas Stations: " + err.message);
         });
 
-      // Cameras
+      // 3. Load Cameras
       fetch('./fotomultas/speed_cameras.geojson')
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error("HTTP error " + res.status);
+          return res.json();
+        })
         .then(data => {
-          customLayer.updateCameras(data.features);
+          console.log("Cameras loaded:", data.features.length);
+          // Fit bounds to Argentina Data (Cameras usually cover a good range)
+          if (data.features.length > 0) {
+            const bounds = new maplibregl.LngLatBounds();
+            data.features.forEach(feature => {
+              bounds.extend(feature.geometry.coordinates);
+            });
+            // Gently fly to bounds
+            map.fitBounds(bounds, { padding: 50, maxZoom: 14 });
+          }
+
           if (!map.getSource('cameras-src')) {
             map.addSource('cameras-src', { type: 'geojson', data: data });
+
+            // Debug Circle Layer
             map.addLayer({
-              id: 'cameras-hitbox',
+              id: 'cameras-circle-debug',
               type: 'circle',
               source: 'cameras-src',
-              paint: { 'circle-radius': 10, 'circle-opacity': 0, 'circle-color': '#fff' }
+              paint: {
+                'circle-radius': 5,
+                'circle-color': '#ff0000', // Red debug color
+                'circle-opacity': 0.5
+              }
             });
-            map.on('click', 'cameras-hitbox', (e) => {
-              const props = e.features[0].properties;
-              new maplibregl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(`<b>CAMERA</b><br>${props.velocidadPermitida || 'N/A'} KM/H`)
-                .addTo(map);
+
+            map.addLayer({
+              id: 'cameras-layer',
+              type: 'symbol',
+              source: 'cameras-src',
+              layout: {
+                'icon-image': 'marker-icon',
+                'icon-size': 1.8,
+                'icon-allow-overlap': true
+              },
+              paint: {
+                'icon-color': '#ff0055', // Red
+                'icon-halo-color': '#000000',
+                'icon-halo-width': 2
+              }
             });
-            map.on('mouseenter', 'cameras-hitbox', () => map.getCanvas().style.cursor = 'pointer');
-            map.on('mouseleave', 'cameras-hitbox', () => map.getCanvas().style.cursor = '');
+
+            map.on('click', 'cameras-layer', (e) => {
+              if (e.features && e.features.length > 0) {
+                const props = e.features[0].properties;
+                new maplibregl.Popup()
+                  .setLngLat(e.lngLat)
+                  .setHTML(`
+                        <div style="color:darkred; font-family:sans-serif;">
+                            <h3 style="margin:0;">⚠️ CAMERA</h3>
+                            <p style="margin:5px 0;">MAX SPEED: <b>${props.velocidadPermitida || 'N/A'} KM/H</b></p>
+                        </div>
+                    `)
+                  .addTo(map);
+              }
+            });
+            map.on('mouseenter', 'cameras-layer', () => map.getCanvas().style.cursor = 'pointer');
+            map.on('mouseleave', 'cameras-layer', () => map.getCanvas().style.cursor = '');
           }
+        })
+        .catch(err => {
+          console.error("Cameras Error:", err);
+          alert("Error loading Cameras: " + err.message);
         });
 
       // Danger Zones
       fetch('./villas/renabap-2023-12-06.geojson')
         .then(res => res.json())
         .then(data => {
-          map.addSource('danger-zone', { type: 'geojson', data: data });
-          map.addLayer({
-            'id': 'danger-fill',
-            'type': 'fill',
-            'source': 'danger-zone',
-            'paint': { 'fill-color': '#ff0055', 'fill-opacity': 0.3 }
-          });
-          map.on('click', 'danger-fill', (e) => {
-            new maplibregl.Popup()
-              .setLngLat(e.lngLat)
-              .setHTML(`<b>DANGER ZONE</b>`)
-              .addTo(map);
-          });
-        }).catch(e => console.log(e));
+          if (!map.getSource('danger-zone')) {
+            map.addSource('danger-zone', { type: 'geojson', data: data });
+            map.addLayer({
+              'id': 'danger-fill',
+              'type': 'fill',
+              'source': 'danger-zone',
+              'paint': { 'fill-color': '#ff0055', 'fill-opacity': 0.3 }
+            });
+            map.on('click', 'danger-fill', (e) => {
+              const props = e.features[0].properties || {};
+              new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(`
+                    <div style="color:red; font-family:sans-serif;">
+                        <h3 style="margin:0;">DANGER ZONE</h3>
+                        <p>${props.nombre || props.Name || 'Caution Area'}</p>
+                    </div>
+                `)
+                .addTo(map);
+            });
+          }
+        }).catch(e => console.log("Danger Zone Error:", e));
     }
+
 
     // --- UTILS for HUD ---
     window.startNavigation = function () {

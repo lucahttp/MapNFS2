@@ -16978,6 +16978,3672 @@
         "tipo": "Cinem\u00f3metro",
         "conducta": "Exceso de velocidad"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4405459,
+          -34.6230642
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_1",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4583156,
+          -34.6040577
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_2",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4361597,
+          -34.6179844
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_3",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3799732,
+          -34.6201095
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_4",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.448532,
+          -34.5827315
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_5",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.511763,
+          -34.6394678
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_6",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.429025,
+          -34.61822
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_7",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4299651,
+          -34.59468
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_8",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4287148,
+          -34.5949669
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_9",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4564399,
+          -34.6211717
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_10",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5033248,
+          -34.5871007
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_11",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3695746,
+          -34.6167221
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_12",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.405921,
+          -34.6372008
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_13",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4538156,
+          -34.5655339
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_14",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4594855,
+          -34.6137044
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_15",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4941256,
+          -34.5947753
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_16",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4080931,
+          -34.6043626
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_17",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3819691,
+          -34.6116696
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_18",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4607644,
+          -34.6896993
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_19",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.47185,
+          -34.626596
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_20",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3913006,
+          -34.6183201
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_21",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.405723,
+          -34.604368
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_22",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4598168,
+          -34.578286
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_23",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3818964,
+          -34.6219603
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_24",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.426036,
+          -34.578466
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_25",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3706653,
+          -34.6016026
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_26",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3821062,
+          -34.6261863
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_27",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.447969,
+          -34.5915862
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_28",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3751466,
+          -34.5923398
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_29",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4390869,
+          -34.59987
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_30",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4741464,
+          -34.5413779
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_31",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4700198,
+          -34.6309456
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_32",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3968022,
+          -34.587597
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_33",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4040057,
+          -34.5941423
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_34",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.411437,
+          -34.6154775
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_35",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3956791,
+          -34.618509
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_36",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4055978,
+          -34.6098817
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_37",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4172216,
+          -34.6547635
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_38",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3708745,
+          -34.6125804
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_39",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4497814,
+          -34.5590823
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_40",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3688407,
+          -34.6128447
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_41",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4161493,
+          -34.6550245
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_42",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4560335,
+          -34.5606815
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_43",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4871991,
+          -34.6376715
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_44",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3907567,
+          -34.6295987
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_45",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4860639,
+          -34.5441959
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_46",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3902949,
+          -34.6272455
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_47",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5205847,
+          -34.6460407
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_48",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3733901,
+          -34.6464535
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_49",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459097,
+          -34.627858
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_50",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4997174,
+          -34.6376219
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_51",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.46633,
+          -34.6102978
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_52",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4457398,
+          -34.5593889
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_53",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4385182,
+          -34.6555379
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_54",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4545631,
+          -34.6056573
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_55",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3894739,
+          -34.6054907
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_56",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4220008,
+          -34.5975841
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_57",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4042261,
+          -34.6049096
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_58",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4339226,
+          -34.5876234
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_59",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4435512,
+          -34.5956916
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_60",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.464171,
+          -34.5703791
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_61",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.416078,
+          -34.60685
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_62",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.462747,
+          -34.632804
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_63",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5004982,
+          -34.6499748
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_64",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.423261,
+          -34.625019
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_65",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.478771,
+          -34.6143711
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_66",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.396973,
+          -34.620659
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_67",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.475799,
+          -34.577348
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_68",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.496832,
+          -34.573406
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_69",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459456,
+          -34.562029
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_70",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4404905,
+          -34.6318031
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_71",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4544411,
+          -34.6371471
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_72",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4912964,
+          -34.641783
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_73",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5214248,
+          -34.6367877
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_74",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4022056,
+          -34.6261016
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_75",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.393118,
+          -34.598937
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_76",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.380434,
+          -34.626015
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_77",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4064799,
+          -34.6074486
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_78",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.381532,
+          -34.6242234
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_79",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3950441,
+          -34.6000849
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_80",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3915575,
+          -34.6130065
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_81",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4411019,
+          -34.619908
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_82",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4671364,
+          -34.630363
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_83",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3737553,
+          -34.6384136
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_84",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4552263,
+          -34.5867518
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_85",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4543749,
+          -34.5849407
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_86",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4453548,
+          -34.5711632
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_87",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4044201,
+          -34.6075053
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_88",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4021601,
+          -34.603716
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_89",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4023757,
+          -34.5941097
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_90",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3912392,
+          -34.5909955
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_91",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4712749,
+          -34.6267026
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_92",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4163128,
+          -34.6250301
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_93",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4270191,
+          -34.5924145
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_94",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4848347,
+          -34.5754872
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_95",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.43205,
+          -34.637517
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_96",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.479359,
+          -34.677815
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_97",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.379774,
+          -34.62278
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_98",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.374735,
+          -34.647174
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_99",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37771,
+          -34.634808
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_100",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.428843,
+          -34.558211
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_101",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.448972,
+          -34.541997
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_102",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.448972,
+          -34.541997
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_103",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.474628,
+          -34.667847
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_104",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.428523,
+          -34.598505
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_105",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39362,
+          -34.627578
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_106",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.448878,
+          -34.635796
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_107",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.509924,
+          -34.649256
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_108",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.449202,
+          -34.542608
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_109",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.479048,
+          -34.677866
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_110",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.438831,
+          -34.548313
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_111",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.487918,
+          -34.646741
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_112",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.481786,
+          -34.642733
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_113",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.479359,
+          -34.677815
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_114",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.521342,
+          -34.624617
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_115",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.492214,
+          -34.560784
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_116",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.456327,
+          -34.698835
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_117",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.456327,
+          -34.698835
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_118",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.381579,
+          -34.582714
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_119",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.407185,
+          -34.567341
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_120",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.407185,
+          -34.567341
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_121",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.486354,
+          -34.645308
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_122",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.486354,
+          -34.645308
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_123",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.379774,
+          -34.62278
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_124",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.381472,
+          -34.582546
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_125",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.374735,
+          -34.647174
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_126",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41608,
+          -34.56825
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_127",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.515007,
+          -34.639139
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_128",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.440355,
+          -34.562421
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_129",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.379715,
+          -34.622886
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_130",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.503966,
+          -34.587261
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_131",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.410626,
+          -34.57011
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_132",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.400497,
+          -34.62351
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_133",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.512419,
+          -34.634205
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_134",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.403085,
+          -34.618768
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_135",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.49607,
+          -34.560037
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_136",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.403072,
+          -34.623819
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_137",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.413742,
+          -34.615279
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_138",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.428843,
+          -34.558211
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_139",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.484752,
+          -34.646162
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_140",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.484752,
+          -34.646162
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_141",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.499819,
+          -34.635783
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_142",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.499819,
+          -34.635783
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_143",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.37771,
+          -34.634808
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_144",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.448972,
+          -34.541997
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_145",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.474628,
+          -34.667847
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_146",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.428523,
+          -34.598505
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_147",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39362,
+          -34.627578
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_148",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.467221,
+          -34.635933
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_149",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.400724,
+          -34.631125
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_150",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.463905,
+          -34.587943
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_151",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.443227,
+          -34.683218
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_152",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.469959,
+          -34.636173
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_153",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.504409,
+          -34.567206
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_154",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.449202,
+          -34.542608
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_155",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.449202,
+          -34.542608
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_156",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.479048,
+          -34.677866
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_157",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.495362,
+          -34.562812
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_158",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.379081,
+          -34.627679
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_159",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.527448,
+          -34.6349
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_160",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.461405,
+          -34.54308
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_161",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.480313,
+          -34.590602
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_162",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.426615,
+          -34.552064
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_163",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.391703,
+          -34.5837
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_164",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.445175,
+          -34.559786
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_165",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.454193,
+          -34.611735
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_166",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.413855,
+          -34.5738
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_167",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.425513,
+          -34.571904
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_168",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.393885,
+          -34.629948
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_169",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.486566,
+          -34.557964
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_170",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.376237,
+          -34.622106
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_171",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.438557,
+          -34.547917
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_172",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.376556,
+          -34.64009
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_173",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.474928,
+          -34.667696
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_174",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459187,
+          -34.537088
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_175",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459187,
+          -34.537088
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_176",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459687,
+          -34.537584
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_177",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.459687,
+          -34.537584
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_178",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.438831,
+          -34.548313
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_179",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.438831,
+          -34.548313
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_180",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.415145,
+          -34.563469
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_181",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.503825,
+          -34.573042
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_182",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.415145,
+          -34.563469
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_183",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.464551,
+          -34.647662
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_184",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.420924,
+          -34.566905
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_185",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.420969,
+          -34.56716
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_186",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.49738,
+          -34.554033
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_187",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.474297,
+          -34.541081
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_188",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.419661,
+          -34.597818
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_189",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.445799,
+          -34.624328
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_190",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.42634,
+          -34.628748
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_191",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.392682,
+          -34.623799
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_192",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.392682,
+          -34.623799
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_193",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.42634,
+          -34.628748
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_194",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.501957,
+          -34.553849
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_195",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.501957,
+          -34.553849
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_196",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.523333,
+          -34.599446
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_197",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.523333,
+          -34.599446
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_198",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.514672,
+          -34.664765
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_199",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.475509,
+          -34.694076
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_200",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.530079,
+          -34.629026
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_201",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.530079,
+          -34.629026
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_202",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.501957,
+          -34.553849
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_203",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.501957,
+          -34.553849
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_204",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41329,
+          -34.626986
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_205",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41329,
+          -34.626986
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_206",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39481,
+          -34.624312
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_207",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.39481,
+          -34.624312
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_208",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.389834,
+          -34.618124
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_209",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.445046,
+          -34.595415
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_210",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.41608,
+          -34.56825
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_211",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.500386,
+          -34.673378
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_212",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.414838,
+          -34.608335
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_213",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.366223,
+          -34.614512
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_214",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.366223,
+          -34.614512
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_215",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.382082,
+          -34.579106
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_216",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.382082,
+          -34.579106
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_217",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.379718,
+          -34.608993
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_218",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.481138,
+          -34.564416
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_219",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.457205,
+          -34.594573
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_220",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.413545,
+          -34.636013
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_221",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.451289,
+          -34.600777
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_222",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.439244,
+          -34.62622
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_223",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.464781,
+          -34.588939
+        ]
+      },
+      "properties": {
+        "nroSerie": "CABA_224",
+        "calleRuta": "Unknown",
+        "source": "CABA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5197642,
+          -31.4407516
+        ]
+      },
+      "properties": {
+        "nroSerie": "NEO-0049",
+        "calleRuta": "Autopista AP01 Brigadier Estanislao L\u00f3pez - km 10,8 (carril sentido ascendente), en jurisdicci\u00f3n de la localidad de Fray Luis Beltr\u00e1n, provincia de Santa Fe",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "NEO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0001",
+        "calleRuta": "Ruta Nacional 34, km 119,7, Casas, Pcia. de Santa Fe, sentido de circulaci\u00f3n descendente",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0001",
+        "calleRuta": "Ruta Nacional 34, km 119,7, Casas, Pcia. de Santa Fe, sentido de circulaci\u00f3n descendente",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0001",
+        "calleRuta": "Ruta Nacional 34, km 119,7, Casas, Pcia. de Santa Fe, sentido de circulaci\u00f3n descendente",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0001",
+        "calleRuta": "Ruta Nacional 34, km 119,7, Casas, Pcia. de Santa Fe, sentido de circulaci\u00f3n descendente",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9672817,
+          -34.9964963
+        ]
+      },
+      "properties": {
+        "nroSerie": "CJR0003",
+        "calleRuta": "Ruta Provincial 66, km 92, Landeta, Pcia. de Santa Fe, sentido de circulaci\u00f3n C\u00f3rdoba - Ca\u00f1ada Rosquin",
+        "source": "NACION",
+        "marca": "ANCA",
+        "modelo": "CVDV"
+      }
     }
   ]
 }
