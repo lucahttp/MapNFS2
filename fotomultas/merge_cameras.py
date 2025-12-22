@@ -62,7 +62,7 @@ def process_caba():
             if lat and lon:
                 props = {
                     "nroSerie": f"CABA_{i+1}",
-                    "calleRuta": row.get(ubi_key, "Unknown"),
+                    "calleRuta": row.get(ubi_key),
                     "source": "CABA"
                 }
                 feature = {

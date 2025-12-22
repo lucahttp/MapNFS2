@@ -533,7 +533,7 @@
       await Promise.all([
         loadIcon('gnc-icon', './assets/iconos/gnc.svg', '#00f3ff'),
         loadIcon('pump-icon', './assets/iconos/surtidornafta.svg', '#00f3ff'),
-        loadIcon('cam-icon', './fotomultas/speed_camera.svg', '#ff0055')
+        loadIcon('cam-icon', './assets/iconos/speedcamera.svg', '#ff0055')
       ]);
 
 
@@ -698,11 +698,13 @@
 
         map.on('click', 'unclustered-cam', (e) => {
              const props = e.features[0].properties;
+             const address = props.calleRuta || props.ubicacion || props.direccion || 'Location Unknown';
              new maplibregl.Popup()
                .setLngLat(e.lngLat)
                .setHTML(`
                      <div style="color:darkred; font-family:sans-serif;">
                          <h3 style="margin:0;">⚠️ CAMERA</h3>
+                         <p style="margin:5px 0; font-size:0.9em; color:#333;">${address}</p>
                          <p style="margin:5px 0;">MAX SPEED: <b>${props.velocidadPermitida || 'N/A'} KM/H</b></p>
                      </div>
                  `)
@@ -864,7 +866,53 @@
       });
     }
 
+    let watchId = null;
+    let userMarker = null;
+
+    function startDriving() {
+        if (!("geolocation" in navigator)) return;
+        
+        if (watchId) navigator.geolocation.clearWatch(watchId);
+
+        const options = {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: 5000
+        };
+
+        watchId = navigator.geolocation.watchPosition((pos) => {
+            const coords = [pos.coords.longitude, pos.coords.latitude];
+            const speedMps = pos.coords.speed || 0;
+            const speedKmh = Math.round(speedMps * 3.6);
+            const heading = pos.coords.heading;
+
+            currentState.currentPos = coords;
+
+            map.flyTo({
+                center: coords,
+                zoom: 17,
+                bearing: heading || 0,
+                pitch: 60,
+                speed: 1.5,
+                curve: 1
+            });
+
+            if (userMarker) {
+                userMarker.setLngLat(coords);
+            } else {
+                userMarker = new maplibregl.Marker({ color: '#00f3ff' }).setLngLat(coords).addTo(map);
+            }
+            
+            const speedValEl = document.querySelector('.speed-value');
+            if (speedValEl) speedValEl.textContent = speedKmh;
+
+        }, (err) => {
+            console.warn("Drive Mode Error:", err);
+        }, options);
+    }
+
     window.startNavigation = function () {
+      startDriving();
       if (!currentState.startPos && currentState.currentPos) {
         currentState.startPos = currentState.currentPos;
       }
@@ -995,7 +1043,9 @@
           const pos = [position.coords.longitude, position.coords.latitude];
           currentState.currentPos = pos;
           map.flyTo({ center: pos, zoom: 15 });
-          new maplibregl.Marker({ color: '#00f3ff' }).setLngLat(pos).addTo(map);
+          
+          if (userMarker) userMarker.remove();
+          userMarker = new maplibregl.Marker({ color: '#00f3ff' }).setLngLat(pos).addTo(map);
         });
       }
     }
