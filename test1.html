@@ -328,6 +328,42 @@
       transform: skewX(15deg);
     }
 
+    /* Route Summary Panel */
+    .route-summary {
+      background: var(--nfs-dark-trans);
+      border-right: 4px solid var(--nfs-cyan);
+      padding: 15px;
+      width: 250px;
+      transform: skewX(var(--hud-skew));
+      margin-right: 20px;
+      display: none; /* Hidden by default */
+    }
+
+    .summary-title {
+      color: var(--nfs-cyan);
+      font-family: 'Orbitron';
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      transform: skewX(15deg);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      transform: skewX(15deg);
+    }
+
+    .summary-label { color: #aaa; }
+    .summary-val { color: #fff; font-weight: bold; }
+    
+    .val-gas { color: var(--nfs-cyan); }
+    .val-cam { color: var(--nfs-pink); }
+    .val-danger { color: var(--nfs-yellow); }
+
     @media (max-width: 768px) {
       .speed-value {
         font-size: 4rem;
@@ -375,6 +411,15 @@
       <div class="danger-widget hud-element" id="danger-alert">
         <div class="danger-text">! HIGH RISK ZONE !</div>
       </div>
+      <div class="route-summary hud-element" id="route-summary">
+        <div class="summary-title">ROUTE INTEL</div>
+        <div class="summary-row"><span class="summary-label">GAS STATIONS:</span> <span class="summary-val val-gas" id="sum-gas">0</span></div>
+        <div class="summary-row"><span class="summary-label">CAMERAS:</span> <span class="summary-val val-cam" id="sum-cam">0</span></div>
+        <div class="summary-row"><span class="summary-label">HAZARDS:</span> <span class="summary-val val-danger" id="sum-danger">0</span></div>
+        <div class="summary-row" style="margin-top:10px; border-top:1px solid #333; padding-top:5px;">
+           <span class="summary-label">NEAREST:</span> <span class="summary-val" id="sum-nearest">--</span>
+        </div>
+      </div>
     </div>
     <div class="bottom-bar">
       <div class="history-panel hud-element">
@@ -402,6 +447,8 @@
     };
 
     let currentState = { currentPos: null, startPos: null, endPos: null, endName: "" };
+    let destMarker = null;
+    let globalMergedData = null; // Store for Route Analysis
 
     // --- MAP SETUP ---
     const map = new maplibregl.Map({
@@ -430,207 +477,516 @@
 
 
     map.on('load', () => {
-      locateUser();
+      // locateUser(); // Disabled auto-locate on load to prevent violation
       loadData();
     });
 
-    // --- DATA LOADING ---
-    function loadData() {
-      // 1. Load SVG Icon
-      map.loadImage('./fotomultas/speed_camera.svg', (error, image) => {
-        if (error) {
-          console.error("Error loading SVG icon:", error);
-          alert("Error loading Speed Camera Icon: " + error.message);
-          return;
+    // --- DATA LOADING & CLUSTERING ---
+    async function loadData() {
+      const loadIcon = async (name, url, fallbackColor) => {
+        if (map.hasImage(name)) return;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+            const blob = await response.blob();
+            
+            const img = new Image();
+            const objectUrl = URL.createObjectURL(blob);
+            
+            await new Promise((resolve, reject) => {
+                img.onload = () => {
+                    // Resize to standard 48px (for 12px render with 0.25 scale)
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 128; canvas.height = 128;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, 128, 128);
+                    
+                    map.addImage(name, canvas.getContext('2d').getImageData(0,0,128,128));
+                    URL.revokeObjectURL(objectUrl);
+                    resolve();
+                };
+                img.onerror = (e) => {
+                    URL.revokeObjectURL(objectUrl);
+                    reject(new Error('Image load failed'));
+                };
+                img.src = objectUrl;
+            });
+
+        } catch (err) {
+            console.warn(`Failed to load icon ${name} from ${url} (Error: ${err.message}), using fallback.`);
+            const canvas = document.createElement('canvas');
+            canvas.width = 48; canvas.height = 48;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = fallbackColor;
+            ctx.beginPath();
+            ctx.arc(24, 24, 20, 0, Math.PI * 2); // adjusted for 48px
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            if (!map.hasImage(name)) {
+                map.addImage(name, canvas.getContext('2d').getImageData(0,0,48,48));
+            }
         }
-        if (!map.hasImage('marker-icon')) {
-          map.addImage('marker-icon', image, { sdf: true });
-          console.log("Icon loaded and added to map.");
-        }
-      });
+      };
 
-      // 2. Load Gas Stations
-      fetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson')
-        .then(res => {
-          if (!res.ok) throw new Error("HTTP error " + res.status);
-          return res.json();
+      await Promise.all([
+        loadIcon('gnc-icon', './assets/iconos/gnc.svg', '#00f3ff'),
+        loadIcon('pump-icon', './assets/iconos/surtidornafta.svg', '#00f3ff'),
+        loadIcon('cam-icon', './fotomultas/speed_camera.svg', '#ff0055')
+      ]);
+
+
+      console.log("Images (or fallbacks) loaded.");
+      fetchDataAndCluster();
+    }
+
+    function fetchDataAndCluster() {
+      const safeFetch = (url) => fetch(url)
+        .then(r => {
+            if (!r.ok) throw new Error(r.statusText);
+            return r.json();
         })
-        .then(data => {
-          console.log("Gas Stations loaded:", data.features.length);
-          // Interactive Symbol Layer
-          if (!map.getSource('estaciones-src')) {
-            map.addSource('estaciones-src', { type: 'geojson', data: data });
-
-            // Debug Circle Layer (To confirm data is loaded)
-            map.addLayer({
-              id: 'estaciones-circle-debug',
-              type: 'circle',
-              source: 'estaciones-src',
-              paint: {
-                'circle-radius': 5,
-                'circle-color': '#ffff00', // Yellow debug color
-                'circle-opacity': 0.5
-              }
-            });
-
-            map.addLayer({
-              id: 'estaciones-layer',
-              type: 'symbol',
-              source: 'estaciones-src',
-              layout: {
-                'icon-image': 'marker-icon', // Will wait for image if not ready? No, safer to ensure order or update style.
-                // Actually MapLibre handles async image adding gracefully usually, 
-                // but let's ensure image is there or use a fallback circle? 
-                // For now, let's assume image loads fast or the layer waits.
-                'icon-size': 2,
-                'icon-allow-overlap': true,
-                'visibility': 'visible'
-              },
-              paint: {
-                'icon-color': [
-                  'case',
-                  ['all',
-                    ['in', 'gnc', ['downcase', ['get', 'tipooperador']]],
-                    ['in', 'líquidos', ['downcase', ['get', 'tipooperador']]]
-                  ], '#cc00ff', // Both = Purple
-                  ['in', 'gnc', ['downcase', ['get', 'tipooperador']]], '#00ffcc', // CNG = Green
-                  ['==', ['get', 'tipooperador'], 'Combustibles líquidos únicamente'], '#00ccff', // Liquid = Blue
-                  '#ffffff' // Default White
-                ],
-                'icon-halo-color': '#000000',
-                'icon-halo-width': 2,
-                'icon-opacity': 0.9
-              }
-            });
-
-            map.on('click', 'estaciones-layer', (e) => {
-              if (e.features && e.features.length > 0) {
-                const props = e.features[0].properties;
-                new maplibregl.Popup()
-                  .setLngLat(e.lngLat)
-                  .setHTML(`
-                        <div style="color:black; font-family:sans-serif;">
-                            <h3 style="margin:0;">${props.empresabandera}</h3>
-                            <p style="margin:5px 0;">${props.tipooperador}</p>
-                            <p style="font-size:0.8em; color:gray;">${props.direccion || ''}</p>
-                        </div>
-                    `)
-                  .addTo(map);
-              }
-            });
-            map.on('mouseenter', 'estaciones-layer', () => map.getCanvas().style.cursor = 'pointer');
-            map.on('mouseleave', 'estaciones-layer', () => map.getCanvas().style.cursor = '');
-          }
-        })
-        .catch(err => {
-          console.error("Gas Stations Error:", err);
-          alert("Error loading Gas Stations: " + err.message);
+        .catch(e => {
+            console.warn(`Failed to fetch ${url}:`, e);
+            return { type: "FeatureCollection", features: [] };
         });
 
-      // 3. Load Cameras
-      fetch('./fotomultas/speed_cameras.geojson')
-        .then(res => {
-          if (!res.ok) throw new Error("HTTP error " + res.status);
-          return res.json();
-        })
-        .then(data => {
-          console.log("Cameras loaded:", data.features.length);
-          // Fit bounds to Argentina Data (Cameras usually cover a good range)
-          if (data.features.length > 0) {
-            const bounds = new maplibregl.LngLatBounds();
-            data.features.forEach(feature => {
-              bounds.extend(feature.geometry.coordinates);
+      const pGas = safeFetch('./estaciones%20de%20servicio/estaciones_servicio_argentina.geojson');
+      const pCam = safeFetch('./fotomultas/speed_cameras.geojson');
+      const pVilla = safeFetch('./villas/renabap-2023-12-06.geojson');
+
+      Promise.all([pGas, pCam, pVilla]).then(([gasData, camData, villaData]) => {
+        const features = [];
+
+        // 1. Process Gas Stations
+        if (gasData.features) {
+            gasData.features.forEach(f => {
+              const isGNC = f.properties.tipooperador && f.properties.tipooperador.toLowerCase().includes('gnc');
+              f.properties.type = 'gas';
+              f.properties.fuel_type = isGNC ? 'gnc' : 'liquid';
+              f.properties.gasCount = 1; 
+              f.properties.cameraCount = 0;
+              f.properties.villaCount = 0;
+              features.push(f);
             });
-            // Gently fly to bounds
-            map.fitBounds(bounds, { padding: 50, maxZoom: 14 });
-          }
+        }
 
-          if (!map.getSource('cameras-src')) {
-            map.addSource('cameras-src', { type: 'geojson', data: data });
+        // 2. Process Cameras
+        if (camData.features) {
+            camData.features.forEach(f => {
+              f.properties.type = 'camera';
+              f.properties.gasCount = 0;
+              f.properties.cameraCount = 1;
+              f.properties.villaCount = 0;
+              features.push(f);
+            });
+        }
 
-            // Debug Circle Layer
-            map.addLayer({
-              id: 'cameras-circle-debug',
-              type: 'circle',
-              source: 'cameras-src',
-              paint: {
-                'circle-radius': 5,
-                'circle-color': '#ff0000', // Red debug color
-                'circle-opacity': 0.5
+        // 3. Process Villas
+        if (villaData.features) {
+             if (!map.getSource('danger-zone')) {
+                 map.addSource('danger-zone', { type: 'geojson', data: villaData });
+                 map.addLayer({
+                   'id': 'danger-fill',
+                   'type': 'fill',
+                   'source': 'danger-zone',
+                   'paint': { 'fill-color': '#ff0055', 'fill-opacity': 0.3 }
+                 });
+                 map.on('click', 'danger-fill', (e) => {
+                   const props = e.features[0].properties || {};
+                   new maplibregl.Popup()
+                     .setLngLat(e.lngLat)
+                     .setHTML(`
+                         <div style="color:red; font-family:sans-serif;">
+                             <h3 style="margin:0;">DANGER ZONE</h3>
+                             <p>${props.nombre_barrio || props.nombre || 'Caution Area'}</p>
+                         </div>
+                     `)
+                     .addTo(map);
+                 });
+             }
+    
+            villaData.features.forEach(f => {
+              const center = turf.centroid(f);
+              if (center) {
+                center.properties = { ...f.properties };
+                center.properties.type = 'villa';
+                center.properties.gasCount = 0;
+                center.properties.cameraCount = 0;
+                center.properties.villaCount = 1;
+                features.push(center);
               }
             });
+        }
 
-            map.addLayer({
-              id: 'cameras-layer',
-              type: 'symbol',
-              source: 'cameras-src',
-              layout: {
-                'icon-image': 'marker-icon',
-                'icon-size': 1.8,
+        const mergedData = {
+          type: "FeatureCollection",
+          features: features
+        };
+        globalMergedData = mergedData;
+
+        setupClusteredSource(mergedData);
+
+      }).catch(err => console.error("Data Load Error:", err));
+    }
+
+    function setupClusteredSource(data) {
+        if (map.getSource('merged-data')) return; // Avoid duplicate add
+
+        map.addSource('merged-data', {
+            type: 'geojson',
+            data: data,
+            cluster: true,
+            clusterRadius: 80,
+            clusterProperties: {
+                'gas': ['+', ['get', 'gasCount']],
+                'cam': ['+', ['get', 'cameraCount']],
+                'villa': ['+', ['get', 'villaCount']]
+            }
+        });
+
+        // --- Unclustered Layers ---
+        map.addLayer({
+            id: 'unclustered-gas',
+            type: 'symbol',
+            source: 'merged-data',
+            filter: ['all', ['!has', 'point_count'], ['==', 'type', 'gas']],
+            layout: {
+                'icon-image': ['case', ['==', ['get', 'fuel_type'], 'gnc'], 'gnc-icon', 'pump-icon'],
+                'icon-size': 0.25,
                 'icon-allow-overlap': true
-              },
-              paint: {
-                'icon-color': '#ff0055', // Red
-                'icon-halo-color': '#000000',
-                'icon-halo-width': 2
-              }
-            });
-
-            map.on('click', 'cameras-layer', (e) => {
-              if (e.features && e.features.length > 0) {
-                const props = e.features[0].properties;
-                new maplibregl.Popup()
-                  .setLngLat(e.lngLat)
-                  .setHTML(`
-                        <div style="color:darkred; font-family:sans-serif;">
-                            <h3 style="margin:0;">⚠️ CAMERA</h3>
-                            <p style="margin:5px 0;">MAX SPEED: <b>${props.velocidadPermitida || 'N/A'} KM/H</b></p>
-                        </div>
-                    `)
-                  .addTo(map);
-              }
-            });
-            map.on('mouseenter', 'cameras-layer', () => map.getCanvas().style.cursor = 'pointer');
-            map.on('mouseleave', 'cameras-layer', () => map.getCanvas().style.cursor = '');
-          }
-        })
-        .catch(err => {
-          console.error("Cameras Error:", err);
-          alert("Error loading Cameras: " + err.message);
+            }
         });
 
-      // Danger Zones
-      fetch('./villas/renabap-2023-12-06.geojson')
-        .then(res => res.json())
-        .then(data => {
-          if (!map.getSource('danger-zone')) {
-            map.addSource('danger-zone', { type: 'geojson', data: data });
-            map.addLayer({
-              'id': 'danger-fill',
-              'type': 'fill',
-              'source': 'danger-zone',
-              'paint': { 'fill-color': '#ff0055', 'fill-opacity': 0.3 }
-            });
-            map.on('click', 'danger-fill', (e) => {
-              const props = e.features[0].properties || {};
-              new maplibregl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(`
-                    <div style="color:red; font-family:sans-serif;">
-                        <h3 style="margin:0;">DANGER ZONE</h3>
-                        <p>${props.nombre || props.Name || 'Caution Area'}</p>
-                    </div>
-                `)
-                .addTo(map);
-            });
-          }
-        }).catch(e => console.log("Danger Zone Error:", e));
+        map.addLayer({
+            id: 'unclustered-cam',
+            type: 'symbol',
+            source: 'merged-data',
+            filter: ['all', ['!has', 'point_count'], ['==', 'type', 'camera']],
+            layout: {
+                'icon-image': 'cam-icon',
+                'icon-size': 0.25,
+                'icon-allow-overlap': true
+            }
+        });
+        
+        // Trigger marker updates
+        map.on('data', (e) => {
+            if (e.sourceId !== 'merged-data' || !e.isSourceLoaded) return;
+            map.on('move', updateMarkers);
+            map.on('moveend', updateMarkers);
+            updateMarkers();
+        });
+
+        // --- Popups ---
+        map.on('click', 'unclustered-gas', (e) => {
+             const props = e.features[0].properties;
+             new maplibregl.Popup()
+               .setLngLat(e.lngLat)
+               .setHTML(`
+                     <div style="color:black; font-family:sans-serif;">
+                         <h3 style="margin:0;">${props.empresabandera || 'Gas Station'}</h3>
+                         <p style="margin:5px 0;">${props.tipooperador || 'Fuel'}</p>
+                         <p style="font-size:0.8em; color:gray;">${props.direccion || ''}</p>
+                     </div>
+                 `)
+               .addTo(map);
+        });
+        map.on('mouseenter', 'unclustered-gas', () => map.getCanvas().style.cursor = 'pointer');
+        map.on('mouseleave', 'unclustered-gas', () => map.getCanvas().style.cursor = '');
+
+        map.on('click', 'unclustered-cam', (e) => {
+             const props = e.features[0].properties;
+             new maplibregl.Popup()
+               .setLngLat(e.lngLat)
+               .setHTML(`
+                     <div style="color:darkred; font-family:sans-serif;">
+                         <h3 style="margin:0;">⚠️ CAMERA</h3>
+                         <p style="margin:5px 0;">MAX SPEED: <b>${props.velocidadPermitida || 'N/A'} KM/H</b></p>
+                     </div>
+                 `)
+               .addTo(map);
+        });
+        map.on('mouseenter', 'unclustered-cam', () => map.getCanvas().style.cursor = 'pointer');
+        map.on('mouseleave', 'unclustered-cam', () => map.getCanvas().style.cursor = '');
+    }
+
+    // --- CLUSTERING VISUALIZATION ---
+    const markers = {};
+    let markersOnScreen = {};
+
+    function updateMarkers() {
+        const newMarkers = {};
+        const features = map.querySourceFeatures('merged-data');
+
+        for (let i = 0; i < features.length; i++) {
+            const coords = features[i].geometry.coordinates;
+            const props = features[i].properties;
+            if (!props.cluster) continue;
+            const id = props.cluster_id;
+
+            let marker = markers[id];
+            if (!marker) {
+                const el = createDonutChart(props);
+                marker = markers[id] = new maplibregl.Marker({
+                    element: el
+                }).setLngLat(coords);
+            }
+            newMarkers[id] = marker;
+
+            if (!markersOnScreen[id]) marker.addTo(map);
+        }
+        for (let id in markersOnScreen) {
+            if (!newMarkers[id]) markersOnScreen[id].remove();
+        }
+        markersOnScreen = newMarkers;
+    }
+
+    function createDonutChart(props) {
+        const offsets = [];
+        const counts = [
+            props.gas || 0,
+            props.cam || 0,
+            props.villa || 0
+        ];
+        
+        let total = 0;
+        for (let i = 0; i < counts.length; i++) {
+            offsets.push(total);
+            total += counts[i];
+        }
+        const fontSize = total >= 1000 ? 22 : total >= 100 ? 20 : total >= 10 ? 18 : 16;
+        const r = total >= 1000 ? 50 : total >= 100 ? 32 : total >= 10 ? 24 : 18;
+        const r0 = Math.round(r * 0.6);
+        const w = r * 2;
+
+        let html = `<div><svg width="${w}" height="${w}" viewbox="0 0 ${w} ${w}" text-anchor="middle" style="font: ${fontSize}px sans-serif; display: block">`;
+
+        const colors = ['#00f3ff', '#ff0055', '#ffe600']; 
+
+        for (let i = 0; i < counts.length; i++) {
+            if (counts[i] > 0) { 
+                 html += donutSegment(
+                    offsets[i] / total,
+                    (offsets[i] + counts[i]) / total,
+                    r,
+                    r0,
+                    colors[i]
+                );
+            }
+        }
+        html += `<circle cx="${r}" cy="${r}" r="${r0}" fill="#0a0f1e" />
+                 <text dominant-baseline="central" transform="translate(${r}, ${r})" fill="white" style="font-family:'Orbitron'">${total.toLocaleString()}</text></svg></div>`;
+
+        const el = document.createElement('div');
+        el.innerHTML = html;
+        return el.firstChild;
+    }
+
+    function donutSegment(start, end, r, r0, color) {
+        if (isNaN(start) || isNaN(end)) return '';
+        if (end - start === 1) end -= 0.00001;
+        const a0 = 2 * Math.PI * (start - 0.25);
+        const a1 = 2 * Math.PI * (end - 0.25);
+        const x0 = Math.cos(a0), y0 = Math.sin(a0);
+        const x1 = Math.cos(a1), y1 = Math.sin(a1);
+        const largeArc = end - start > 0.5 ? 1 : 0;
+
+        return `<path d="M ${r + r0 * x0} ${r + r0 * y0} L ${r + r * x0} ${r + r * y0} A ${r} ${r} 0 ${largeArc} 1 ${r + r * x1} ${r + r * y1} L ${r + r0 * x1} ${r + r0 * y1} A ${r0} ${r0} 0 ${largeArc} 0 ${r + r0 * x0} ${r + r0 * y0}" fill="${color}" />`;
     }
 
 
     // --- UTILS for HUD ---
+    // --- SEARCH LOGIC ---
+    const navInput = document.getElementById('nav-input');
+    const searchResults = document.getElementById('search-results');
+    const routePanel = document.getElementById('route-panel');
+    const endInput = document.getElementById('end-input');
+
+    // Add Locate Button Logic
+    const locateBtn = document.createElement('button');
+    locateBtn.innerHTML = '&oplus;'; // Target icon
+    locateBtn.title = "Locate Me";
+    locateBtn.style.cssText = "position:absolute; right:10px; top:50%; transform:translateY(-50%); background:transparent; border:none; color:var(--nfs-cyan); font-size:1.2rem; cursor:pointer;";
+    document.querySelector('.nav-input-container').appendChild(locateBtn);
+    
+    locateBtn.addEventListener('click', locateUser);
+
+    let debounceTimer;
+    if (navInput) {
+      navInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        clearTimeout(debounceTimer);
+        if (query.length < 3) {
+          searchResults.style.display = 'none';
+          return;
+        }
+
+        debounceTimer = setTimeout(() => {
+          fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query))
+            .then(res => res.json())
+            .then(data => {
+              searchResults.innerHTML = '';
+              if (data.length > 0) {
+                searchResults.style.display = 'block';
+                data.forEach(item => {
+                  const div = document.createElement('div');
+                  div.className = 'result-item';
+                  div.textContent = item.display_name;
+                  div.addEventListener('click', () => {
+                    // Select Item
+                    currentState.endPos = [parseFloat(item.lon), parseFloat(item.lat)];
+                    currentState.endName = item.display_name;
+
+                    // Update UI
+                    searchResults.style.display = 'none';
+                    navInput.value = '';
+                    routePanel.style.display = 'block';
+                    endInput.value = item.display_name;
+
+                    // Marker
+                    if (destMarker) destMarker.remove();
+                    destMarker = new maplibregl.Marker({ color: '#ff0055' })
+                      .setLngLat(currentState.endPos)
+                      .addTo(map);
+
+                    map.flyTo({ center: currentState.endPos, zoom: 14 });
+                  });
+                  searchResults.appendChild(div);
+                });
+              } else {
+                searchResults.style.display = 'none';
+              }
+            })
+            .catch(err => console.error("Search Error:", err));
+        }, 500);
+      });
+    }
+
     window.startNavigation = function () {
-      alert("Nav init...");
+      if (!currentState.startPos && currentState.currentPos) {
+        currentState.startPos = currentState.currentPos;
+      }
+
+      if (!currentState.startPos || !currentState.endPos) {
+        alert("Please select a valid start and end point (or wait for geolocation).");
+        return;
+      }
+
+      // Fetch Route from OSRM
+      const start = currentState.startPos;
+      const end = currentState.endPos;
+      const url = `https://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?overview=full&geometries=geojson`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data.routes && data.routes.length > 0) {
+            const route = data.routes[0];
+            const geojson = {
+              type: 'Feature',
+              properties: {},
+              geometry: route.geometry
+            };
+
+            if (map.getSource('route')) {
+              map.getSource('route').setData(geojson);
+            } else {
+              map.addSource('route', {
+                type: 'geojson',
+                data: geojson
+              });
+              map.addLayer({
+                id: 'route',
+                type: 'line',
+                source: 'route',
+                layout: {
+                  'line-join': 'round',
+                  'line-cap': 'round'
+                },
+                paint: {
+                  'line-color': '#ffe600', // Yellow for route
+                  'line-width': 5,
+                  'line-opacity': 0.8,
+                  'line-blur': 1
+                }
+              });
+              // Add a glow effect
+              map.addLayer({
+                id: 'route-glow',
+                type: 'line',
+                source: 'route',
+                layout: {
+                  'line-join': 'round',
+                  'line-cap': 'round'
+                },
+                paint: {
+                  'line-color': '#ffe600',
+                  'line-width': 10,
+                  'line-opacity': 0.3,
+                  'line-blur': 10
+                }
+              }, 'route'); // draw glow behind
+            }
+
+            // Fit bounds
+            const bounds = new maplibregl.LngLatBounds();
+            route.geometry.coordinates.forEach(coord => bounds.extend(coord));
+            map.fitBounds(bounds, {
+              padding: 100
+            });
+
+            // --- ROUTE ANALYSIS ---
+            if (globalMergedData) {
+                const routeSummary = document.getElementById('route-summary');
+                routeSummary.style.display = 'block'; // Show panel
+
+                // Create buffer (e.g. 0.5km)
+                const buffered = turf.buffer(geojson, 0.5, { units: 'kilometers' });
+                
+                // Find points within buffer
+                const pointsWithin = turf.pointsWithinPolygon(globalMergedData, buffered);
+
+                // Stats
+                let gasCount = 0;
+                let camCount = 0;
+                let villaCount = 0;
+                let nearestDist = Infinity;
+                let nearestLabel = "--";
+
+                const startPt = turf.point(currentState.startPos);
+
+                pointsWithin.features.forEach(pt => {
+                    const type = pt.properties.type;
+                    if (type === 'gas') gasCount++;
+                    if (type === 'camera') camCount++;
+                    if (type === 'villa') villaCount++;
+
+                    // Distance from start
+                    const d = turf.distance(startPt, pt, { units: 'kilometers' });
+                    if (d < nearestDist && d > 0.1) { // Ignore immediate start items if any
+                        nearestDist = d;
+                        if (type === 'gas') nearestLabel = "Gas Station (" + d.toFixed(1) + "km)";
+                        if (type === 'camera') nearestLabel = "Camera (" + d.toFixed(1) + "km)";
+                        if (type === 'villa') nearestLabel = "Danger Zone (" + d.toFixed(1) + "km)";
+                    }
+                });
+
+                document.getElementById('sum-gas').textContent = gasCount;
+                document.getElementById('sum-cam').textContent = camCount;
+                document.getElementById('sum-danger').textContent = villaCount;
+                document.getElementById('sum-nearest').textContent = nearestLabel;
+            }
+
+          } else {
+            alert("No route found.");
+          }
+        })
+        .catch(err => {
+          console.error("Routing error:", err);
+          alert("Error fetching route.");
+        });
     };
 
     function locateUser() {
