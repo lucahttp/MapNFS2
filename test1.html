@@ -373,6 +373,53 @@
         width: 100%;
       }
     }
+
+    /* --- NEW UI ELEMENTS --- */
+    .recenter-btn {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%) skewX(15deg);
+      background: var(--nfs-cyan);
+      color: #000;
+      border: 2px solid #fff;
+      padding: 12px 40px;
+      font-family: 'Orbitron';
+      font-weight: 900;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none; /* Hidden by default */
+      z-index: 100;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px var(--nfs-cyan);
+    }
+    .recenter-btn:hover {
+        background: #fff;
+        box-shadow: 0 0 30px #fff;
+    }
+
+    .hud-toggle-btn {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--nfs-dark-trans);
+      border: 2px solid var(--nfs-cyan);
+      color: var(--nfs-cyan);
+      display: none; /* Hidden until nav starts */
+      z-index: 100;
+      cursor: pointer;
+      transform: skewX(-15deg);
+      font-size: 24px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    }
+    .hud-toggle-btn:hover {
+        background: rgba(0, 243, 255, 0.2);
+        box-shadow: 0 0 20px var(--nfs-cyan);
+    }
   </style>
 </head>
 
@@ -387,6 +434,10 @@
 </script>
 
   <div id="map"></div>
+  
+  <!-- NEW BUTTONS -->
+  <button id="recenter-btn" class="recenter-btn">RE-CENTER</button>
+  <button id="hud-toggle-btn" class="hud-toggle-btn">👁</button>
 
   <!-- HUD -->
   <div class="hud-layer">
@@ -449,6 +500,10 @@
     let currentState = { currentPos: null, startPos: null, endPos: null, endName: "" };
     let destMarker = null;
     let globalMergedData = null; // Store for Route Analysis
+    
+    // New Flags for Nav State
+    let isNavigating = false;
+    let autoCenter = true;
 
     // --- MAP SETUP ---
     const map = new maplibregl.Map({
@@ -479,6 +534,52 @@
     map.on('load', () => {
       // locateUser(); // Disabled auto-locate on load to prevent violation
       loadData();
+    });
+
+    // Detect User Interaction to break Auto-Center
+    const interactionEvents = ['dragstart', 'touchstart', 'wheel', 'mousedown'];
+    interactionEvents.forEach(evt => {
+        map.on(evt, () => {
+            if (isNavigating && autoCenter) {
+                autoCenter = false;
+                document.getElementById('recenter-btn').style.display = 'block';
+            }
+        });
+    });
+
+    // Re-Center Button Logic
+    const recenterBtn = document.getElementById('recenter-btn');
+    recenterBtn.addEventListener('click', () => {
+        autoCenter = true;
+        recenterBtn.style.display = 'none';
+        if (currentState.currentPos) {
+             map.flyTo({
+                center: currentState.currentPos,
+                zoom: 17,
+                bearing: 0, // Or preserve current heading if available
+                pitch: 60,
+                speed: 2,
+                curve: 1
+            });
+        }
+    });
+
+    // HUD Toggle Logic
+    const hudToggleBtn = document.getElementById('hud-toggle-btn');
+    hudToggleBtn.addEventListener('click', () => {
+        const topBar = document.querySelector('.top-bar');
+        const bottomBar = document.querySelector('.bottom-bar');
+        const isHidden = topBar.style.display === 'none';
+        
+        if (isHidden) {
+            topBar.style.display = 'flex';
+            bottomBar.style.display = 'flex';
+            hudToggleBtn.style.opacity = '1';
+        } else {
+            topBar.style.display = 'none';
+            bottomBar.style.display = 'none';
+            hudToggleBtn.style.opacity = '0.5';
+        }
     });
 
     // --- DATA LOADING & CLUSTERING ---
@@ -888,14 +989,16 @@
 
             currentState.currentPos = coords;
 
-            map.flyTo({
-                center: coords,
-                zoom: 17,
-                bearing: heading || 0,
-                pitch: 60,
-                speed: 1.5,
-                curve: 1
-            });
+            if (autoCenter) {
+                map.flyTo({
+                    center: coords,
+                    zoom: 17,
+                    bearing: heading || 0,
+                    pitch: 60,
+                    speed: 1.5,
+                    curve: 1
+                });
+            }
 
             if (userMarker) {
                 userMarker.setLngLat(coords);
@@ -912,6 +1015,14 @@
     }
 
     window.startNavigation = function () {
+      isNavigating = true;
+      autoCenter = true;
+
+      // Hide widgets default state
+      document.querySelector('.top-bar').style.display = 'none';
+      document.querySelector('.bottom-bar').style.display = 'none';
+      document.getElementById('hud-toggle-btn').style.display = 'flex';
+
       startDriving();
       if (!currentState.startPos && currentState.currentPos) {
         currentState.startPos = currentState.currentPos;
