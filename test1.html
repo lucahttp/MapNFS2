@@ -5,7 +5,7 @@
   <title>NFS SUC</title>
   <meta property="og:description" content="Use a custom style layer with three.js to add a 3D model to the map." />
   <meta charset='utf-8'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
   <!-- Fonts: Orbitron for numbers/tech, Rajdhani for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,14 +27,28 @@
       padding: 0;
       background-color: #000;
       font-family: 'Rajdhani', sans-serif;
-      overflow: hidden;
+      overflow: hidden; /* Prevent scrollbars */
       color: #00f3ff;
+      position: fixed; /* Fix body to viewport */
+      width: 100%;
+      height: 100%;
+      touch-action: none; /* Disable browser handling of gestures */
+      -webkit-user-select: none; /* Disable text selection */
+      user-select: none;
     }
 
-    html,
-    body,
+    html {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
     #map {
       height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     /* --- HUD AND UI STYLES --- */
